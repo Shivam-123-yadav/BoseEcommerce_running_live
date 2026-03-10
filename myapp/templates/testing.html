@@ -1,0 +1,453 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+  <meta charset="utf-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="google-site-verification" content="NwrpN14CEh2EPcUnTo15852IZkXdnJS1Wla3nfPxL5c" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Bose Service Center | Expert Repairs & Genuine Parts Near You</title>
+  <meta name="keywords" content="bose service center" />
+  <meta name="description" content="Looking for a reliable Bose service center? Get expert repairs, genuine replacement parts, and fast customer support for all Bose audio products. Visit us today!" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}" />
+  <link rel="canonical" href="https://boseservicecenter.co.in/services/bose-service-center" />
+  <meta name="title" content="Bose Service Center | Expert Repairs & Genuine Parts Near You" />
+
+  <!-- FAQ Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this an official Bose service center?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, we are not officially affiliated with Bose Corporation. However, we specialize in servicing and repairing Bose products using genuine parts and professional technicians with deep knowledge of Bose devices."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the warranty on repairs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer a service warranty on most repairs, typically ranging from 30 to 90 days, depending on the nature of the repair and replaced parts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer home service for Bose product repair?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we provide doorstep pickup and on-site repair options in select locations in Mumbai. You can book a service online or via WhatsApp."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What Bose products do you repair?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We service all Bose audio equipment, including speakers, soundbars, headphones, earbuds, home theatre systems, and accessories like remotes, cushions, and cables."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long will it take to repair my product?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most repairs are completed within 2–5 business days. Complex repairs or parts requiring special orders may take longer, but we always keep you informed."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+
+    .related-link {
+        color: #0d6efd;
+        font-size: 14px;
+        font-weight: 500;
+        border-bottom: 1px solid #0d6efd;
+        text-decoration: none;
+        margin-right: 5px;
+        font-weight: 700;
+        line-height: 2.1;
+    }
+
+    .related-link:hover, .related-link:focus {
+      color: #ef6950;
+      border-color: #ef6950;
+    }
+
+
+
+    #test {padding:50px 0px; position: relative;}
+    #test  h1 {padding: 15px 0px; font-weight: bold; font-size: 2rem;;}
+    #test h2 {padding: 15px 0px; font-weight: bold; font-size: 1.5rem;;}
+    #test h3 {padding: 15px 0px; font-weight: bold; font-size: 1.2rem;;}
+    #test p {font-size: 1rem; line-height: 1.5;}
+    #test ul {padding: 0px; margin: 0 0  0 32px;  position: relative;}
+    #test ul li {padding: 5px 0px; margin: 0; font-size: 1rem; list-style-type: disc;}
+    blockquote { font-style: italic; margin: 10px 0; padding-left: 15px; border-left: 4px solid #ccc; }
+
+
+{% comment %} a.applybtnew_form {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 13px;
+  text-decoration: none;
+  background: #162335b8;
+  border: 1px solid #aeacac;
+  transition: 
+    background 0.3s ease,
+    border 0.3s ease,
+    color 0.3s ease,
+    padding 0.8s ease,
+    box-shadow 0.5s ease;
+  position: relative;
+  border-radius: 11px;
+  width: auto;
+  padding: 11px 25px;
+  color: #fff;
+}
+
+a.applybtnew_form:hover {
+  background: #000;
+  color: #fff;
+  padding: 11px 40px;
+  border: none; 
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+} {% endcomment %}
+
+
+@keyframes blinkBackground {
+  0%, 100% { background-color: #2f3337b8; }
+  50% { background-color: #045ad0b8; }
+}
+
+a.applybtnew_form {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2px;
+  font-weight: 650;
+  text-align: center;
+  font-size: 13px;
+  text-decoration: none;
+  background: #162335b8;
+  transition: 
+    border 0.3s ease,
+    color 0.3s ease,
+    padding 0.8s ease,
+    box-shadow 0.5s ease;
+  position: relative;
+  border-radius: 11px;
+  width: auto;
+  padding: 11px 25px;
+  color: #ffffff;
+  animation: blinkBackground 2s linear infinite;
+}
+
+
+a.applybtnew_form:hover {
+  color: #ffffff;
+  padding: 11px 40px;
+  border: none;
+  padding: 11px 40px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+
+}
+
+
+
+   
+
+
+  </style>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="" id="innerpage">
+  <div class="container-fluid nopadding">
+    <div class="innwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center mt-0 mb-0">
+          <div class="product-slider">
+            <div class="item"> <img src="/static/images/about-us.jpg" alt="bose service center" class="img-fluid aboutbg">
+              <div class="boxwhite wow fadeInDown" style="visibility: visible; animation-name: fadeInDown;">
+                {% comment %} <h2>Astonishing sound. Wherever life takes you. </h2> {% endcomment %}
+                  <h1 class="pt-3 mb-3" style="color: white;    font-size: 29px;"><strong>Bose Service Centre – Premium Bose Service Center for Repairs, Support & Accessories</strong></h1>
+              </div>
+              
+              <!--boxwhite end--> 
+            </div>
+            <!--item end--> 
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section id="test">
+    <div class="container">
+      <div class="lifewrap">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="abtbox">
+               
+                    {% comment %} <h1 class="pt-3 mb-3"><strong>Bose Service Centre – Premium Bose Service Center for Repairs, Support & Accessories</strong></h1> {% endcomment %}
+                        
+                    <p class="mb-3">Welcome to <strong>Bose Service Centre</strong>, your <strong>authorized and professional Bose service center</strong>, where precision meets performance. We understand how important high-quality sound is to your life—whether it's the immersive boom of a home theatre or the crisp clarity of your favorite earbuds. That’s why we bring expert diagnostics, genuine Bose parts, and highly trained professionals right to your doorstep or at our conveniently located repair hub in Andheri West, Mumbai.</p>
+
+                    <p>If your beloved Bose equipment isn’t working like it used to, don’t worry—we’re here to restore it to its original excellence. Whether you're dealing with speaker distortion, connectivity issues, battery replacement, or general wear and tear, our team at <strong>Bose Service Centre</strong> ensures a fast, reliable, and expert service experience.</p>
+                  
+                  <div id="services">
+                    <h2>Your Trusted Bose Service Center for Every Audio Solution</h2>
+                    <p>At <strong>Bose Service Centre</strong>, we pride ourselves on being more than just a place to fix your speakers or headphones. We are your complete Bose service center, offering a full suite of repair and support services for all types of Bose products. From portable Bluetooth speakers and home audio systems to premium noise-canceling headphones and smart soundbars—we've got every Bose user covered.</p>
+
+                    <p class="pt-3">Here’s what makes us your ideal Bose repair partner:</p>
+                    <ol>
+                      <li>
+                         <h3><strong style="font-size: 16px;">1. Expert Technicians with Certified Knowledge:</strong> </h3>
+                          <div> Our technicians are Bose-trained professionals with years of experience. Each service call starts with precise diagnostics to pinpoint the issue—whether it's software-related or a hardware defect. Using only <strong>genuine Bose replacement parts</strong>, we ensure your device gets back to its peak performance.</div>
+                      </li>
+
+                      <li>
+                         <h3><strong style="font-size: 16px;">2. Hassle-Free Home Pickup & On-Site Service:</strong> </h3>
+    
+                        <div>Too busy to visit our <strong>Bose service center</strong> in Mumbai? No problem. With our doorstep repair service, our experts will come to you. Enjoy Bose speaker or headphone repairs right at home—saving you time, stress, and travel.</div>
+                      </li>
+        
+                      <li>
+                        <h3><strong style="font-size: 16px;">3. Wide Range of Bose Products Serviced:</strong></h3>
+                        <p class="pt-3 pb-3">We handle a diverse portfolio of Bose devices, including:</p>
+                        <ul>
+                          <li>Bose QuietComfort Ultra and QC 45 headphones</li>
+                          <li>Bose SoundLink Revolve & Mini Bluetooth Speakers</li>
+                          <li>Bose Smart Soundbars 600, 700, 900</li>
+                          <li>Bose Portable Smart Speakers</li>
+                          <li>Bose S1 Pro+ Portable Bluetooth PA System</li>
+                          <li>Bose Wave Music Systems</li>
+                          <li>Accessories like remotes, power adapters, and ear cushions</li>
+                        </ul>
+                      </li>
+        
+                      <li>
+                         <h3><strong style="font-size: 16px;">4. Transparent Pricing with No Hidden Costs:</strong></h3>
+                        <div> From initial diagnostics to final delivery, we provide transparent service pricing. You will know exactly what you're paying for, with no surprises. Whether it’s a minor fix or a complete overhaul, our pricing is fair and competitive.</div>
+                      <li>
+                        <h3><strong style="font-size: 16px;">5. Quick Turnaround Times:</strong> </h3>
+                        <div> We understand how essential your audio gear is to your lifestyle. Our service process is streamlined to ensure that we repair most products within 2–5 business days, depending on part availability and complexity of the issue.</div>
+                      </li>
+                    </ol>
+                  </div>
+
+                  <div id="why">
+                    <h2>Why Choose Bose Service Centre?</h2>
+                    <p>Choosing the right <strong>Bose service center</strong> can make all the difference in product longevity and performance. Here’s why thousands of customers across Mumbai and beyond trust us:</p>
+
+                    <ul>
+                      <li>
+                        <strong>Genuine Parts Only</strong> – No low-quality alternatives.
+                      </li>
+                      <li>
+                        <strong>Customer Satisfaction First</strong> – We don’t rest until your product works perfectly.
+                      </li>
+                      <li>
+                        <strong>Expert Support Team</strong> – From first call to final fix, we keep you informed.
+                      </li>
+                      <li>
+                        <strong>On-Demand Repair Booking</strong> – Book repairs instantly online or via WhatsApp.
+                      </li>
+                      <li>
+                        <strong>100% Service Guarantee</strong> – Every repair comes with a satisfaction promise.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div id="process">
+                    <h2>Our Repair Process at the Bose Service Center</h2>
+                    <p class="pb-3">We’ve designed a service workflow that is simple, quick, and reliable:</p>
+                    <ol>
+                      <li>
+                        <h3><strong style="font-size: 16px;">Step 1: Booking Your Repair:</strong></h3>
+                        <div> You can book a repair directly from our website or WhatsApp. Just provide the product details, issue description, and location. Our team will follow up with scheduling and pricing estimates.</div>
+                      </li>
+                      <li>
+                         <h3><strong style="font-size: 16px;">Step 2: Expert Diagnosis:</strong></h3>
+                        <div> Our engineers inspect your Bose device using industry-grade tools and perform detailed diagnostics to detect the root cause.</div>
+                      </li>
+                      <li>
+                        <h3><strong style="font-size: 16px;">Step 3: Approval & Quotation:</strong> </h3>
+                        <div> Once the issue is identified, we provide you with a quotation for approval. No repair work is done without your consent.</div>
+                      </li>
+                      <li>
+                        <h3><strong style="font-size: 16px;">Step 4: Repair with Genuine Parts:</strong></h3>
+                        <div>We only use certified Bose parts for replacements to ensure durability and optimum performance.</div>
+                      </li>
+                      <li>
+                        <h3><strong style="font-size: 16px;">Step 5: Testing & Quality Check:</strong></h3>
+                        <div>Every repaired device undergoes rigorous testing before handover. We ensure your product returns in perfect condition.</div>
+                      </li>
+                      <li>
+                        <h3><strong style="font-size: 16px;">Step 6: Delivery or Pickup:</strong></h3>
+                        <div> Choose to have your product delivered to your home, or you can pick it up from our service center.</div>
+                      </li>
+                    </ol>
+                  </div>
+
+                  <div id="accessories">
+                    <h2>We Also Offer Sales & Accessories</h2>
+                    <p>
+                      In addition to being a <strong>Bose service center</strong>, we are your trusted destination for purchasing authentic Bose audio products and accessories. Whether you're looking for a new QuietComfort headphone or need a replacement cushion or remote, you can find it with us.
+                    </p>
+                    <p class="pt-3">Some best-selling items include:</p>
+                    <ul>
+                      <li>QuietComfort 3, 15, and Ultra Ear Cushion Kits</li>
+                      <li>Bose Smart Soundbar 900 and Soundbar 600 Combos</li>
+                      <li>Bose SoundLink Flex Portable Speakers</li>
+                      <li>Bose Wave System Remotes</li>
+                    </ul>
+                    <p class="pt-3">Explore our complete range online or visit us to test and buy.</p>
+                  </div>
+
+                  <div id="testimonials">
+                  <h2>Customer Testimonials</h2>
+                    <ul>
+                      <li>"I was worried my Bose SoundLink was dead, but the Bose Service Centre team picked it up, fixed the battery issue, and had it back within 3 days. Amazing service!" – Priya R., Mumbai</li>
+                      <li>"Their technicians knew exactly what was wrong with my QC35 headphones. Quick, affordable, and top-notch." – Rakesh M., Andheri</li>
+                      <li>"I couldn’t find a genuine remote anywhere else. Got one here, plus a cushion kit. Highly recommend." – Neha V., Bandra</li>
+                    </ul>
+
+                    {% comment %} <blockquote>"I was worried my Bose SoundLink was dead, but the Bose Service Centre team picked it up, fixed the battery issue, and had it back within 3 days. Amazing service!" – Priya R., Mumbai</blockquote>
+                    <blockquote>"Their technicians knew exactly what was wrong with my QC35 headphones. Quick, affordable, and top-notch." – Rakesh M., Andheri</blockquote>
+                    <blockquote>"I couldn’t find a genuine remote anywhere else. Got one here, plus a cushion kit. Highly recommend." – Neha V., Bandra</blockquote> {% endcomment %}
+                  </div>
+
+                  <div>
+                    <h2>Commitment Beyond Service</h2>
+                    <p>What sets us apart as a <strong>Bose service center</strong> is not just our technical know-how but also our belief in holistic customer care. We’re committed to making every interaction valuable—be it a repair, consultation, or purchase.</p>
+
+                    <p>We also support community service, local volunteer programs, and believe in running our business with fairness and integrity.</p>
+                  </div>
+
+                  <div>
+                    <h2>Ready to Restore Your Sound? Contact the Bose Service Centre Today</h2>
+
+                    <p>Don’t let technical issues silence your Bose experience. Whether it's a buzzing speaker, a non-functional remote, or a broken headphone, the Bose Service Centre is here to bring your audio gear back to life. With certified expertise, genuine components, fast turnaround, and unwavering dedication to quality, we remain the most trusted <strong>Bose service center</strong> in Mumbai and beyond.</p>
+                    <p>Book your repair today or reach out to us for any query. Let’s bring the beat back—louder, clearer, better</p>
+                  </div>
+
+                  <div id="faq">
+                    <h2>Frequently Asked Questions</h2>
+                    <ul>
+                      <li>
+                        <h3><strong style="font-size: 16px;">Q1. Is this an official Bose service center?</strong></h3>
+                        <div> No, we are not officially affiliated with Bose Corporation. However, we specialize in servicing and repairing Bose products using genuine parts and professional technicians with deep knowledge of Bose devices.</div>
+                      </li>
+                      <li>
+                        <h3><strong style="font-size: 16px;">Q2. What is the warranty on repairs?</strong> </h3>
+                        <div>  We offer a service warranty on most repairs, typically ranging from 30 to 90 days, depending on the nature of the repair and replaced parts.</div>
+                      </li>
+                      <li>
+                         <h3><strong style="font-size: 16px;">Q3. Do you offer home service for Bose product repair?</strong> </h3>
+                          <div> Yes, we provide doorstep pickup and on-site repair options in select locations in Mumbai. You can book a service online or via WhatsApp.</div>
+                      </li>
+                      <li>
+                        <strong style="font-size: 16px;">Q4. What Bose products do you repair?</strong>
+                        <div>  We service all Bose audio equipment, including speakers, soundbars, headphones, earbuds, home theatre systems, and accessories like remotes, cushions, and cables.</div>
+                      </li>
+                      <li>
+                        <strong style="font-size: 16px;">Q5. How long will it take to repair my product?</strong>
+                        <div>  Most repairs are completed within 2–5 business days. Complex repairs or parts requiring special orders may take longer, but we always keep you informed.</div>
+                      </li>
+                    </ul>
+
+
+                    <nav aria-label="Related Services" class="pt-3 pb-3">
+                        <h4 class="mb-3" style="font-size: 17px;"><strong>Related Services:</strong></h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/services/bose-service-center" class="related-link" target="_blank">Bose Service Center</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/services/bose-service-center-mumbai" class="related-link" target="_blank">Bose Service Center Mumbai</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/services/bose-speaker-service-center" class="related-link" target="_blank">Bose Speaker Service Center</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/services/bose-service-center-andheri" class="related-link" target="_blank">Bose Service Center Andheri</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/services/bose-service-center-thane" class="related-link" target="_blank">Bose Service Center Thane</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/services/bose-service-center-in-india" class="related-link" target="_blank">Bose Service Center in India</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/services/bose-service-center-andheri-east" class="related-link" target="_blank">Bose Service Center Andheri East</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/services/bose-service-center-nagpur" class="related-link" target="_blank">Bose Service Center Nagpur</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/services/bose-service-center-andheri-west" class="related-link" target="_blank">Bose Service Center Andheri West</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/services/bose-service-center-in-thane" class="related-link" target="_blank">Bose Service Center in Thane</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/services/bose-headphone-cushion-replacement" class="related-link" target="_blank">Bose Headphone Cushion Replacement</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/services/bose-speaker-repair" class="related-link" target="_blank">Bose Speaker Repair</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/services/repair-bose-speakers-mumbai" class="related-link" target="_blank">Repair Bose Speakers Mumbai</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/collection/bose-portable-bluetooth-speaker?filter=portablebluetooth" class="related-link" target="_blank">Bose Portable Bluetooth Speaker</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/collection/bose-soundbar?filter=soundbars" class="related-link" target="_blank">Bose Soundbar</a> |</li>
+                          <li style="display: inline;"><a href="https://boseservicecenter.co.in/collection/bose-headphone-cushions?filter=cushion" class="related-link" target="_blank">Bose Headphone Cushions</a></li>
+                        </ul>
+                      </nav>
+
+
+                    {% comment %} <div class="bose_service_center_location pt-3" >
+
+                        <div style="display: flex;flex-wrap: wrap; gap: 20px;">
+                          <span><a href="https://g.co/kgs/2ng5eoy" class="btn btn-secondary" target="_blank">Service Center in Thane, Mumbai</a></span>
+                          <span><a href="https://g.co/kgs/pZjRju3" class="btn btn-secondary" target="_blank">Service Center in Andheri, Mumbai</a></span>
+                          <span><a href="https://g.co/kgs/JSjFDPE" class="btn btn-secondary" target="_blank">Service Center in Dadar, Mumbai</a></span>
+                        </div>
+
+                      
+                    </div> {% endcomment %}
+                      <div class="bose_service_center_location pt-3">
+                        <div style="display: flex; flex-wrap: wrap; gap: 20px;justify-content: space-around;">
+                          <span>
+                            <a href="https://g.co/kgs/2ng5eoy" class="applybtnew_form" target="_blank">
+                              Service Center in Thane, Mumbai
+                            </a>
+                          </span>
+                          <span>
+                            <a href="https://g.co/kgs/pZjRju3" class="applybtnew_form" target="_blank">
+                              Service Center in Andheri, Mumbai
+                            </a>
+                          </span>
+                          <span>
+                            <a href="https://g.co/kgs/JSjFDPE" class="applybtnew_form" target="_blank">
+                              Service Center in Dadar, Mumbai
+                            </a>
+                          </span>
+                        </div>
+                      </div>
+
+
+
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+{% endblock %}

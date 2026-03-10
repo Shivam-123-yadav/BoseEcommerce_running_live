@@ -1,0 +1,539 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block meta %}
+<meta charset="utf-8" />
+<meta name="robots" content="index, follow" />
+<meta name="google-site-verification" content="NwrpN14CEh2EPcUnTo15852IZkXdnJS1Wla3nfPxL5c" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>Bose Service Center in Mumbra</title>
+<meta name="keywords" content="bose-service-center-in-mumbra" />
+<meta name="description" content="Bose service center in Mumbra delivers expert repairs, authentic parts, and long-lasting solutions for all Bose devices." />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}" />
+<link rel="canonical" href="https://boseservicecenter.co.in/bose-service-center-in-mumbra" />
+<meta name="title" content="bose-service-center-in-mumbra" />
+
+
+
+
+<script type="application/ld+json">
+{
+  "@type": "PostalAddress",
+  "addressLocality": "Andheri West",
+  "addressRegion": "Mumbai",
+  "postalCode": "400053",
+  "streetAddress": "A501, 5th Floor, Morya Landmark – 1, Off New Link Road, Near Infinity Mall Andheri, Behind Crystal Plaza",
+  "addressCountry": "IN"
+},
+{
+  "@type": "PostalAddress",
+  "addressLocality": "Thane West",
+  "addressRegion": "Thane",
+  "postalCode": "400602",
+  "streetAddress": "301, Malhar Residency, Railway Station, Nr. near McDonalds, Shivaji Path, Dada Patil Wadi, Naupada",
+  "addressCountry": "IN"
+},
+{
+  "@type": "PostalAddress",
+  "addressLocality": "Dadar West",
+  "addressRegion": "Mumbai",
+  "postalCode": "400028",
+  "streetAddress": "C-306, 3rd Floor, Visava Co-operative Housing Society, Near Shardashram Vidyamandir International School, Madhav Nagar Cooperative Housing Society",
+  "addressCountry": "IN"
+}
+</script>
+
+
+
+{% block styles %}
+    <style>
+
+      .related-link {
+          color: #0d6efd;
+          font-size: 14px;
+          font-weight: 500;
+          border-bottom: 1px solid #0d6efd;
+          text-decoration: none;
+          margin-right: 5px;
+          font-weight: 700;
+          line-height: 2.1;
+        }
+
+      .related-link:hover, .related-link:focus {
+        color: #ef6950;
+        border-color: #ef6950;
+      }
+
+
+
+    .bose-product-list {
+        list-style-type: disc;
+        padding-left: 35px;
+        margin-top: 10px;
+    }
+    .bose-product-list li {
+        font-weight: 500;
+        color: #333;
+        line-height: 1.6;
+        margin: 13px 0;
+        list-style-type: disc;
+    }
+        
+    @keyframes blinkBackground {
+    0%, 100% { background-color: #2f3337b8; }
+    50% { background-color: #045ad0b8; }
+    }
+
+    a.applybtnew_form {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2px;
+    font-weight: 650;
+    text-align: center;
+    font-size: 13px;
+    text-decoration: none;
+    background: #162335b8;
+    transition: 
+        border 0.3s ease,
+        color 0.3s ease,
+        padding 0.8s ease,
+        box-shadow 0.5s ease;
+    position: relative;
+    border-radius: 11px;
+    width: auto;
+    padding: 11px 25px;
+    color: #ffffff;
+    animation: blinkBackground 2s linear infinite;
+    }
+
+
+    a.applybtnew_form:hover {
+    color: #ffffff;
+    padding: 11px 40px;
+    border: none;
+    padding: 11px 40px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+
+    }
+
+
+
+    .custom-list {
+    list-style-position: outside; /* Numbers stay outside the content */
+    padding-left: 20px;           /* Adjust as needed for spacing */
+    margin: 0;
+    }
+
+    .custom-list li {
+    margin-bottom: 8px;           /* Space between items */
+    }
+
+
+#blogscont {
+  position: relative;
+  padding: 20px 0 20px 0px;
+  background: #f1f1f1;
+  /*  background: #fff url("../images/contact_bg_new.jpg") top/cover no-repeat;*/
+}
+#blogscont .blogswrapcont {
+  padding: 0px 0px 0px 0px;
+}
+#blogscont .blogswrapcont h2 {
+  font-size: 2rem;
+  margin: 0;
+  line-height: 1;
+  color: #000;
+  text-align: left;
+  font-weight: 300;
+  padding: 20px 0px;
+  display: block;
+   
+}
+#blogscont .blogswrapcont h2:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  background: #000;
+  height: 1px;
+  display: block;
+  top: 65px;
+  left: 10px;
+  right: 0;
+  margin: 0 0;
+}
+#blogscont .blogswrapcont h2:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  background: #000;
+  height: 1px;
+  display: block;
+  top: 70px;
+  left: 10px;
+  right: 0;
+  margin: 0 0;
+}
+#blogscont .blogswrapcont .repair-services {
+  position: relative;
+  font-family: 'Roboto';
+}
+#blogscont .blogswrapcont .repair-services ul {
+  margin-left: 22px;
+}
+#blogscont .blogswrapcont .repair-services ul li {
+  line-height: 2;
+}
+
+#blogscont .blogswrapcont .repair-services ul li::before {
+  content: '\2713'; /* Unicode tick */
+  color: #333;
+  font-weight: bold;
+  display: inline-block;
+  width: 1.5em;
+  margin-left: -1.5em;
+}
+#blogscont .blogswrapcont .repair-services h3 {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  padding-bottom: 7px;
+}
+
+
+
+
+  </style>
+  
+
+  {% endblock %}
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<section class="" id="innerpage">
+    <div class="container-fluid nopadding">
+      <div class="innwrap">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center mt-0 mb-0">
+            <div class="product-slider">
+              <div class="item">
+                {% comment %} <img src="/static/images/about-us.jpg" title="bose speakers price" alt="bose speakers price" class="img-fluid aboutbg" /> {% endcomment %}
+                <img src="/static/images/webp/about-us.webp" title="Bose Service Center in Mumbra" alt="Bose Service Center in Mumbra" class="img-fluid aboutbg" />
+                <div class="boxwhite wow fadeInDown" style="visibility: visible; animation-name: fadeInDown;">
+                  <h1 class="pt-3 mb-3" style="color: white;font-size: 24px;"><strong>Bose Service Center in Mumbra</strong></h1>
+                </div>
+
+                <!-- boxwhite end -->
+              </div>
+              <!-- item end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!--Features -->
+
+<section id="blogscont">
+  <div class="container">
+    <div class="blogswrapcont">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center mt-0 mb-3">
+          <h2 class="wow fadeInUp">Bose Service Center in Mumbra</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center mt-3 mb-3">
+          <div class="repair-services"> 
+            <!-- First Row: 3 Columns -->
+            <div style="display: grid; gap: 20px; margin-bottom: 0px; text-align: left;">
+              <div class="row mb-4 text-left">
+                <div class="col-12 col-md-4 mb-4">
+                  <h3> Hardware Repair Services</h3>
+                  <ul>
+                    <li>Speaker Repair (Bluetooth, Smart, Portable, Home Systems)</li>
+                    <li>Headphone/Earphone Repair (Wired/Wireless, Noise Cancelling)</li>
+                    <li>Charging Port / Power Jack Repair</li>
+                    <li>Battery Replacement (Headphones, Speakers)</li>
+                    <li>Audio Jack Repair / Replacement</li>
+                    <li>Microphone Repair</li>
+                    <li>Bluetooth Module Repair</li>
+                    <li>PCB / Motherboard Repair or Replacement</li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                  <h3> Software & Firmware Services</h3>
+                  <ul>
+                    <li>Firmware Updates & Reinstallation</li>
+                    <li>Connectivity Troubleshooting (Bluetooth, Wi-Fi, App Sync)</li>
+                    <li>Bose Music / Connect App Support</li>
+                    <li>Voice Assistant Setup (Google Assistant / Alexa)</li>
+                    <li>Software Troubleshooting & Error Fixes</li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                  <h3> Connectivity & Network Services</h3>
+                  <ul>
+                    <li>Wi-Fi Setup & Troubleshooting (Smart Speakers / Soundbars)</li>
+                    <li>Bluetooth Pairing & Range Issue Fixes</li>
+                    <li>Multi-Room Setup (Bose SoundTouch / Smart Systems)</li>
+                    <li>Router / Modem Connectivity Support</li>
+                    <li>Remote Assistance (Online Support)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Second Row: 2 Columns -->
+            <div style="display: grid; gap: 20px; text-align: left;">
+              <div class="row mb-4 text-left">
+                <div class="col-12 col-md-4 mb-4">
+                  <h3> Security & Data Services</h3>
+                  <ul>
+                    <li>User Profile / Account Recovery</li>
+                    <li>Device Reset & Secure Configuration</li>
+                    <li>Backup & Restore of Device Settings</li>
+                    <li>Parental Controls & Restrictions Setup</li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                  <h3> Custom Services & Upgrades</h3>
+                  <ul>
+                    <li>Home Theater Installation & Calibration</li>
+                    <li>Multi-Speaker Setup & Synchronization</li>
+                    <li>Sound Optimization (Room Calibration / EQ Tuning)</li>
+                    <li>Accessory Replacement (Cables, Ear Cushions, Cases)</li>
+                    <li>Custom Integration with Smart Home Systems</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- repair-services end--> 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+        <section id="contact">
+  <div class="container">
+    <div class="conwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center mt-0 mb-3">
+          <h2 class="wow fadeInUp">CONTACT US</h2>
+          
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3">
+        <div class="row">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item"> <a class="nav-link active activenew" data-bs-toggle="tab" href="#andheri">Andheri Branch</a> </li>
+          </ul>
+          
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div id="andheri" class="container tab-pane active">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-0 p-0">
+                <div class="boxtext">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                      <div class="col-md-5"> <i class="bi bi-geo-alt-fill"></i>
+                        <h4>LOCATION</h4>
+                        <p class="addhead">Office Address: <br>
+                          Bose Service Center</p>
+                        <p>506, Mourya Landmark -1, <span></span> Off New Link Rd, Veera Desai Industrial Estate, <span></span> Andheri West, Mumbai, <span></span> Maharashtra 400053. </p>
+                        <p><strong>Timings</strong> - Monday to Saturday 10.00 to 07.00.</p>
+                        <div class="mb-3"> <i class="bi bi-telephone-fill"></i>
+                          <h4>PHONE</h4>
+                          <p><a href="tel:+02242939392"> 022-42939392</a></p>
+                        </div>
+                      </div>
+                      <div class="col-md-7">
+                        <div class="row">
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d30153.982940135204!2d72.7954054!3d19.1406244!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7c6d331a3ad%3A0xdd69bc9ce2201a20!2sThe%20Bose%20Authorised%20Service%20Center!5e0!3m2!1sen!2sin!4v1709201283317!5m2!1sen!2sin" width="800" height="370" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- boxtext end--> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-5">
+        <div class="row">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item"> <a class="nav-link active activenew" data-bs-toggle="tab" href="#thane">Thane Branch</a> </li>
+          </ul>
+          
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div id="thane" class="container tab-pane active">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-0">
+                <div class="boxtext">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                      <div class="col-md-5"> <i class="bi bi-geo-alt-fill"></i>
+                        <h4>LOCATION</h4>
+                        <p class="addhead">Office Address: <br>
+                          Bose Service Center</p>
+                        <p> A303, Malhar Residency, <span></span>near Gaondevi Mandir, <span></span> Naupada, Thane West, Thane, <span></span> Maharashtra 400602 </p>
+                        <p><strong>Timings</strong> - Monday to Saturday 10.00 to 07.00.</p>
+                        <div class="mb-3"> <i class="bi bi-telephone-fill"></i>
+                          <h4>PHONE</h4>
+                          <p><a href="tel:+02242939393">022-42939393</a></p>
+                        </div>
+                      </div>
+                      <div class="col-md-7">
+                        <div class="row">
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.172363164017!2d72.9742278!3d19.1876726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b9039aab730d%3A0x5112ce8898d23b14!2sThe%20Bose%20Authorised%20Service%20Center!5e0!3m2!1sen!2sin!4v1709201453062!5m2!1sen!2sin" width="800" height="370" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-5">
+        <div class="row">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item"> <a class="nav-link active activenew" data-bs-toggle="tab" href="#dadar">Dadar Branch</a> </li>
+          </ul>
+          
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div id="dadar" class="container tab-pane active">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-0">
+                <div class="boxtext">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                      <div class="col-md-5"> <i class="bi bi-geo-alt-fill"></i>
+                        <h4>LOCATION</h4>
+                        <p class="addhead">Office Address: <br>
+                          Bose Service Center </p>
+                        <p> 303, 3rd Floor, <span></span> Visava Co-operative Housing Society, <span></span> Near Shardashram Vidyamandir International <span></span> School, Bhavani Shankar Road, Dadar West, <span></span>Mumbai - 400028</p>
+                        <p><strong>Timings</strong> - Monday to Saturday 10.00 to 07.00.</p>
+                        <div class="mb-3"> <i class="bi bi-telephone-fill"></i>
+                          <h4>PHONE</h4>
+                          <p><a href="tel:+02242939391">022-42939391</a></p>
+                        </div>
+                      </div>
+                      <div class="col-md-7">
+                        <div class="row">
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.1148126480007!2d72.83690650000001!3d19.014661800000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cf9e11150e3d%3A0xb43fb612ef95c269!2sBose%20Service%20Center!5e0!3m2!1sen!2sin!4v1709201712781!5m2!1sen!2sin" width="800" height="370" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+          </section>
+         <section id="blogscont">
+  <div class="container">
+           <nav aria-label="Related Services">
+            <h4 class="mt-4 mb-3" style="font-size: 17px;"><strong>Related Blogs:</strong></h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-worli" class="related-link">Bose Service Center in Worli</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-mulund" class="related-link">Bose Service Center in Mulund</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-juhu" class="related-link">Bose Service Center in Juhu</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-prabhadevi" class="related-link">Bose Service Center in Prabhadevi</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-bhandup" class="related-link">Bose Service Center in Bhandup</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-bandra" class="related-link">Bose Service Center in Bandra</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-matunga" class="related-link">Bose Service Center in Matunga</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-nahur" class="related-link">Bose Service Center in Nahur</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-santacruz" class="related-link">Bose Service Center in Santacruz</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-mahim" class="related-link">Bose Service Center in Mahim</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-kanjurmarg" class="related-link">Bose Service Center in Kanjurmarg</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-khar" class="related-link">Bose Service Center in Khar</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-lower-parel" class="related-link">Bose Service Center in Lower Parel</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-vikhroli" class="related-link">Bose Service Center in Vikhroli</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-versova" class="related-link">Bose Service Center in Versova</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-sion" class="related-link">Bose Service Center in Sion</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-ghatkopar" class="related-link">Bose Service Center in Ghatkopar</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-lokhandwala" class="related-link">Bose Service Center in Lokhandwala</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-wadala" class="related-link">Bose Service Center in Wadala</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-powai" class="related-link">Bose Service Center in Powai</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-goregaon" class="related-link">Bose Service Center in Goregaon</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-parel" class="related-link">Bose Service Center in Parel</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-chembur" class="related-link">Bose Service Center in Chembur</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-malad" class="related-link">Bose Service Center in Malad</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-byculla" class="related-link">Bose Service Center in Byculla</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-kurla" class="related-link">Bose Service Center in Kurla</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-kandivali" class="related-link">Bose Service Center in Kandivali</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-marine-lines" class="related-link">Bose Service Center in Marine Lines</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-vashi" class="related-link">Bose Service Center in Vashi</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-jogeshwari" class="related-link">Bose Service Center in Jogeshwari</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-grant-road" class="related-link">Bose Service Center in Grant Road</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-airoli" class="related-link">Bose Service Center in Airoli</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-dahisar" class="related-link">Bose Service Center in Dahisar</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-mumbai-central" class="related-link">Bose Service Center in Mumbai Central</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-kalyan-dombivli" class="related-link">Bose Service Center in Kalyan-Dombivli</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-borivali" class="related-link">Bose Service Center in Borivali</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-cst" class="related-link">Bose Service Center in CST</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-dombivli" class="related-link">Bose Service Center in Dombivli</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-marol" class="related-link">Bose Service Center in Marol</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-fort" class="related-link">Bose Service Center in Fort</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-ambernath" class="related-link">Bose Service Center in Ambernath</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-saki-naka" class="related-link">Bose Service Center in Saki Naka</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-colaba" class="related-link">Bose Service Center in Colaba</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-kalwa" class="related-link">Bose Service Center in Kalwa</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-chakala" class="related-link">Bose Service Center in Chakala</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-charni-road" class="related-link">Bose Service Center in Charni Road</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-mumbra" class="related-link">Bose Service Center in Mumbra</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-dn-nagar" class="related-link">Bose Service Center in DN Nagar</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-elphinstone" class="related-link">Bose Service Center in Elphinstone</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-titwala" class="related-link">Bose Service Center in Titwala</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-oshiwara" class="related-link">Bose Service Center in Oshiwara</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-tardeo" class="related-link">Bose Service Center in Tardeo</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-badlapur" class="related-link">Bose Service Center in Badlapur</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-vile-parle" class="related-link">Bose Service Center in Vile Parle</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-chinchpokli" class="related-link">Bose Service Center in Chinchpokli</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-sanpada" class="related-link">Bose Service Center in Sanpada</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-turbhe" class="related-link">Bose Service Center in Turbhe</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-ghansoli" class="related-link">Bose Service Center in Ghansoli</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-andheri" class="related-link">Bose Service Center in Andheri</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-thane" class="related-link">Bose Service Center in Thane</a> |</li>
+            <li style="display: inline;"><a href="/blogs/bose-service-center-in-dadar" class="related-link">Bose Service Center in Dadar</a></li>
+            </ul>
+        </nav> 
+</section>
+
+        <br>
+        <div class="bose_service_center_location pt-3 pb-3">
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;justify-content: space-around;">
+            <span><a href="https://g.co/kgs/2ng5eoy" class="applybtnew_form" target="_blank">Service Center in Thane, Mumbai</a></span>
+            <span><a href="https://g.co/kgs/pZjRju3" class="applybtnew_form" target="_blank">Service Center in Andheri, Mumbai</a></span>
+            <span><a href="https://g.co/kgs/JSjFDPE" class="applybtnew_form" target="_blank">Service Center in Dadar, Mumbai</a></span>
+        </div>
+        </div>
+        <br>
+
+
+
+
+
+    </div>
+
+
+
+{% endblock %}

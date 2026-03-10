@@ -1,0 +1,41 @@
+[2025-10-09 05:17:18 +0000] [4072842] [INFO] Starting gunicorn 23.0.0
+[2025-10-09 05:17:18 +0000] [4072842] [INFO] Listening at: http://0.0.0.0:2300 (4072842)
+[2025-10-09 05:17:18 +0000] [4072842] [INFO] Using worker: gthread
+[2025-10-09 05:17:18 +0000] [4072843] [INFO] Booting worker with pid: 4072843
+[2025-10-09 05:17:18 +0000] [4072844] [INFO] Booting worker with pid: 4072844
+[2025-10-09 05:17:18 +0000] [4072845] [INFO] Booting worker with pid: 4072845
+[2025-10-09 05:17:19 +0000] [4072846] [INFO] Booting worker with pid: 4072846
+[2025-10-09 10:51:42 +0530] [4072843] [INFO] Parent changed, shutting down: <Worker 4072843>
+[2025-10-09 10:51:42 +0530] [4072843] [INFO] Worker exiting (pid: 4072843)
+[2025-10-09 10:51:42 +0530] [4072844] [INFO] Parent changed, shutting down: <Worker 4072844>
+[2025-10-09 10:51:42 +0530] [4072844] [INFO] Worker exiting (pid: 4072844)
+[2025-10-09 10:51:42 +0530] [4072845] [INFO] Parent changed, shutting down: <Worker 4072845>
+[2025-10-09 10:51:42 +0530] [4072845] [INFO] Worker exiting (pid: 4072845)
+[2025-10-09 10:51:42 +0530] [4072846] [INFO] Parent changed, shutting down: <Worker 4072846>
+[2025-10-09 10:51:42 +0530] [4072846] [INFO] Worker exiting (pid: 4072846)
+[2025-10-09 05:22:15 +0000] [4072961] [INFO] Starting gunicorn 23.0.0
+[2025-10-09 05:22:15 +0000] [4072961] [INFO] Listening at: http://0.0.0.0:2300 (4072961)
+[2025-10-09 05:22:15 +0000] [4072961] [INFO] Using worker: gthread
+[2025-10-09 05:22:15 +0000] [4072962] [INFO] Booting worker with pid: 4072962
+[2025-10-09 05:22:15 +0000] [4072963] [INFO] Booting worker with pid: 4072963
+[2025-10-09 05:22:15 +0000] [4072964] [INFO] Booting worker with pid: 4072964
+[2025-10-09 05:22:15 +0000] [4072965] [INFO] Booting worker with pid: 4072965
+[2025-10-09 05:23:13 +0000] [4072961] [INFO] Handling signal: int
+[2025-10-09 10:53:13 +0530] [4072964] [INFO] Worker exiting (pid: 4072964)
+[2025-10-09 10:53:13 +0530] [4072965] [INFO] Worker exiting (pid: 4072965)
+[2025-10-09 10:53:13 +0530] [4072963] [INFO] Worker exiting (pid: 4072963)
+[2025-10-09 10:53:13 +0530] [4072962] [INFO] Worker exiting (pid: 4072962)
+[2025-10-09 05:23:13 +0000] [4072961] [INFO] Shutting down: Master
+[2025-10-09 05:25:25 +0000] [4072986] [INFO] Starting gunicorn 23.0.0
+[2025-10-09 05:25:25 +0000] [4072986] [INFO] Listening at: http://0.0.0.0:2300 (4072986)
+[2025-10-09 05:25:25 +0000] [4072986] [INFO] Using worker: gthread
+[2025-10-09 05:25:25 +0000] [4072987] [INFO] Booting worker with pid: 4072987
+[2025-10-09 05:25:25 +0000] [4072988] [INFO] Booting worker with pid: 4072988
+[2025-10-09 05:25:25 +0000] [4072989] [INFO] Booting worker with pid: 4072989
+[2025-10-09 05:25:25 +0000] [4072990] [INFO] Booting worker with pid: 4072990
+[2025-10-09 05:25:48 +0000] [4072986] [INFO] Handling signal: int
+[2025-10-09 10:55:48 +0530] [4072987] [INFO] Worker exiting (pid: 4072987)
+[2025-10-09 10:55:48 +0530] [4072989] [INFO] Worker exiting (pid: 4072989)
+[2025-10-09 10:55:48 +0530] [4072988] [INFO] Worker exiting (pid: 4072988)
+[2025-10-09 10:55:48 +0530] [4072990] [INFO] Worker exiting (pid: 4072990)
+[2025-10-09 05:25:48 +0000] [4072986] [INFO] Shutting down: Master

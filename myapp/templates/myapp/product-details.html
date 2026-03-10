@@ -1,0 +1,446 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<head>
+  <link rel="stylesheet" href="{% static 'css/product-details.css' %}?ver=1">
+</head>
+
+
+<section class="" id="productbanner">
+  <div class="container-fluid nopadding">
+    <div class="prodbanwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center mt-0 mb-0">
+          <div class="product-slider">
+            <div class="item"> <img src="{% static 'images/product-details-banner.jpg' %}"  alt="Bose Service Center" class="img-fluid testbgimg">
+              <div class="boxwhite wow fadeInDown">
+                <h2>Astonishing sound. Wherever life takes you. </h2>
+                <div> <a href="">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="">Sale</a> <i class="bi bi-caret-right-fill"></i> <a href="">Headphone</a> <i class="bi bi-caret-right-fill"></i> <a href="">Portable Bluetooth</a></div>
+              </div>
+              
+              <!--boxwhite end--> 
+            </div>
+            <!--item end--> 
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="productdetails">
+  <div class="container">
+    <div class="prodwrap">
+      <div class="row mx-auto">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="">
+            <ul id="glasscase" class="gc-start">
+              <li><img src="{% static 'images/products-gallery/bose-soundlink-flex-speaker1.jpeg' %}" alt="Text" data-gc-caption="" /></li>
+              <li><img src="{% static 'images/products-gallery/bose-soundlink-flex-speaker2.jpeg' %}" alt="Text" data-gc-caption="" /></li>
+              <li><img src="{% static 'images/products-gallery/bose-soundlink-flex-speaker3.jpeg' %}" alt="Text" data-gc-caption="" /></li>
+              <li><img src="{% static 'images/products-gallery/bose-soundlink-flex-speaker4.jpeg' %}" alt="Text" data-gc-caption="" /></li>
+              <li><img src="{% static 'images/products-gallery/bose-soundlink-flex-speaker5.jpeg' %}" alt="Text" data-gc-caption="" /></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="product-details">
+            <h3 class="">Bose SoundLink Flex Bluetooth<sup>®</sup> Speaker</h3>
+            <div class="review-star"> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-half"></i> <span> 4 reviews  | <a href="#gotoreview"> Write your review </a> </span></div>
+            <div class="colors">
+              <p>COLORS: </p>
+              <label class="selectcolor">
+                <input type="radio" name="radio">
+                <span class="checkmark chilledlilac"></span> </label>
+              <label class="selectcolor">
+                <input type="radio" name="radio">
+                <span class="checkmark green"></span> </label>
+              <label class="selectcolor">
+                <input type="radio" name="radio">
+                <span class="checkmark red"></span> </label>
+              <label class="selectcolor">
+                <input type="radio" name="radio">
+                <span class="checkmark black"></span> </label>
+              <label class="selectcolor">
+                <input type="radio" name="radio">
+                <span class="checkmark white"></span> </label>
+              <label class="selectcolor">
+                <input type="radio" name="radio">
+                <span class="checkmark blue"></span> </label>
+            </div>
+            <!-- colors end -->
+            <div class="pricedata mt-4">
+              <p><span class="title">PRICE:</span> <i class="bi bi-currency-rupee iconsuperscript"></i><span class="boldprice">13,000</span> <span class="mrp">M.R.P:<i class="bi bi-currency-rupee iconsuperscriptnew"></i></span><span class="crossline">15,000</span> <span class="mrp">(30% off)</span></p>
+            </div>
+            <!-- pricedata  end -->
+            
+            <div class="prdqunity mt-4"> <span>QUANTITY: </span>
+              <div class="number"> <span class="minus"><i class="bi bi-dash"></i></span>
+                <input type="text" value="1"/>
+                <span class="plus"><i class="bi bi-plus"></i></span> </div>
+            </div>
+            <!-- prdqunity  end -->
+            <div class="bttns mt-4"> <a href="service.html" target="_blank" class="applybtnew" tabindex="0"><i class="bi bi-cart-plus"></i> Add to cart </a> <a href="service.html" target="_blank" class="applybtnew" tabindex="0"> <i class="bi bi-heart"></i> wishlist </a> </div>
+            <!-- bttns  end -->
+            <div class="sharebtn mt-4">
+              <button class="applybtnew" tabindex="0"> <i class="fa fa-share"></i> Share on </button>
+              <div><a href="#" title="facebook"> <i class="bi bi-facebook"></i></a> <a href="#" title="twitter"><i class="bi bi-twitter-x"></i> </a> <a href="#" title="instagram"><i class="bi bi-instagram"></i> </a> <a href="#" title="linkedin"><i class="bi bi-linkedin"></i></a></div>
+            </div>
+            <!-- sharebtn  end --> 
+          </div>
+          <!-- product details end --> 
+          
+        </div>
+      </div>
+      <!-- row end --> 
+    </div>
+  </div>
+  <div class="prod-icon container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="boxicon"><img src="images/icons/sound-w.png" alt="" title=""> HIGH-QUALITY AUDIO</div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="boxicon"><img src="images/icons/waterproof-w.png" alt="" title=""> WATERPROOF AND DUSTPROOF (IP67)</div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="boxicon"><img src="images/icons/durable-w.png" alt="" title=""> DURABLE DESIGN</div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="boxicon"><img src="images/icons/technology-w.png" alt="" title=""> POSITIONIQ TECHNOLOGY</div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="boxicon"><img src="images/icons/battery-w.png" alt="" title=""> UP TO 12 HOURS PER CHARGE</div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="boxicon"><img src="images/icons/pairs-w.png" alt="" title=""> PAIRS WITH OTHER BOSE SPEAKERS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- prod-icon  end-->
+  
+  <div class="container">
+    <div class="specification">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-0">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#specification-tab" role="tab">Specification </a> </li>
+            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#review-tab" role="tab">Review </a> </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="specification-tab" role="tabpanel">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                  <div class="specbox"> <img src="images/icons/box.png" alt="" title="">
+                    <h3>What’s in the box </h3>
+                    <p>SoundLink Flex speaker <br>
+                      USB-C to USB-A charging cable (Black) <br>
+                      Quick start guide <br>
+                      Safety sheet </p>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                  <div class="specbox"> <img src="images/icons/dimension.png" alt="" title="">
+                    <h3>Dimensions/weight </h3>
+                    <p> SoundLink Flex speaker:<br>
+                      9 cm H x 20.1 cm W x 5.2 cm D (0.6 kg) </p>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                  <div class="specbox"> <img src="images/icons/material.png" alt="" title="">
+                    <h3>Materials</h3>
+                    <p> Soft-touch silicone exterior and powder-coated steel grille with fabric utility loop </p>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                  <div class="specbox"> <img src="images/icons/battery.png" alt="" title="">
+                    <h3>Battery </h3>
+                    <p> Rechargeable lithium-ion battery <br>
+                      Battery life up to 12 hours <br>
+                      Charging time: approximately 4 hours when using the original cable. Using a third-party USB-C cable or power source may influence charging time. </p>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                  <div class="specbox"> <img src="images/icons/bluetooth.png" alt="" title="">
+                    <h3>Bluetooth </h3>
+                    <p> Bluetooth range: up to 30 ft (9 m) <br>
+                      Bluetooth version: 4.2 </p>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                  <div class="specbox"> <img src="images/icons/input.png" alt="" title="">
+                    <h3> Inputs </h3>
+                    <p> USB-C port </p>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                  <div class="specbox"> <img src="images/icons/microphone.png" alt="" title="">
+                    <h3> Microphones </h3>
+                    <p> Built-in microphone acts as an extension of the microphone in your mobile device. </p>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                  <div class="specbox"> <img src="images/icons/control.png" alt="" title="">
+                    <h3> Controls </h3>
+                    <p> Button controls: Power on, Bluetooth, Volume up/down, Multi-function button</p>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                  <div class="specbox"> <img src="images/icons/compatable-app.png" alt="" title="">
+                    <h3> Compatible app </h3>
+                    <p> Bose Connect app </p>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                  <div class="specbox"> <img src="images/icons/additional.png" alt="" title="">
+                    <h3> Additional information </h3>
+                    <p> IP67 <br>
+                      SimpleSync connectivity <br>
+                      Party Mode <br>
+                      Stereo pairing</p>
+                  </div>
+                </div>
+              </div>
+              <!-- row end --> 
+              
+            </div>
+            <div class="tab-pane" id="review-tab" role="tabpanel">
+              <div class="reviewdata">
+                <h3>All Reviews <span>(03)</span></h3>
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-1 col-lg-1"><img src="images/william.png" alt="" title=""></div>
+                  <div class="col-12 col-sm-12 col-md-11 col-lg-11">
+                    <div class="reviewbox">
+                      <div class="name">Williams
+                        <div class="review-star"> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-half"></i> <span> 4 reviews <span class="divider">|</span> <a href="#gotoreview">Write your review</a> </span></div>
+                      </div>
+                      <div class="date"><i class="bi bi-clock"></i> Date: April 05, 2024</div>
+                      <div class="review-txt">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean sodales congue ex, quis dictum mauris. Donec at vulputate metus, vel venenatis magna. Maecenas tincidunt at erat euismod malesuada.</div>
+                      <div class="like-outer">
+                        <div id="" class="like-area">
+                          <ul>
+                            <li> <a> <i class="far fa-thumbs-up"></i> <i class="fas fa-thumbs-up"></i> <span class="like-no">5</span> </a> </li>
+                            <li> <a> <i class="far fa-thumbs-down"></i> <i class="fas fa-thumbs-down"></i> <span class="like-no">10</span> </a> </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- review box end --> 
+                    
+                  </div>
+                  <div class="hline"></div>
+                </div>
+                <!-- row end -->
+                
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-1 col-lg-1"><img src="images/baziclab.png" alt="" title=""></div>
+                  <div class="col-12 col-sm-12 col-md-11 col-lg-11">
+                    <div class="reviewbox">
+                      <div class="name">BazicLab
+                        <div class="review-star"> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-half"></i> <span> 4 reviews <span class="divider">|</span> <a href="#gotoreview">Write your review</a> </span></div>
+                      </div>
+                      <div class="date"><i class="bi bi-clock"></i> Date: May 05, 2024</div>
+                      <div class="review-txt">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean sodales congue ex, quis dictum mauris. Donec at vulputate metus, vel venenatis magna. Maecenas tincidunt at erat euismod malesuada.</div>
+                      <div class="like-outer">
+                        <div id="" class="like-area">
+                          <ul>
+                            <li> <a> <i class="far fa-thumbs-up"></i> <i class="fas fa-thumbs-up"></i> <span class="like-no">5</span> </a> </li>
+                            <li> <a> <i class="far fa-thumbs-down"></i> <i class="fas fa-thumbs-down"></i> <span class="like-no">10</span> </a> </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- review box end --> 
+                    
+                  </div>
+                  <div class="hline"></div>
+                </div>
+                <!-- row end -->
+                
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-1 col-lg-1"><img src="images/thomas.png" alt="" title=""></div>
+                  <div class="col-12 col-sm-12 col-md-11 col-lg-11">
+                    <div class="reviewbox">
+                      <div class="name">BazicLab
+                        <div class="review-star"> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-half"></i> <span> 4 reviews <span class="divider">|</span> <a href="#gotoreview">Write your review</a> </span></div>
+                      </div>
+                      <div class="date"><i class="bi bi-clock"></i> Date: May 10, 2024</div>
+                      <div class="review-txt">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean sodales congue ex, quis dictum mauris. Donec at vulputate metus, vel venenatis magna. Maecenas tincidunt at erat euismod malesuada.</div>
+                      <div class="like-outer">
+                        <div id="" class="like-area">
+                          <ul>
+                            <li> <a> <i class="far fa-thumbs-up"></i> <i class="fas fa-thumbs-up"></i> <span class="like-no">5</span> </a> </li>
+                            <li> <a> <i class="far fa-thumbs-down"></i> <i class="fas fa-thumbs-down"></i> <span class="like-no">10</span> </a> </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- review box end --> 
+                    
+                  </div>
+                  <div class="hline"></div>
+                </div>
+                <!-- row end -->
+                
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-4">
+                    <div class="add-review" id="gotoreview">
+                      <h2>Add a review </h2>
+                      <form>
+                        <div class="form-group">
+                          <label for="name">Your Name:</label>
+                          <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Email address:</label>
+                          <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                          <label for="reviewtxt">Your Review:</label>
+                          <textarea class="form-control" id="reviewtxt" rows="3" placeholder="Enter your review"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label for="rating">Rating:</label>
+                          <div class="rating"> <span class="star" data-rating="5"><i class="fas fa-star"></i></span> <span class="star" data-rating="4"><i class="fas fa-star"></i></span> <span class="star" data-rating="3"><i class="fas fa-star"></i></span> <span class="star" data-rating="2"><i class="fas fa-star"></i></span> <span class="star" data-rating="1"><i class="fas fa-star"></i></span> </div>
+                          <input type="hidden" name="rating" id="rating">
+                        </div>
+                        <button type="submit" class="applybtnew">Submit</button>
+                      </form>
+                    </div>
+                    <!-- add review end --> 
+                    
+                  </div>
+                </div>
+                <!-- row end --> 
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  specification end --> 
+  </div>
+  <!-- container end --> 
+  
+</section>
+<!-- productdetails end-->
+
+<section id="bestdeal">
+  <div class="container">
+    <div class="bestdealwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+          <h2 class="wow fadeInUp"> Best Deal Products</h2>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="row gx-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="dealbox">
+                <div class="col-6 col-md-5"> <img src="images/bestdeal/bose-portable-smart-speaker.jpg" alt="Bose Portable Smart Speaker" title="Bose Portable Smart Speaker" class="img-fluid"> </div>
+                <div class="col-6 col-md-7 pd-0">
+                  <h3>Bose Portable Smart <span></span> Speaker </h3>
+                  <h4> <i class="bi bi-currency-rupee"></i> 35,000</h4>
+                  <div class="stars"> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-half"></i> <span>(14)</span></div>
+                  <div class="icon-other">
+                    <div> <a href="#" class=""><i class="bi bi-cart-plus"></i></a></div>
+                    <div class="d-flex gap-2"> <a href="#" class=""><i class="bi bi-heart"></i></a> <a href="#" class=""><i class="bi bi-eye"></i></a> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="dealbox">
+                <div class="col-6 col-md-5"> <img src="images/bestdeal/bose-soundlink-flex-speaker.jpg" alt="Bose SoundLink Flex Bluetooth® Speaker" title="Bose SoundLink Flex Bluetooth® Speaker " class="img-fluid"> </div>
+                <div class="col-6 col-md-7 pd-0">
+                  <h3>Bose SoundLink Flex <span></span> Bluetooth® Speaker </h3>
+                  <h4> <i class="bi bi-currency-rupee"></i> 30,000</h4>
+                  <div class="stars"> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-half"></i> <span>(14)</span></div>
+                  <div class="icon-other">
+                    <div> <a href="#" class=""><i class="bi bi-cart-plus"></i></a></div>
+                    <div class="d-flex gap-2"> <a href="#" class=""><i class="bi bi-heart"></i></a> <a href="#" class=""><i class="bi bi-eye"></i></a> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="dealbox">
+                <div class="col-6 col-md-5"> <img src="images/bestdeal/bose-s1-pro-portable-speaker.jpg" alt="Bose S1 Pro Portable Bluetooth® Speaker" title="Bose S1 Pro Portable Bluetooth® Speaker" class="img-fluid"> </div>
+                <div class="col-6 col-md-7 pd-0">
+                  <h3>Bose S1 Pro Portable <span></span> Bluetooth® Speaker</h3>
+                  <h4> <i class="bi bi-currency-rupee"></i> 50,000</h4>
+                  <div class="stars"> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-half"></i> <span>(14)</span></div>
+                  <div class="icon-other">
+                    <div> <a href="#" class=""><i class="bi bi-cart-plus"></i></a></div>
+                    <div class="d-flex gap-2"> <a href="#" class=""><i class="bi bi-heart"></i></a> <a href="#" class=""><i class="bi bi-eye"></i></a> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="dealbox">
+                <div class="col-6 col-md-5"> <img src="images/bestdeal/bose-smart-soundbar-700.jpg" alt="Bose Smart Soundbar 700 " title="Bose Smart Soundbar 700 " class="img-fluid"> </div>
+                <div class="col-6 col-md-7 pd-0">
+                  <h3> Bose Smart <span></span>Soundbar 700 </h3>
+                  <h4> <i class="bi bi-currency-rupee"></i> 65,000</h4>
+                  <div class="stars"> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-half"></i> <span>(14)</span></div>
+                  <div class="icon-other">
+                    <div> <a href="#" class=""><i class="bi bi-cart-plus"></i></a></div>
+                    <div class="d-flex gap-2"> <a href="#" class=""><i class="bi bi-heart"></i></a> <a href="#" class=""><i class="bi bi-eye"></i></a> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="dealbox">
+                <div class="col-6 col-md-5"> <img src="images/bestdeal/bose-bass-module 700.jpg" alt="Bose Bass Module 700 " title="Bose Bass Module 700 " class="img-fluid"> </div>
+                <div class="col-6 col-md-7 pd-0">
+                  <h3> Bose Bass <span></span>Module 700 </h3>
+                  <h4> <i class="bi bi-currency-rupee"></i> 70,000</h4>
+                  <div class="stars"> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-half"></i> <span>(14)</span></div>
+                  <div class="icon-other">
+                    <div> <a href="#" class=""><i class="bi bi-cart-plus"></i></a></div>
+                    <div class="d-flex gap-2"> <a href="#" class=""><i class="bi bi-heart"></i></a> <a href="#" class=""><i class="bi bi-eye"></i></a> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="dealbox">
+                <div class="col-6 col-md-5"> <img src="images/bestdeal/bose-soundlink-mini-ii-special-edition.jpg" alt="Bose SoundLink Mini II Special Edition " title="Bose SoundLink Mini II Special Edition " class="img-fluid"> </div>
+                <div class="col-6 col-md-7 pd-0">
+                  <h3> Bose SoundLink Mini II <span></span> Special Edition </h3>
+                  <h4> <i class="bi bi-currency-rupee"></i> 50,000</h4>
+                  <div class="stars"> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-half"></i> <span>(14)</span></div>
+                  <div class="icon-other">
+                    <div> <a href="#" class=""><i class="bi bi-cart-plus"></i></a></div>
+                    <div class="d-flex gap-2"> <a href="#" class=""><i class="bi bi-heart"></i></a> <a href="#" class=""><i class="bi bi-eye"></i></a> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="homepg-offer">
+  <div class="container">
+    <div class="homeofferwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"> <img src="images/offer1.jpg" alt="" title="" class="img-fluid"> </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+{% endblock %}

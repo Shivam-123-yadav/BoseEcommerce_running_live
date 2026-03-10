@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send WhatsApp Message</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        input, textarea {
+            width: 97%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #responseMessage {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Send WhatsApp Message</h2>
+
+        <form id="whatsappForm">
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" id="phone_number" name="phone_number" required placeholder="Enter phone number">
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required placeholder="Enter your message"></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div id="responseMessage"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#whatsappForm").submit(function(event) {
+                event.preventDefault(); 
+                
+                let phone_number = $("#phone_number").val();
+                let message = $("#message").val();
+
+                if (!/^\d{10}$/.test(phone_number)) {
+                $("#responseMessage").html("<p class='error'>Error: Phone number must be exactly 10 digits.</p>");
+                    return; 
+                }
+
+                $.ajax({
+                    url: "{% url 'send_whatsapp_message' %}",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        phone_number: phone_number,
+                        message: message
+                    }),
+                    success: function(response) {
+                        $("#responseMessage").html("<p class='success'>Message Sent Successfully!</p>");
+                    },
+                    error: function(xhr) {
+                        let errorMsg = xhr.responseJSON ? xhr.responseJSON.error : "Unknown error occurred";
+                        $("#responseMessage").html("<p class='error'>Error: " + errorMsg + "</p>");
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

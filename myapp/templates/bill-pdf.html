@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Receipt</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        header {
+            background: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #4CAF50;
+        }
+        .section p {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            background-color: #f4f4f4;
+        }
+        table td {
+            background-color: #fff;
+        }
+        .total-row {
+            font-weight: bold;
+        }
+        footer {
+            background: #f4f4f4;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            color: #777;
+        }
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+            }
+            header h1 {
+                font-size: 20px;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Order Receipt</h1>
+        </header>
+        <div class="content">
+            <!-- Address Section -->
+            <div class="section">
+                <h2>Billing Address</h2>
+                <p><strong>{{customer_name}}</strong></p>
+                <p>{{customer_address}}</p>
+                <p>{{customer_state}}</p>
+                <p>{{customer_city}}</p>
+                <p>{{customer_zipcode}}</p>
+                <!-- <p>New York, NY 10001, USA</p> -->
+            </div>
+            <!-- Contact Information -->
+            <div class="section">
+                <h2>Contact Information</h2>
+                <p>Email: {{customer_email}}</p>
+                <p>Mobile: {{customer_phone}}</p>
+            </div>
+            <!-- Transaction Details -->
+            <div class="section">
+                <h2>Transaction Details</h2>
+                <p>Transaction ID: {{transaction_id}}</p>
+                <p>Date: {{transaction_date}}</p>
+                <p>Payment Method: {{payment_mode}}</p>
+            </div>
+            <!-- Product Details -->
+            <div class="section">
+                <h2>Product Details</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Color Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                
+                        {% for item in item_details %}
+                        <tr>
+                            <td>{{item.title}}</td>
+                            <td>{{ item.color_name }}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.final_price}}</td>
+                            <td>{{item.final_price}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr class="total-row">
+                            <td colspan="4">Grand Total</td>
+                            <td>{{amount}}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+     
+            <div class="footer" style="font-size: 13px; text-align: center; line-height: 20px;">
+                <p>If you have any questions or need to reschedule, please contact us at <br>
+                    <a href="mailto:sales@boseservicecenter.co.in">sales@boseservicecenter.co.in</a> | Whatsapp No. <a href="https://wa.me/919987223322?text=Hello%2C%20Required%20Assistance%20for%20Bose%20Products" class="floatbtn" target="_blank">9987223322</a></p>
+                <P style="border-top: solid 1px #d6d6d6; margin-top: 15px; padding-top: 10px;">Thank you for choosing our services!  <br>
+                <a href="https://www.boseservicecenter.co.in/" target="_blank">Visit our website</a></p>
+            </div>
+        <!-- <div class="footer">
+            <p style="font-size: 15px; line-height: 23px;">If you have any questions or need to reschedule, please contact us at 
+                <a href="mailto:sales@boseservicecenter.co.in">sales@boseservicecenter.co.in</a> | Whatsapp No. <a href="https://wa.me/919987223322?text=Hello%2C%20Required%20Assistance%20for%20Bose%20Products" class="floatbtn" target="_blank">9987223322</a></p>
+                <hr>
+            <P style="text-align: center; padding-top: 8px; font-size: 13px; line-height: 20px;">Thank you for choosing our services! <br>
+                
+            <a href="https://www.boseservicecenter.co.in/" target="_blank">Visit our website</a></p>
+        </div> -->
+
+    </div>
+
+
+    </div>
+</body>
+</html>

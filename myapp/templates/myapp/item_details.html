@@ -1,0 +1,2120 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<span id="get_id_products" style="display: none;">{{item.id}}</span>
+
+<input type="text" id="item-id" data-id="{{ item.id }}" data-slug="{{item.slug}}" style="display: none;">
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/product-details.css' %}?ver=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+    <meta property="og:title" content="Your Page Title" />
+    <meta property="og:description" content="A brief description of your content." />
+    <meta property="og:image" content="https://www.boseservicecenter.co.in/media/allproducts/remote/replacement-remote-soundbar-universal-black1.jpg" />
+    <meta property="og:image:secure_url" content="https://www.boseservicecenter.co.in/media/allproducts/remote/replacement-remote-soundbar-universal-black1.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Bose Service Center" />
+    <meta property="og:locale" content="en_US" />
+    
+
+
+
+
+    <style>
+
+
+#productdetails .prodwrap .product-details .bttns .applybtnewss {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    font-family: 'Muli';
+    padding: 12px 25px 12px 20px;
+    font-size: .9rem;
+    line-height: 1.1;
+    outline: none;
+    text-decoration: none;
+    color: #cc3333;
+    background: #ffffff;
+    border: 1px solid #cc3333;
+    transition: all 0.3s ease 0s;
+    margin: 10px 0 0 0px;
+    /* border-radius: 20px; */
+    bottom: 0px;
+    position: relative;
+    z-index: 1;
+    border-radius: 50px;
+    text-transform: uppercase;
+    width: auto;
+}
+
+
+
+#productdetails .prodwrap .product-details .tooltip1 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+#productdetails .prodwrap .product-details .tooltip1 .tooltiptext {
+  visibility: hidden;
+  opacity: 0;
+  width: 100px;
+  
+  color: #fff;
+  background-color: #555;
+  text-align: left;
+  font-size: 12px;
+  border-radius: 50px;
+  padding: 3px 0;
+  position: absolute;
+  z-index: 111;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  bottom: 125%;
+  /* left: 50%; */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+
+#productdetails .prodwrap .product-details .tooltip1 .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+} 
+
+#productdetails .prodwrap .product-details .tooltip1:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+ 
+#productdetails .prodwrap .product-details .availability {display: flex;
+    position: relative;
+    padding: 12px 0px;
+    font-size: 15px;
+    color: 333;
+    font-weight: 600;
+  }
+
+  #productdetails .prodwrap .product-details .availability .greenstock {color: green; padding-left: 10px; font-weight: 600;}
+
+    </style>
+</head>
+  
+  
+  <section class="" id="productbanner">
+    <div class="container-fluid nopadding">
+      <div class="prodbanwrap">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center mt-0 mb-0">
+            <div class="product-slider">
+              <div class="item"> <img src="{% static 'images/product-details-banner.jpg' %}"  alt="Bose Service Center" class="img-fluid testbgimg">
+                <div class="boxwhite wow fadeInDown">
+                  <h2>Astonishing sound. Wherever life takes you. </h2>
+                  <div><span id="header_main_it"></span></div>
+                </div>
+                
+                <!--boxwhite end--> 
+              </div>
+              <!--item end--> 
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="productdetails">
+    <div class="container">
+      <div class="prodwrap">
+        <div class="row mx-auto">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6" id="main_images_div">
+
+            <div id="color_variants">
+                <div class="">
+
+                    <ul id="glasscase" class="gc-start">
+
+                        {% if item.image1 %}
+                          <li><img id="attimage1" src="/media/{{ item.image1 }}" alt="{{item.title}}" data-gc-caption="" /></li>
+                        {% endif %}
+                        {% if item.image2 %}
+                          <li><img id="attimage2" src="/media/{{ item.image2 }}" alt="{{item.title}}" data-gc-caption="" /></li>
+                        {% endif %}
+                        {% if item.image3 %}
+                          <li><img id="attimage3" src="/media/{{ item.image3 }}" alt="{{item.title}}" data-gc-caption="" /></li>
+                        {% endif %}
+                        {% if item.image4 %}
+                          <li><img id="attimage4" src="/media/{{ item.image4 }}" alt="{{item.title}}" data-gc-caption="" /></li>
+                        {% endif %}
+                        {% if item.image5 %}
+                          <li><img id="attimage5" src="/media/{{ item.image5 }}" alt="{{item.title}}" data-gc-caption="" /></li>
+                        {% endif %}
+
+                        
+                        
+                      </ul>
+
+                </div>
+            </div> 
+
+          
+
+
+          </div>
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="product-details">
+              <h3 class="">{{item.title}}<sup></sup></h3>
+              <div class="review-star"> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-half"></i> <span> 4 reviews  | <a href="#review-tab"> Write your review </a> </span></div>
+
+              <div class="availability"> <span>Availability: </span>
+                <span class="greenstock">{{item.availability}}</span>
+             </div>
+
+              <div class="colors">
+                <p>COLORS: </p> 
+
+            {% if color_names %}
+
+            {% for color in color_names %}
+
+            {% if color == 'alpine-sage' %}
+                  <label class="selectcolor ">
+                    <input type="radio" name="radio">
+                    <span class="checkmark tooltip1 alpine-sage" id="alpine_sagemark"> <span class="tooltiptext">Alpine Sage</span></span>
+                    
+                    
+                    
+                  </label>
+
+                   {% elif color == 'aquatic-blue' %}
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 aquatic-blue" id="aquatic_bluemark"> <span class="tooltiptext">Aquatic Blue</span> </span> </label>
+
+                    {% elif color == 'arctic-white' %}
+
+                      <label class="selectcolor">
+                        <input type="radio" name="radio">
+                        <span class="checkmark tooltip1 arctic-white" id="arctic_whitemark"> <span class="tooltiptext">Arctic White</span></span> </label>
+
+                  {% elif color == 'baltic-blue' %}
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 baltic-blue" id="baltic_bluemark"> <span class="tooltiptext">Baltic Bluemark</span></span> </label>
+
+                    {% elif color == 'black' %}
+
+                      <label class="selectcolor">
+                        <input type="radio" name="radio">
+                        <span class="checkmark tooltip1 tooltip1 black" id="blackmark"><span class="tooltiptext">Black</span></span> </label>
+
+                    {% elif color == 'blue' %}
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 blue" id="bluemark"> <span class="tooltiptext">Blue</span></span> </label>
+
+                    {% elif color == 'blue-dusk' %}
+                            
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 blue-dusk" id="blue_duskmark"> <span class="tooltiptext">Blue Dusk</span></span> </label>
+
+                    {% elif color == 'bright-orange' %}
+
+                              
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 bright-orange" id="bright_orangemark"> <span class="tooltiptext">Bright Orange</span></span> </label>
+
+                    {% elif color == 'carmine-red' %}
+
+                                
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 carmine-red" id="carmine_redmark"> <span class="tooltiptext">Carmine Red</span></span> </label>
+
+                    {% elif color == 'chilled-lilac' %}
+
+                                  
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 chilled-lilac" id="chilled_lilacmark"> <span class="tooltiptext">Chilled Lilac</span></span> </label>
+
+                    {% elif color == 'coral-red' %}
+
+                                    
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 coral-red" id="coral_redmark"> <span class="tooltiptext">Coral Red</span></span> </label>
+
+                
+                    {% elif color == 'cypress-green' %}
+                                      
+                                      
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 cypress-green" id="cypress_greenmark"> <span class="tooltiptext">Cypress Green</span></span> </label>
+
+                  
+                    {% elif color == 'diamond' %}
+
+                                        
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span  class="checkmark tooltip1 diamond" id="diamondmark"> <span class="tooltiptext">Diamond</span></span> </label>
+                    
+                    {% elif color == 'eclipse-gray' %}
+
+                                          
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span  class="checkmark tooltip1 eclipse-gray" id="eclipse_graymark"> <span class="tooltiptext">Eclipse Gray</span></span> </label>
+
+                    
+                    {% elif color == 'glacier-white' %}
+
+                                            
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span  class="checkmark tooltip1 glacier-white" id="glacier_whitemark"> <span class="tooltiptext">Glacier White</span></span> </label>
+
+                  
+                    {% elif color == 'green' %}
+                                              
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span  class="checkmark tooltip1 green" id="greenmark"> <span class="tooltiptext">Green</span></span> </label>
+
+                  
+                    {% elif color == 'grey' %}
+                                               
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span  class="checkmark tooltip1 grey" id="greymark"> <span class="tooltiptext">Grey</span></span> </label>
+
+          
+                    {% elif color == 'lunar-blue' %}
+                                                  
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span  class="checkmark tooltip1 lunar-blue" id="lunar_bluemark"> <span class="tooltiptext">Lunar Blue</span></span> </label>
+
+                    
+                    {% elif color == 'luxe-silver' %}
+                                                  
+                                                   
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 luxe-silver" id="luxe_silvermark"> <span class="tooltiptext">Luxe Silver</span></span> </label>
+
+                    
+                    {% elif color == 'midnight-blue' %}
+                                                      
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 midnight-blue" id="midnight_bluemark"> <span class="tooltiptext">Midnight Blue</span></span> </label>
+
+                  
+                    {% elif color == 'moonstone-blue' %}
+                                                       
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 moonstone-blue" id="moonstone_bluemark"> <span class="tooltiptext">Moonstone Blue</span></span> </label>
+
+                
+                    {% elif color == 'polar-white' %}
+                                                        
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 polar-white" id="polar_whitemark"> <span class="tooltiptext">Polar White</span></span> </label>
+
+                
+                    {% elif color == 'red' %}
+                                                            
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 red" id="redmark"> <span class="tooltiptext">Red</span></span> </label>
+
+            
+                    {% elif color == 'sandstone' %}
+                                                              
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 sandstone" id="sandstonemark"> <span class="tooltiptext">Sandstone </span></span> </label>
+
+              
+                    {% elif color == 'silver' %}
+                                                               
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 silver" id="silvermark"> <span class="tooltiptext">Silver</span></span> </label>
+
+                
+                    {% elif color == 'soapstone' %}
+                                                                  
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 soapstone" id="soapstonemark"> <span class="tooltiptext">Soapstone</span></span> </label>
+
+            
+                    {% elif color == 'soft-black' %}
+                                                                    
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 soft-black" id="soft_blackmark"> <span class="tooltiptext">Soft Black </span></span> </label>
+
+                    
+                    {% elif color == 'stone-blue' %}
+                                                                      
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 stone-blue" id="stone_bluemark"> <span class="tooltiptext">Stone Blue</span></span> </label>
+
+                    
+                    {% elif color == 'triple-black' %}
+                                                                       
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 triple-black" id="triple_blackmark"> <span class="tooltiptext">Triple Black</span></span> </label>
+
+                    
+                    {% elif color == 'white' %}
+                                                                         
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 white" id="whitemark"> <span class="tooltiptext">White</span></span> </label>
+
+                  
+                    {% elif color == 'white-smoke' %}
+                                                                            
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 white-smoke" id="white_smokemark"> <span class="tooltiptext">White Smoke</span></span> </label>
+                    
+                    {% elif color == 'yellow-citron' %}
+                                                                              
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 yellow-citron" id="yellow_citronmark"> <span class="tooltiptext">Yellow Citron</span></span> </label>
+
+                    {% elif color == 'charcoal-black' %}
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 charcoal-black" id="charcoal_black"> <span class="tooltiptext">Charcoal Black</span></span> </label>
+
+                    {% elif color == 'navy-blue' %}
+
+                    <label class="selectcolor">
+                      <input type="radio" name="radio">
+                      <span class="checkmark tooltip1 navy-blue" id="navy_blue"> <span class="tooltiptext">Navy Blue</span></span> </label>
+
+
+                    {% else %}
+
+
+                    <p>No colors available for this item.</p> 
+                                                                               
+
+                    {% endif %}
+
+                    {% endfor %}
+
+                    {% endif %}
+
+
+
+              </div>
+  
+              <div class="pricedata mt-4">
+                <p><span class="title">PRICE:</span> <i class="bi bi-currency-rupee iconsuperscript"></i><span class="boldprice"></span> <span class="mrp">M.R.P:<i class="bi bi-currency-rupee iconsuperscriptnew"></i></span><span class="crossline"></span> <span class="mrp" id="discount"></span></p>
+              </div>
+ 
+              <div class="prdqunity mt-4"> 
+                <input type="text" value="{{item.id}}" id="item_ids" class="item_ids" name="items_id" hidden>
+            
+                <input type="text" id="numberInput" value="1" readonly hidden>
+                <span>QUANTITY: </span>
+                <div class="number"> 
+
+                    <span class="minus"><i class="bi bi-dash"></i></span>
+                    <input type="text" value="1" id="number-input"/>
+                    <span class="plus"><i class="bi bi-plus"></i></span> 
+                </div>
+            </div>
+
+
+              <!-- prdqunity  end -->
+              <div class="bttns mt-4"> 
+
+                {% if item.mrp_price and item.mrp_price != 0.00 and item.mrp_price != 0 %}
+                 <a href="#" onclick="event.preventDefault();" id="buy_nows"  data-bs-toggle="modal" data-bs-target="#exampleModal1" class="applybtnewss" tabindex="0" data-id="{{item.id}}" data-idss="{{item.slug}}"><i class="bi bi-cart-plus"></i>&nbsp; Buy Now</a>
+                 <a href="#" class="main_add_btn" tabindex="0" data-id="{{item.id}}" id="add_to_cards"> <i class="bi bi-heart"></i> Add To Cart</a> 
+                 {% else %}
+                 <a href="#" onclick="event.preventDefault();" id="buy_nows"  data-bs-toggle="modal" data-bs-target="#exampleModal1" class="applybtnewss" tabindex="0" data-id="{{item.id}}" data-idss="{{item.slug}}" style="pointer-events: none;"><i class="bi bi-cart-plus"></i>&nbsp; Buy Now</a>
+                 <a href="#" onclick="event.preventDefault();" class="main_add_btn" tabindex="0" data-id="{{item.id}}" id="add_to_cards" style="pointer-events: none;"> <i class="bi bi-heart"></i> Add To Cart</a> 
+                 {% endif %}
+
+              </div>
+
+              <!-- bttns  end -->
+              <div class="sharebtn mt-4" style="display: none;">
+                <button class="applybtnew" data-id="{{item.slug}}"  tabindex="0"> <i class="fa fa-share"></i> Share on </button>
+                <div><a href="#" title="facebook"><span class="facebook_click" data-id="{{item.slug}}" data-ids="{{item.id}}" data-ds="{{item.image1}}"><i class="bi bi-facebook"></i></span> </a> <a href="#" title="twitter"><i class="bi bi-twitter-x"></i> </a> <a href="#" title="instagram"><i class="bi bi-instagram"></i> </a> <a href="#" title="linkedin" class="share-linkedin" data-url="https://www.boseservicecenter.co.in/bose-products/{{item.slug}}" data-image="https://www.boseservicecenter.co.in/media/{{item.image1}}"><i class="bi bi-linkedin"></i></a></div>
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+        <!-- row end --> 
+      </div>
+    </div>
+
+
+
+    {% if item.heading1 or item.heading2 or item.heading3 or item.heading4 or item.heading5 or item.heading6 %}
+  <div class="prod-icon container-fluid" id="headings_parents">
+    <div class="container">
+      <div class="row">
+        {% if item.heading1 %}
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="headings1">
+          <div class="boxicon"><img src="images/icons/sound-w.png" alt="Bose Service Center" title="Bose Service Center">{{ item.heading1 }}</div>
+        </div>
+        {% endif %}
+
+        {% if item.heading2 %}
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="headings2">
+          <div class="boxicon"><img src="images/icons/waterproof-w.png" alt="Bose Service Center" title="Bose Service Center"> {{ item.heading2 }}</div>
+        </div>
+        {% endif %}
+
+        {% if item.heading3 %}
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="headings3">
+          <div class="boxicon"><img src="images/icons/durable-w.png" alt="Bose Service Center" title="Bose Service Center"> {{ item.heading3 }}</div>
+        </div>
+        {% endif %}
+
+        {% if item.heading4 %}
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="headings4">
+          <div class="boxicon"><img src="images/icons/technology-w.png" alt="Bose Service Center" title="Bose Service Center"> {{ item.heading4 }}</div>
+        </div>
+        {% endif %}
+
+        {% if item.heading5 %}
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="headings5">
+          <div class="boxicon"><img src="images/icons/battery-w.png" alt="Bose Service Center" title="Bose Service Center"> {{ item.heading5 }}</div>
+        </div>
+        {% endif %}
+
+        {% if item.heading6 %}
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="headings6">
+          <div class="boxicon"><img src="images/icons/battery-w.png" alt="Bose Service Center" title="Bose Service Center"> {{ item.heading6 }}</div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+    <!-- prod-icon  end-->
+    
+    <div class="container">
+      <div class="specification">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-0">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#specification-tab" role="tab">Specification </a> </li>
+              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#review-tab" role="tab">Review </a> </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="specification-tab" role="tabpanel">
+                <div class="row">
+
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="box_contents_show">
+                    {% if item.box_content %}
+                    <div class="specbox"> <img src="{% static 'images/icons/box.png' %}" alt="Bose Service Center box" title="Bose Service Center box">
+                      <h3>What’s in the box </h3>
+                      <p id="box_contents">{{item.box_content}}</p>
+                    </div>
+                    {% else %}
+
+                    {% endif %}
+
+                  </div>
+          
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="dimension_weight_Hidden">
+                    {% if item.dimension_weight %}
+                    <div class="specbox"> <img src="{% static 'images/icons/dimension.png' %}" alt="Bose Service Center Dimensions/weight" title="Bose Service Center Dimensions/weight">
+                      <h3>Dimensions/weight </h3>
+                      <p id="dimension_weights"> {{item.dimension_weight}}</p>
+                    </div>
+                    {% else %}
+
+                    {% endif %}
+
+
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="materials_hidden">
+                    {% if item.materials %}
+                    <div class="specbox"> <img src="{% static 'images/icons/material.png' %}" alt="Bose Service Center Materials" title="Bose Service Center Materials">
+                      <h3>Materials</h3>
+                      <p id="materials_data"> {{item.materials}} </p>
+                    </div>
+                    {% else %}
+
+                    {% endif %}
+                  </div>
+
+
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="battery_hidden">
+                    {% if item.battery %}
+                    <div class="specbox"> <img src="{% static 'images/icons/battery.png' %}" alt="Bose Service Center Battery" title="Bose Service Center Battery">
+                      <h3>Battery </h3>
+                      <p id="battery_data"> {{item.battery}} </p>
+                    </div>
+
+                    {% else %}
+
+                    {% endif %}
+
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="bluetooth_hidden">
+                    {% if item.bluetooth %}
+                    <div class="specbox"> <img src="{% static 'images/icons/bluetooth.png' %}" alt="Bose Service Center Bluetooth" title="Bose Service Center Bluetooth">
+                      <h3>Bluetooth </h3>
+                      <p id="bluetooth_data"> {{item.bluetooth}} </p>
+                    </div>
+                    {% else %}
+
+                    {% endif %}
+
+                  </div>
+
+         
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="inputs_hidden">
+                    {% if item.inputs %}
+                    <div class="specbox"> <img src="{% static 'images/icons/input.png' %}" alt="Bose Service Center Inputs" title="Bose Service Center Inputs">
+                      <h3> Inputs </h3>
+                      <p id="inputs_data"> {{item.inputs}} </p>
+                    </div>
+
+                    {% else %}
+
+                    {% endif %}
+
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="microhidden">
+                    {% if item.microphones %}
+                    <div class="specbox"> <img src="{% static 'images/icons/microphone.png' %}" alt="Bose Service Center Microphones" title="Bose Service Center Microphones">
+                      <h3> Microphones </h3>
+                      <p id="microphones"> {{item.microphones}} </p>
+                    </div>
+
+                    {% else %}
+
+                    {% endif %}
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="controls_hidden">
+                    {% if item.controls  %}
+                    <div class="specbox"> <img src="{% static 'images/icons/control.png' %}" alt="Bose Service Center Controls" title="Bose Service Center Controls">
+                      <h3> Controls </h3>
+                      <p id="controls_data"> {{item.controls}}</p>
+                    </div>
+                    {% else %}
+
+                    {% endif %}
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="compability_hidden">
+                    {% if item.compatible_app %}
+                    <div class="specbox"> <img src="{% static 'images/icons/compatable-app.png' %}" alt="Bose Service Center Compatible app" title="Bose Service Center Compatible app">
+                      <h3> Compatible app </h3>
+                      <p id="compatable_app"> {{item.compatible_app}} </p>
+                    </div>
+                    {% else %}
+                      
+                    {% endif %}
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="additional_informations_hidden">
+                    {% if item.additions_informations %}
+                    <div class="specbox"> <img src="{% static 'images/icons/additional.png' %}" alt="Bose Service Center Additional information" title="Bose Service Center Additional information">
+                      <h3> Additional information </h3>
+                      <p id="additional_information_data"> {{item.additions_informations}}</p>
+                    </div>
+                    {% else %}
+                      
+                    {% endif %}
+                  </div>
+
+
+
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="overview_hidden">
+                    {% if item.overview %}
+                    <div class="specbox"> <img src="{% static 'images/icons/overview.png' %}" alt="Bose Service Center Overview" title="Bose Service Center Overview">
+                      <h3> Overview</h3>
+                      <p id="overviews"> {{item.overview}} </p>
+                    </div>
+                    {% else %}
+                      
+                    {% endif %}
+                  </div>
+
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4" id="compability_hiddenss">
+                    {% if item.compability %}
+                    <div class="specbox"> <img src="{% static 'images/icons/compatable-app.png' %}" alt="Bose Service Center Compatibility" title="Bose Service Center Compatibility">
+                      <h3> Compability</h3>
+                      <p id="compabilitys"> {{item.compability}} </p>
+                    </div>
+                    {% else %}
+                      
+                    {% endif %}
+                  </div>
+
+
+
+                </div>
+                <!-- row end --> 
+                
+              </div>
+              <div class="tab-pane" id="review-tab" role="tabpanel">
+                <div class="reviewdata">
+                  <h3>All Reviews <span>(03)</span></h3>
+                  <div id="reviews-container">
+
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-4">
+                      <div class="add-review" id="gotoreview">
+                        <h2>Add a review </h2>
+                        <form>
+                          <div class="form-group">
+                            <label for="name">Your Name:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                          </div>
+                          <div class="form-group">
+                            <label for="email">Email address:</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                          </div>
+                          <div class="form-group">
+                            <label for="reviewtxt">Your Review:</label>
+                            <textarea class="form-control" id="reviewtxt" rows="3" placeholder="Enter your review"></textarea>
+                          </div>
+                          <div class="form-group">
+                            <label for="rating">Rating:</label>
+                            <div class="rating"> <span class="star" data-rating="1"><i class="fas fa-star"></i></span> <span class="star" data-rating="2"><i class="fas fa-star"></i></span> <span class="star" data-rating="3"><i class="fas fa-star"></i></span> <span class="star" data-rating="4"><i class="fas fa-star"></i></span> <span class="star" data-rating="5"><i class="fas fa-star"></i></span> </div>
+                            <input type="hidden" name="rating" id="rating">
+                          </div>
+                          <button type="submit" id="review_star">Submit</button>
+                        </form>
+                      </div>
+                      <!-- add review end --> 
+                      
+                    </div>
+                  </div>
+                  <!-- row end --> 
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  specification end --> 
+    </div>
+    <!-- container end --> 
+    
+  </section>
+  <!-- productdetails end-->
+  
+  <section id="bestdeal">
+    <div class="container">
+      <div class="bestdealwrap">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2 class="wow fadeInUp"> Best Deal Products</h2>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="row gx-3" id="main_random_div">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="homepg-offer">
+    <div class="container">
+      <div class="homeofferwrap">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"> <img src="https://www.boseservicecenter.co.in/static/images/offer1.jpg" alt="Bose Service Center" title="Bose Service Center" class="img-fluid"> </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Login or Register to Proceed</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <span class="span1">To complete your purchase, <br>please log in or create an account. </span>
+        <span class="span2">Click here to <a href="https://www.boseservicecenter.co.in/login">Login or Register </a></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<!-- Load Facebook SDK -->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+  <script>
+
+
+
+$(document).ready(function() {
+
+      var greenstockValue = $('.greenstock').text().trim();
+      if (greenstockValue.toLowerCase() === 'not available') {
+          $("#buy_nows").prop("disabled", true).css("pointer-events", "none");
+          $("#add_to_cards").prop("disabled", true).css("pointer-events", "none");
+      } else {
+          $("#buy_nows").prop("disabled", false).css("pointer-events", "auto");
+          $("#add_to_cards").prop("disabled", false).css("pointer-events", "auto");
+      }
+
+
+
+  window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '8880333468717277', 
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v15.0'
+      });
+    };
+
+
+  $(".facebook_click").on('click', function(event) {
+      event.preventDefault();
+      const dataId = $(this).data('id'); 
+      const dataurl=`https://www.boseservicecenter.co.in/bose-products/${dataId}`
+      const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(dataurl)}`;
+      window.open(fbShareUrl, '_blank', 'width=800,height=600');
+
+  });
+
+
+   
+
+    $('.share-linkedin').click(function(e) {
+      e.preventDefault();
+      
+      var url = $(this).data('url');
+      var image_url = $(this).data('image');
+      
+      if (image_url) {
+          var ogImageMetaTag = document.querySelector('meta[property="og:image"]');
+          if (ogImageMetaTag) {
+              ogImageMetaTag.setAttribute('content', image_url); 
+          }
+      }
+        var linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+        if (image_url) {
+            linkedinUrl += `&image=${encodeURIComponent(image_url)}`;
+        }
+        window.open(linkedinUrl, '_blank');
+  });
+
+
+
+
+
+$(document).ready(function() {
+    let itemId = $('#item-id').data('id');
+    let slugify = $("#item-id").data('slug');
+    
+    if (slugify && window.location.pathname === `/bose-products/${slugify}`) {
+        sessionStorage.setItem('item_id', itemId);
+    }
+});
+
+
+
+  $(document).on('click', '.applybtnewss', function(e) {
+    e.preventDefault(); 
+    let button = $(this);
+    $.ajax({
+        url: '/check_user_logged_in',
+        type: 'GET',
+        success: function(response) {
+            if (response.logged_in) {
+                let imgsrc = localStorage.getItem('imagesrc');
+                let color_names = localStorage.getItem('color_name');
+                sessionStorage.setItem('image_src', imgsrc);
+                if (!color_names) {
+                  var firstTooltip = $('.colors .tooltiptext').first();
+                  sessionStorage.setItem('color_name', firstTooltip.text());
+                }else{
+                  sessionStorage.setItem('color_name', color_names);
+                }
+                let data_id = button.data('id');
+                let slug_id = button.data('idss');
+                localStorage.setItem('buye_now', data_id);
+                let quantity=$("#number-input").val()
+                localStorage.setItem("quantity",quantity)
+                window.location.href = `https://www.boseservicecenter.co.in/buy_products/${slug_id}/?quantity=${quantity}`;
+                $('#exampleModal').modal('hide');
+            } else {
+                $('#exampleModal').modal('show');
+              }
+          },
+          error: function() {
+              alert('Error checking login status.');
+          }
+      });
+  });
+
+
+
+  function checkAndHide(elementId, hideId) {
+        let content = $(elementId).text().trim();
+        if (content === '' || content ==='nan') {
+            $(hideId).css({'display':'none'});
+        } else {
+            console.warn('exists');
+        }
+    }
+
+
+    checkAndHide('#microphones', '#microhidden');
+    checkAndHide('#box_contents', '#box_contents_show');
+    checkAndHide('#dimension_weights', '#dimension_weight_Hidden');
+    checkAndHide('#materials_data', '#materials_hidden');
+    checkAndHide('#battery_data', '#battery_hidden');
+    checkAndHide('#bluetooth_data', '#bluetooth_hidden');
+    checkAndHide('#inputs_data', '#inputs_hidden');
+    checkAndHide('#controls_data', '#controls_hidden');
+    checkAndHide('#compatable_app', '#compability_hidden');
+    checkAndHide('#additional_information_data', '#additional_informations_hidden');
+    checkAndHide('#overviews', '#overview_hidden');
+    checkAndHide('#compabilitys', '#compability_hiddenss');
+
+  function checkAndHideHeadings() {
+
+    const headings = [
+        document.getElementById('headings1'),
+        document.getElementById('headings2'),
+        document.getElementById('headings3'),
+        document.getElementById('headings4'),
+        document.getElementById('headings5'),
+        document.getElementById('headings6')
+    ];
+
+    headings.forEach(heading => {
+    if (heading) { 
+        const content = heading.textContent.trim();
+        
+        if (content.toLowerCase() === 'nan') {
+            heading.textContent = '';
+        }
+    }
+});
+
+
+    const shouldHide = headings.every(heading => {
+        if (!heading) return true; 
+        const content = heading.textContent.trim();
+        return content === "" || content.toLowerCase() === 'nan';
+    });
+
+
+    const headingsParents = document.getElementById('headings_parents');
+      if (shouldHide && headingsParents) {
+          headingsParents.style.display = 'none';
+      } else if (headingsParents) {
+          headingsParents.style.display = '';
+      }
+  }
+
+
+
+  checkAndHideHeadings();
+
+
+
+
+    function formatCurrency(amount) {
+        return parseFloat(amount).toFixed(2);
+    }
+
+    var mrp_price = {{ item.mrp_price }}; // Fetch MRP price
+    var discount_per = {{ item.discount_percentage|floatformat:0 }};
+
+    function calculatePrices(quantity) {
+        var total_mrp_price = mrp_price * quantity; 
+
+        var discount_amount = (discount_per / 100) * total_mrp_price;
+        var final_price = total_mrp_price - discount_amount;
+      
+        $(".boldprice").text(formatCurrency(final_price));
+        $(".crossline").text(formatCurrency(total_mrp_price));
+        $("#discount").text(`(${discount_per} % off)`);
+    }
+
+      calculatePrices(1);
+
+  
+      $(".plus").on("click", function() {
+      var currentQuantity = Math.max(1, parseInt($("#number-input").val(), 10));
+      if (currentQuantity < 5) {
+          $("#number-input").val(currentQuantity + 1);
+          calculatePrices(currentQuantity + 1);
+      }
+  });
+
+      $(".minus").on("click", function() {
+          var currentQuantity = Math.max(1, parseInt($("#number-input").val(), 10));
+          if (currentQuantity > 1) {
+              $("#number-input").val(currentQuantity - 1);
+              calculatePrices(currentQuantity - 1);
+          }
+      });
+
+      $("#number-input").on("input", function() {
+          var inputQuantity = parseInt($(this).val(), 10);
+          if (isNaN(inputQuantity) || inputQuantity < 1) {
+              $(this).val(1);
+              calculatePrices(1);
+          } else if (inputQuantity > 5) {
+              $(this).val(5);
+              calculatePrices(5);
+          } else {
+              calculatePrices(inputQuantity);
+          }
+      });
+
+
+    const $input = $('#numberInput');
+
+    let value = parseInt($input.val()) || 1; 
+
+  
+    $('.plus').click(function() {
+        if (value < 5) {
+            value++;
+            $input.val(value);
+        }
+    });
+
+    $('.minus').click(function() {
+        if (value > 1) {
+            value--;
+            $input.val(value);
+        }
+    });
+
+
+      window.addEventListener('beforeunload', function() {
+          localStorage.removeItem('imagesrc');
+      });
+
+      window.addEventListener('beforeunload',function(){
+        localStorage.removeItem('color_name')
+      })
+
+  
+
+    $("#add_to_cards").on('click', function () {
+      var firstTooltip = $('.colors .tooltiptext').first();
+      let formdata = new FormData();
+
+      let type_color_image_url = localStorage.getItem('imagesrc');
+      let color_name = localStorage.getItem('color_name');
+      var items_id = $("input[name='items_id']").val();
+
+      if (isNaN(items_id) || items_id.trim() === "") {
+          alert("Invalid item ID.");
+          return;
+      }
+
+      let value = parseInt($input.val()); 
+      if (isNaN(value) || value <= 0) {
+          alert("Quantity must be a positive number.");
+          return;
+      }
+
+      formdata.append('item_id', items_id);
+      formdata.append('quantity', value);
+
+        if (type_color_image_url && type_color_image_url.trim() !== '') {
+            formdata.append('image_url', type_color_image_url);
+        } else {
+            var imageSrc = $('#attimage1').attr('src');
+            formdata.append('image_url', imageSrc);
+        }
+
+
+      if (color_name && color_name.trim() !== '') {
+          formdata.append('color_name', color_name);
+      }else{
+        formdata.append('color_name', firstTooltip.text());
+      }
+
+      $.ajax({
+          url: '/check_user_logged_in',
+          type: 'GET',
+          success: function (response) {
+          if (response.logged_in) {
+              $.ajax({
+                  url: `{% url 'add_to_card' %}`,
+                  type: 'POST',
+                  data: formdata,
+                  processData: false,
+                  contentType: false,
+                  success: function (response) {
+                      if (response.status == 404) {
+                          console.warn('Please try again');
+                      } else {
+                          toastr.success('Item added to cart successfully!', 'Success', {
+                              positionClass: 'toast-top-right',
+                              timeOut: 3000,
+                              fadeOut: 1000,
+                              closeButton: true,
+                              progressBar: true,
+                              extendedTimeOut: 1000
+                          });
+                              let currentCount = parseInt($(".countnumber").text()) || 0;
+                              $(".countnumber").text(currentCount + 1);
+                          }
+                        },
+                        error: function (xhr, status, error) {
+                          console.warn('error',error)
+                           
+                              }
+                          });
+
+                        } else {
+                          $('#exampleModal').modal('show');
+                      }
+                    },
+                    error: function () {
+                      alert('Error checking login status.');
+                  }
+              });
+      });
+
+
+
+
+
+      $(".main_add_btn").on('click', function () {
+          var itemId = $(this).data('id'); 
+          var $input = $('#number-input');
+          $.ajax({
+              url: '{% url "update_add_card_details" %}',  
+              type: 'POST',
+              data: {
+                  'item_id': itemId,
+                  'quantity': 0,  
+                  'csrfmiddlewaretoken': '{{ csrf_token }}'  
+              },
+              success: function(response) {
+                  if (response.status === 'success') {
+   
+                  $('#item-' + itemId).remove();
+                  let currentCount = parseInt($(".countnumber").text()) || 0;
+                  let removedQuantity = response.removed_quantity || 0;
+                  $(".countnumber").text(Math.max(currentCount - removedQuantity, 0));
+
+                  var firstTooltip = $('.colors .tooltiptext').first(); 
+                  let formdata = new FormData();
+                  let type_color_image_url = localStorage.getItem('imagesrc');  
+                  let color_name = localStorage.getItem('color_name');
+                  var items_id = $("input[name='items_id']").val();  
+                  if (isNaN(items_id) || items_id.trim() === "") {
+                      alert("Invalid item ID.");
+                      return;
+                  }
+                  let value = parseInt($input.val());  
+                  if (isNaN(value) || value <= 0) {
+                      alert("Quantity must be a positive number.");
+                      return;
+                  }
+                  formdata.append('item_id', items_id);  
+                  formdata.append('quantity', value); 
+
+
+                  if (type_color_image_url && type_color_image_url.trim() !== '') {
+                      formdata.append('image_url', type_color_image_url);
+                  } else {
+                      var imageSrc = $('#attimage1').attr('src');
+                      formdata.append('image_url', imageSrc);
+                  }
+
+                  if (color_name && color_name.trim() !== '') {
+                      formdata.append('color_name', color_name);  
+                  } else {
+                      formdata.append('color_name', firstTooltip.text()); 
+                  }
+
+            
+                  $.ajax({
+                      url: '/check_user_logged_in',
+                      type: 'GET',
+                      success: function(response) {
+                        if (response.logged_in) {
+                      
+                            $.ajax({
+                                url: '{% url "add_to_card" %}',
+                                type: 'POST',
+                                data: formdata,
+                                processData: false,
+                                contentType: false,
+                                success: function(response) {
+                                    if (response.status == 404) {
+                                        console.warn('Please try again');
+                                    } else {
+                                        toastr.success('Item added to cart successfully!', 'Success', {
+                                            positionClass: 'toast-top-right',
+                                            timeOut: 3000,
+                                            fadeOut: 1000,
+                                            closeButton: true,
+                                            progressBar: true,
+                                            extendedTimeOut: 1000
+                                        });
+
+                                        let currentCount = parseInt($(".countnumber").text()) || 0;
+                                        $(".countnumber").text(currentCount + 1);
+                                    }
+                                },
+                                error: function(xhr, status, error) {
+                                      console.warn('error',error)
+                                    }
+                                });
+                            } else {
+                            
+                                $('#exampleModal').modal('show');
+                            }
+                        },
+                        error: function() {
+                            alert('Error checking login status.');
+                        }
+                    });
+
+                } else {
+                    alert('Failed to delete item from cart.');
+                }
+            },
+            error: function(xhr) {
+                console.log('An error occurred: ' + xhr.responseJSON.message);
+            }
+        });
+    });
+
+    // alert(queryParams)
+    async function handleColorSelection(colorName) {
+      // let get_session_storage = sessionStorage.getItem('item_id');
+      let formdata = new FormData();
+      const queryParams = new URLSearchParams(window.location.search);
+      const itemId = queryParams.get('item_id');
+      queryParams.delete('item_id');
+      // formdata.append('product_id', get_session_storage);
+      formdata.append('product_id', itemId);
+
+    try {
+        const response = await fetch("{% url 'filterations_color' %}", {
+            method: 'POST',
+            body: formdata,
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const result = await response.json();
+
+        result.colors.forEach(function(color) {
+            if (color.color_name === colorName) {
+
+                localStorage.setItem('imagesrc', color.image1);
+                localStorage.setItem('color_name', color.color_name);
+
+                for (let i = 1; i <= 5; i++) {
+                    let imageElement = document.getElementById(`attimage${i}`);
+                    if (imageElement) {
+                        imageElement.src = ""; 
+                        imageElement.style.display = "none"; 
+                        let liElement = imageElement.closest('li');
+                        if (liElement) {
+                            liElement.style.display = "none";  
+                        }
+                    } else {
+                        console.warn(`Element with ID attimage${i} not found.`);
+                    }
+                }
+
+                const mainImage = document.querySelector(".gc-display-display");
+                if (mainImage && color.image1) {
+                    mainImage.src = color.image1;
+                } else {
+                    console.warn("Main image not found or no valid image source.");
+                }
+
+                for (let i = 1; i <= 5; i++) {
+                    let imageSrc = color[`image${i}`];
+                    let imageElement = document.getElementById(`attimage${i}`);
+                    if (imageElement && imageSrc && imageSrc.trim() !== "") {
+                        imageElement.src = imageSrc;
+                        imageElement.style.display = "block"; 
+
+
+                        let liElement = imageElement.closest('li');
+                        if (liElement) {
+                            liElement.style.display = "block";  
+                        }
+                    } else {
+                        if (!imageElement) {
+                            console.warn(`Element with ID attimage${i} not found.`);
+                        }
+                        if (!imageSrc || imageSrc.trim() === "") {
+                            console.warn(`No valid image source found for image${i}.`);
+                        }
+                    }
+                }
+
+                const gcZoomContainer = document.querySelector('.gc-zoom-container img');
+                if (gcZoomContainer && color.image1) {
+                    gcZoomContainer.src = color.image1;
+                    gcZoomContainer.style.top = color.zoomImageTop || '0px'; 
+                    gcZoomContainer.style.left = color.zoomImageLeft || '0px'; 
+                } else {
+                    console.warn("Zoom container image not found or no valid zoom image.");
+                }
+            } else {
+                console.warn('Other color:', color.color_name);
+            }
+        });
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+
+
+  const colorButtons = [
+    { id: "aquatic_bluemark", colorName: 'aquatic-blue' },
+    { id: "coral_redmark", colorName: 'coral-red' },
+    { id: "polar_whitemark", colorName: 'polar-white' },
+    { id: "soft_blackmark", colorName: 'soft-black' },
+    { id: "yellow_citronmark", colorName: 'yellow-citron' },
+    {id:"alpine_sagemark",colorName:'alpine-sage'},
+    {id:"arctic_whitemark",colorName:'arctic-white'},
+    {id:"baltic_bluemark",colorName:'baltic-blue'},
+    {id:"blackmark",colorName:'black'},
+    {id:"bluemark",colorName:'blue'},
+    {id:"blue_duskmark",colorName:'blue-dusk'},
+    {id:"bright_orangemark",colorName:'bright-orange'},
+    {id:"carmine_redmark",colorName:'carmine-red'},
+    {id:"chilled_lilacmark",colorName:'chilled-lilac'},
+    // {id:"coral_redmark",colorName:'coral-red'},
+    {id:"cypress_greenmark",colorName:'cypress-green'},
+    {id:"diamondmark",colorName:'diamond'},
+    {id:"eclipse_graymark",colorName:'eclipse-gray'},
+    {id:"glacier_whitemark",colorName:'glacier-white'},
+    {id:"greenmark",colorName:'green'},
+    {id:"greymark",colorName:'grey'},
+    {id:"lunar_bluemark",colorName:'lunar-blue'},
+    {id:"luxe_silvermark",colorName:'luxe-silver'},
+    {id:"midnight_bluemark",colorName:'midnight-blue'},
+    {id:"moonstone_bluemark",colorName:'moonstone-blue'},
+    // {id:"polar_whitemark",colorName:'polar-white'},
+    {id:"redmark",colorName:'red'},
+    {id:"sandstonemark",colorName:'sandstone'},
+    {id:"silvermark",colorName:'silver'},
+    {id:"soapstonemark",colorName:'soapstone'},
+    // {id:"soft_blackmark",colorName:'soft-black'},
+    {id:"stone_bluemark",colorName:'stone-blue'},
+    {id:"triple_blackmark",colorName:'triple-black'},
+    {id:"whitemark",colorName:'white'},
+    {id:"white_smokemark",colorName:'white-smoke'},
+    {id:"charcoal_black",colorName:'charcoal-black'},
+    {id:"navy_blue",colorName:'navy-blue'},
+    // {id:"yellow_citronmark",colorName:'yellow-citron'},
+];
+
+
+
+colorButtons.forEach(button => {
+    document.getElementById(button.id)?.addEventListener('click', function() {
+        handleColorSelection(button.colorName);
+    });
+});
+
+
+
+let urlPath = window.location.pathname;
+let accessories_id;
+
+if (urlPath.includes('/accessories/')) {
+    accessories_id = urlPath.match(/\/accessories\/([^/]+)\//);
+} else if (urlPath.includes('/speakers/')) {
+    accessories_id = urlPath.match(/\/speakers\/([^/]+)\//);
+} else if (urlPath.includes('/headphones/')) {
+    accessories_id = urlPath.match(/\/headphones\/([^/]+)\//);
+}
+
+if (accessories_id) {
+    accessories_id = accessories_id[1];
+}
+
+
+if(accessories_id==='remote'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=remote">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Remote</a>
+`);
+
+}else if(accessories_id==='cushion'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=cushion">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Cushion</a>
+`);
+}else if(accessories_id ==='powersupply'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=powersupply">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">PowerSupply</a>
+`);
+}else if(accessories_id ==='cable'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=cable">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Cable</a>
+`);
+}else if(accessories_id ==='carrycase'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=carrycase">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">CarryCase</a>
+`);
+}else if(accessories_id==='adapter'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=adapter">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Adapter</a>
+`);
+}else if(accessories_id==='others'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=others">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Others</a>
+`);
+}
+else if(accessories_id==='stayhear'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=stayhear">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Stayhear</a>
+`);
+}
+// accessories multiple handler
+else if(accessories_id==='Remote Detail'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=remote">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Remote</a>
+`);
+}else if(accessories_id ==='Cushion Detail'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=cushion">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Cushion</a>
+`);
+}else if(accessories_id ==='Cable'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=cable">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Cable</a>
+`);
+}else if(accessories_id ==='Power Supply'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=powersupply">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">PowerSupply</a>
+`);
+}else if(accessories_id ==='Carry Case'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=carrycase">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">CarryCase</a>
+`);
+}else if(accessories_id ==='Adapter'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=adapter">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Adapter</a>
+`);
+}else if(accessories_id ==='Others'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=others">Accessories</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Others</a>
+`);
+}
+// end multiple handler
+
+
+
+else if(accessories_id ==='wireless'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=wireless">Headphones</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Wireless</a>
+`);
+}else if(accessories_id==='noisecancelling'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=noisecancelling">Headphones</a> <i class="bi bi-caret-right-fill"></i> <a href="#">NoiseCancelling</a>
+`);
+}else if(accessories_id ==='earbuds'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=earbuds">Headphones</a> <i class="bi bi-caret-right-fill"></i> <a href="#">EarBuds</a>
+`);
+// sale headphone handler
+
+}else if(accessories_id==='Wireless'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=wireless">Headphones</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Wireless</a>
+`);
+}else if(accessories_id ==='Noise Cancelling'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=noisecancelling">Headphones</a> <i class="bi bi-caret-right-fill"></i> <a href="#">NoiseCancelling</a>
+`);
+}else if(accessories_id ==='Earbuds'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=earbuds">Headphones</a> <i class="bi bi-caret-right-fill"></i> <a href="#">EarBuds</a>
+`);
+}
+// end handler
+
+
+else if(accessories_id ==='portablebluetooth'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=portablebluetooth">Speakers</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Portablebluetooth</a>
+`);
+// multiple handler speaker
+}else if(accessories_id ==='Portable Bluetooth'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=portablebluetooth">Speakers</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Portablebluetooth</a>
+`);
+}
+
+else if(accessories_id ==='homecinema'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=homecinema">Speakers</a> <i class="bi bi-caret-right-fill"></i> <a href="#">HomeCinema</a>
+`);
+}else if(accessories_id ==='Home Cinema'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=homecinema">Speakers</a> <i class="bi bi-caret-right-fill"></i> <a href="#">HomeCinema</a>
+`);
+}else if(accessories_id ==='Sound Bars'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=soundbars">Speakers</a> <i class="bi bi-caret-right-fill"></i> <a href="#">SoundBars</a>
+`);
+}else if(accessories_id==='Stereo'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=stereo">Speakers</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Stereo</a>
+`);
+}else if(accessories_id ==='Computer Speaker'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=computerspeaker">Speakers</a> <i class="bi bi-caret-right-fill"></i> <a href="#">ComputerSpeaker</a>
+`);
+}else if(accessories_id ==='Portable PA'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=portablepa">Speakers</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Portablepa Pa</a>
+`);
+}else if(accessories_id ==='Home Audio'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=homeaudio">Speakers</a> <i class="bi bi-caret-right-fill"></i> <a href="#">HomeAudio</a>
+`);
+}
+// end multiple handler
+
+else if(accessories_id ==='soundbars'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=soundbars">Speakers</a> <i class="bi bi-caret-right-fill"></i> <a href="#">SoundBars</a>
+`);
+}else if(accessories_id==='stereo'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=stereo">Speakers</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Stereo</a>
+`);
+}else if(accessories_id==='computerspeaker'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=computerspeaker">Speakers</a> <i class="bi bi-caret-right-fill"></i> <a href="#">ComputerSpeaker</a>
+`);
+}else if(accessories_id==='portablepa'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=portablepa">Speakers</a> <i class="bi bi-caret-right-fill"></i> <a href="#">Portablepa Pa</a>
+`);
+}else if(accessories_id ==='homeaudio'){
+  $("#header_main_it").append(`
+    <a href="/">Home</a> <i class="bi bi-caret-right-fill"></i> <a href="https://www.boseservicecenter.co.in/products-category?filter=homeaudio">Speakers</a> <i class="bi bi-caret-right-fill"></i> <a href="#">HomeAudio</a>
+`);
+}else{
+  console.log('none')
+}
+//===================reviews code here==========================
+
+$(document).ready(function () {
+    $('.star').on('click', function () {
+      
+        var rating = $(this).data('rating');
+        $('#rating').val(rating);
+    });
+
+    $('form').on('submit', function (e) {
+    
+        e.preventDefault();
+        const name = $('#name').val();
+        const email = $('#email').val();
+        const reviewText = $('#reviewtxt').val();
+        const rating = $('#rating').val();  
+        const queryParams = new URLSearchParams(window.location.search);
+        const item_id = queryParams.get('item_id');
+        $('.star').removeClass('text-warning');
+      
+        $.ajax({
+            url: '/add-review/',
+            type: 'POST',
+            data: {
+                name: name,
+                email: email,
+                reviewtxt: reviewText,
+                rating: rating,
+                item_id: item_id 
+            },
+            success: function (response) {
+                
+              $('#name').val('');
+              $('#email').val('');
+              $('#reviewtxt').val('');
+              $('#rating').val('');
+
+              const reviewsContainer = $('#reviews-container');
+              reviewsContainer.fadeOut(300, function () {
+                  fetchReviews();
+                  reviewsContainer.fadeIn(300);
+              });
+            },
+            error: function (xhr, status, error) {
+                console.warn(xhr.responseJSON.error);
+            }
+        });
+    });
+    
+});
+
+
+$("#review_star").on('click', function() {
+    $.ajax({
+        url: '/check_user_logged_in',
+        type: 'GET',
+        success: function(response) {
+            if (response.logged_in) {
+            
+            } else {
+               window.location.href=`/login`
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error("An error occurred:", status, error);
+        }
+    });
+});
+
+
+
+$(document).ready(function () {
+    fetchReviews();
+
+});
+
+
+$(document).on('click', 'a[href="#review-tab"]', function (e) {
+    e.preventDefault();
+    $('.nav-tabs .nav-link[href="#review-tab"]').tab('show');
+    $('html, body').animate({
+        scrollTop: $('#review-tab').offset().top
+    }, 100);
+});
+
+
+// Function to generate star icons based on rating
+function generateStars(rating) {
+    let starsHtml = '';
+    for (let i = 1; i <= 5; i++) {
+        starsHtml += i <= rating 
+            ? '<i class="bi bi-star-fill" aria-hidden="true"></i>' 
+            : '<i class="bi bi-star" aria-hidden="true"></i>';
+    }
+    return starsHtml;
+}
+
+
+function generateReviewStarHTML(starsHtml, reviewCount) {
+    return `
+        ${starsHtml}
+        <span class="total-reviws">${reviewCount} reviews  | <a href="#review-tab"> Write your review </a></span>
+    `;
+}
+
+
+function fetchReviews() {
+
+    const queryParams = new URLSearchParams(window.location.search);
+    const item_id = queryParams.get('item_id');
+
+    $.ajax({
+        url: "{% url 'fetch_reviews' %}",
+        type: 'GET',
+        data: { item_id: item_id }, 
+        success: function (response) {
+            const reviewsContainer = $('#reviews-container'); 
+            const reviewCount = response.reviews.length;
+            const averageRating = response.average_rating;
+            if (!reviewsContainer.length) {
+                console.log('Reviews container not found.');
+                return;
+            }
+            $('.reviewdata h3 span').text(`(${reviewCount})`);
+            $('.total-reviws').html(`${reviewCount} reviews  | <a href="#review-tab"> Write your review </a>`);
+            const starsHtml = generateStars(averageRating);
+
+            $('.review-star').html(`
+                ${starsHtml}
+                <span class="total-reviws">${reviewCount} reviews  | <a href="#review-tab"> Write your review </a></span>
+            `);
+            reviewsContainer.empty();
+
+            response.reviews.forEach(function (review) {
+                const reviewHtml = `
+                   <div class="row">
+          <div class="col-12 col-sm-12 col-md-1 col-lg-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="fill: cornflowerblue;">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+        </svg>
+          </div>
+          <div class="col-12 col-sm-12 col-md-11 col-lg-11">
+            <div class="reviewbox">
+        <div class="name">
+            ${review.name}
+            <div class="review-star">
+              ${generateStars(review.rating)}
+              <span><span class="divider">|</span> <a href="#gotoreview">Write your review</a> </span>
+            </div>
+              </div>
+                <div class="date"><i class="bi bi-clock"></i> Date: ${review.date}</div>
+                <div class="review-txt">${review.review_text}</div>
+                <div class="like-outer">
+                <div class="like-area">
+                <ul>
+                <li><a href="#" onclick="event.preventDefault();" class="like-btn" data-review-id="${review.id}"><i class="far fa-thumbs-up"></i> <span class="like-no">0</span></a></li>
+                <li><a href="#" onclick="event.preventDefault();" class="dislike-btn" data-review-id="${review.id}"><i class="far fa-thumbs-down"></i> <span class="dislike-no">0</span></a></li>
+              </ul>
+              </div>
+            </div>
+            </div>
+          <!-- review box end -->
+      </div>
+      <div class="hline"></div>
+    </div> `;
+        reviewsContainer.append(reviewHtml);
+        fetchLikesDislikes(review.id);
+    });
+     
+
+      $(document).ready(function () {
+          $('.like-btn').on('click', function () {
+              const button = $(this);
+              const reviewId = button.attr('data-review-id');
+              let action = 'like';
+
+              if (button.hasClass('dislike-btn')) {
+                  action = 'remove'; 
+              } else if (button.hasClass('like-btn')) {
+                  action = button.hasClass('liked') ? 'remove' : 'like'; 
+              }
+
+              handleLikeDislikeAction(button, reviewId, action);
+          });
+
+          $('.dislike-btn').on('click', function () {
+              const button = $(this);
+              const reviewId = button.attr('data-review-id');
+              let action = 'dislike';
+
+              if (button.hasClass('like-btn')) {
+                  action = 'remove'; 
+              } else if (button.hasClass('dislike-btn')) {
+                  action = button.hasClass('disliked') ? 'remove' : 'dislike'; 
+              }
+
+              handleLikeDislikeAction(button, reviewId, action);
+          });
+
+            function handleLikeDislikeAction(button, reviewId, action) {
+                const formData = new FormData();
+                formData.append('review_id', reviewId);
+                formData.append('action', action);
+                formData.append('csrfmiddlewaretoken', $('#csrf_token').val());
+
+                $.ajax({
+                    url: "{% url 'like_unlike_review' %}",
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        if (response.username && response.review) {
+                            const reviewData = response.review;
+                            const likeCount = reviewData.likes_count;
+                            const dislikeCount = reviewData.dislikes_count;
+                            const userAction = reviewData.user_action;
+
+                            button.closest('ul').find('.like-no').text(likeCount);
+                            button.closest('ul').find('.dislike-no').text(dislikeCount);
+
+                            if (userAction === 'liked') {
+                                button.removeClass('like-btn').addClass('dislike-btn liked');
+                                button.closest('ul').find('.dislike-btn').removeClass('disliked');
+                            } else if (userAction === 'disliked') {
+                                button.removeClass('dislike-btn').addClass('like-btn disliked');
+                                button.closest('ul').find('.like-btn').removeClass('liked');
+                            } else {
+                                button.removeClass('like-btn dislike-btn');
+                            }
+
+                        } else {
+                            console.log('Error: Invalid response data');
+                        }
+                    },
+                    error: function (xhr) {
+                        console.error('Error occurred while processing your request:', xhr.responseJSON || xhr.responseText);
+                    }
+                    });
+                }
+            });
+
+        },
+        error: function (xhr) {
+            const errorMessage = xhr.responseJSON?.error || 'An error occurred while fetching reviews.';
+            console.log(errorMessage);
+        }
+    });
+}
+
+
+
+      function fetchLikesDislikes(reviewId) {
+          $.ajax({
+              url: "{% url 'count_likes_dislikes' %}",
+              type: "POST",
+              data: {
+                  review_id: reviewId,
+                  csrfmiddlewaretoken: '{{ csrf_token }}'
+              },
+              success: function(response) {
+                  $(`a[data-review-id="${reviewId}"] .like-no`).text(response.review.likes_count);
+                  $(`a[data-review-id="${reviewId}"] .dislike-no`).text(response.review.dislikes_count);
+              },
+              error: function(error) {
+                  console.error("Error fetching likes and dislikes for review ID " + reviewId, error);
+              }
+          });
+      }
+
+        $(document).ready(function() {
+          fetchReviews();
+        });
+
+
+
+
+
+
+//========================end here=================================
+
+
+
+
+
+$(".chilledlilac").on('click', function() {
+      let item_id = sessionStorage.getItem('item_id');
+
+      if (item_id) {
+          $.ajax({
+              url: `/type_colors/${item_id}/`, 
+              type: 'GET',
+              success: function(response) {
+
+                  if (response.colors && response.colors.length > 0) {
+                      let colorData = response.colors[0];  
+                      
+
+                   
+                      $("#glasscase li").each(function(index) {
+                          let imageKey = `image${index + 1}`;
+
+                          if (colorData[imageKey]) {
+                              let fetch_images = colorData[imageKey].replace("/media/media/", "/media/");
+
+                              $(this).html(`<img src="${fetch_images}" alt="Image" data-gc-caption="" />`);
+                              
+                            $(this).on('click', function() {
+
+                                  $("#image1-container").html(`<img id="image1" src="${fetch_images}" alt="Image" data-gc-caption="" />`);
+                              });
+                          } else {
+                              $(this).html("<span>No image found</span>");
+                          }
+                      });
+                    } else {
+                        console.error("No colors data found in response");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching item colors:", error);
+                }
+              });
+          } else {
+              console.error("item_id not found in sessionStorage");
+          }
+      });
+
+
+            $.ajax({
+            url: "{% url 'fetch_details' %}",
+            type: 'POST',
+            data: {
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+            },
+            success: function(response) {
+                let productContainer = $('#main_random_div');
+
+                let allItems = [];
+                if (response.remote_items) {
+                    allItems = allItems.concat(response.remote_items);
+                }
+                if (response.portablebluetooth_items) {
+                    allItems = allItems.concat(response.portablebluetooth_items);
+                }
+
+                allItems = allItems.sort(() => Math.random() - 0.5);
+
+                let itemsToShow = allItems.slice(0, 6);
+              
+                
+                itemsToShow.forEach(function(item) {
+                  let starsHTML = '';
+                  let reviewCountHTML = '';
+                  if (item.average_rating > 0) {
+                      starsHTML = generateStars(item.average_rating);  
+                      reviewCountHTML = `<span>(${item.review_count})</span>`; 
+                  }
+                    let itemHTML = `
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="dealbox">
+                          <div class="col-6 col-md-5"> <a href="#" onclick="event.preventDefault();" class="fetch_details" data-filters="${item.category}" data-id="${item.id}" data-idss="${item.slug}"><img src="${item.image1}" alt="Bose Portable Smart Speaker" title="Bose Portable Smart Speaker" class="img-fluid"></a> </div>
+                          <div class="col-6 col-md-7 pd-0">
+                            <h3>${item.title}</h3>
+                            <h4> <i class="bi bi-currency-rupee"></i> ${item.mrp_price}</h4>
+                              <div class="stars"> 
+                                ${starsHTML} ${reviewCountHTML}
+                            </div>
+                          <div class="icon-other">
+                            <div> <a href="#" onclick="event.preventDefault();" class="bestproducts" data-id="${item.id}"><i class="bi bi-cart-plus tooltipcart"><span class="tooltiptextcart">Add to Cart</span></i> </a></div>
+                            <div class="d-flex gap-2"> <a href="#" onclick="event.preventDefault();" class="wishlist_main" data-id="${item.id}"><i class="bi bi-heart tooltipcart"><span class="tooltiptextcart">Add to Wishlist</span></i></a> 
+                              <a href="#" onclick="event.preventDefault();" class="fetch_details" data-filters="${item.category}" data-id="${item.id}" data-idss="${item.slug}"><i class="bi bi-eye tooltipcart"><span class="tooltiptextcart">Quick View</span></i></a> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
+              `;
+                productContainer.append(itemHTML);
+            });
+
+
+    
+
+        $(".wishlist_main").on('click', function() {
+          let data_id = $(this).data('id'); 
+
+            $.ajax({
+            url: '/check_user_logged_in',
+            type: 'GET',
+            success: function(response) {
+                if (response.logged_in) {
+
+            $.ajax({
+                url: '/add-to-wishlist/',
+                type: 'POST', 
+                data: {
+                    'item_id': data_id, 
+                    'csrfmiddlewaretoken': $('input[name="csrfmiddlewaretoken"]').val() 
+                },
+                success: function(response) {
+                    if (response.status == 200) {
+
+                      toastr.success('Item added to wishlist!', 'Success', {
+                          positionClass: 'toast-top-right',
+                          timeOut: 3000,
+                          fadeOut: 1000,
+                          closeButton: true,
+                          progressBar: true,
+                          extendedTimeOut: 1000
+                      });
+
+                      let currentCount = parseInt($(".countnumbernew").text()) || 0;
+                      $(".countnumbernew").text(currentCount + 1);
+
+                    }
+                      else {
+                        toastr.options = {
+                          closeButton: true,
+                          debug: false,
+                          newestOnTop: true,
+                          progressBar: true,
+                          positionClass: "toast-top-right",
+                          preventDuplicates: true,
+                          onclick: null,
+                          showDuration: 300,
+                          hideDuration: 300,
+                          timeOut: 1000,
+                          extendedTimeOut: 1000,
+                          showEasing: "swing",
+                          hideEasing: "linear",
+                          showMethod: "slideDown",
+                          hideMethod: "slideUp",
+                        };
+                        toastr.error('Item already in wishlist.');
+                    }
+                },
+                error: function(xhr, status, error) {
+                  console.error('Error adding item to wishlist:', error);
+
+                    }
+                });
+          
+              }else{
+                window.location.href=`/login`
+              }
+
+            }
+
+          })
+
+
+      });
+
+
+
+    $(".bestproducts").on('click', function() {
+
+      let formdata = new FormData();
+      let data_id = $(this).data('id');
+      formdata.append('item_id', data_id);
+      formdata.append('quantity', 1);
+
+      $.ajax({
+        url: '/check_user_logged_in',
+        type: 'GET',
+        success: function(response) {
+            if (response.logged_in) {
+
+            $.ajax({
+                url: `{% url 'add_to_card' %}`,
+                type: 'POST',
+                data: formdata,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                if (response.status == 404) {
+                    console.warn('please try again');
+                  } else {
+                    toastr.success('Item added to cart successfully!', 'Success', {
+                        positionClass: 'toast-top-right',
+                        timeOut: 3000,
+                        fadeOut: 1000,
+                        closeButton: true,
+                        progressBar: true,
+                        extendedTimeOut: 1000
+                    });
+                        let currentCount = parseInt($(".countnumber").text()) || 0;
+                        $(".countnumber").text(currentCount + 1);
+                    }
+                  },
+                    error: function (xhr, status, error) {
+                        toastr.options = {
+                        closeButton: true,
+                        debug: false,
+                        newestOnTop: true,
+                        progressBar: true,
+                        positionClass: "toast-top-right",
+                        preventDuplicates: true,
+                        onclick: null,
+                        showDuration: 300,
+                        hideDuration: 300,
+                        timeOut: 1000,
+                        extendedTimeOut: 1000,
+                        showEasing: "swing",
+                        hideEasing: "linear",
+                        showMethod: "slideDown",
+                          hideMethod: "slideUp",
+                      };
+                      toastr.error('Item already in cart.');
+                      }
+                });
+
+                }
+            else {
+                  window.location.href = '/login'; 
+                }
+
+              }
+            })
+
+        });
+
+      }
+  });
+
+
+          $(document).on('click', '.fetch_details', function(event) {
+                event.preventDefault();
+                const itemId = $(this).data('id'); 
+                let slug_id=$(this).data('idss')
+                let bestdeal_products=$(this).data('filters')
+                window.location.href = `/bose-products/${slug_id}/?item_id=${itemId}`;
+          });
+
+      });
+
+</script>
+
+{% endblock %}

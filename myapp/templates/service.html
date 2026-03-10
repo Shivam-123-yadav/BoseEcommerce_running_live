@@ -1,0 +1,415 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block meta %}
+<!-- Basic Metadata -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Bose Service Centre | Bose Repair Service Centre</title>
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="google-site-verification" content="NwrpN14CEh2EPcUnTo15852IZkXdnJS1Wla3nfPxL5c" />
+<meta name="description" content="Get your Bose speaker repaired at your comfort. Enjoy Bose speaker service in the comfort of your place — our experts will reach your location to ensure hassle-free service." />
+<meta name="keywords" content="Bose Service Center in Mumbai, Andheri, Thane, Churchgate, Marine Lines, Charni Road, Grant Road, Mumbai Central, Mahalakshmi, Lower Parel, Elphinstone Road, Dadar, Matunga Road, Mahim, Bandra, Khar, Santa Cruz, Ville Parle, Jogeshwari, Goregaon, Malad, Kandivli, Borivali, Dahisar, Mira Road, Bhayandar, Naigaon, Vasai Road, Nalla Sopara, Virar, Palghar" />
+<link rel="canonical" href="https://boseservicecenter.co.in/our-services" />
+<link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon" />
+
+<!-- Preloaded Images for Performance -->
+<link rel="preload" as="image" href="{% static 'images/service-page-banner.jpg' %}" fetchpriority="high">
+<link rel="preload" as="image" href="{% static 'images/home-banner1.jpg' %}" fetchpriority="high">
+
+<!-- Open Graph Metadata -->
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Bose Service Centre | Bose Repair Service Centre" />
+<meta property="og:description" content="Get your Bose speaker repaired at your comfort. Our experts provide reliable doorstep Bose service for a hassle-free experience." />
+<meta property="og:url" content="https://boseservicecenter.co.in/our-services" />
+<meta property="og:site_name" content="Bose Service Centre" />
+<meta property="og:image" content="https://boseservicecenter.co.in/static/images/service-page-banner.jpg" />
+<meta property="og:image:secure_url" content="https://boseservicecenter.co.in/static/images/service-page-banner.jpg" />
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Bose Service Center Technician at Work" />
+
+<!-- Twitter Card Metadata -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Bose Service Centre | Bose Repair Service Centre" />
+<meta name="twitter:description" content="Doorstep Bose speaker repair by trusted professionals. Hassle-free service at your convenience." />
+<meta name="twitter:image" content="https://boseservicecenter.co.in/static/images/service-page-banner.jpg" />
+{% endblock %}
+
+
+
+{% block content %}
+<head>
+  <style>
+        #loading {
+          display: flex; 
+          align-items: center; 
+          text-align: center;
+        }
+  </style>
+</head>
+
+
+<section class="" id="banner">
+  <div class="container-fluid nopadding">
+    <div class="banwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center mt-0 mb-0">
+          <div class="banner-slider">
+            {% comment %} <div class="item"> <img src="{% static 'images/service-page-banner.jpg' %}"  alt="Bose Service Center" class="img-fluid testbgimg" fetchpriority="high"> {% endcomment %}
+            <div class="item"> <img src="{% static 'images/webp/service-page-banner.webp' %}"  alt="Bose Service Center" class="img-fluid testbgimg" fetchpriority="high">
+              <div class="boxwhite servicepg wow fadeInDown"> <img src="{% static 'images/bose-banner-logo-service.png' %}" alt="bose" class="img-fluid">
+                <h3>REPAIR &amp; SERVICE <br>
+                  CENTER</h3>
+                <a href="/appointment_form" class="applybtnew_form" tabindex="0" data-bs-toggle="modald" data-bs-target="#exampleModald"> Book Now </a> </div>
+              
+              <!--boxwhite end--> 
+            </div>
+            <!--item end--> 
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="homepg-service">
+  <div class="container-fluid p-0">
+    <div class="homrepwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+          <h2 class="wow fadeInUp"> REPAIRS AND SERVICES</h2>
+          <p class="wow fadeInDown mt-4">"Professional Bose service and repair center. Expert diagnostics and repairs for all Bose audio equipment. <span></span> Genuine parts, timely service, and customer satisfaction guaranteed. Get your Bose device back to peak performance with us."</p>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="row gx-3">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              {% comment %} <div class="servicebox"> <img src="{% static 'images/homepg/bose-portable-speaker.jpg' %}" alt="bose portable speaker" title="bose portable speaker" class="img-fluid"> {% endcomment %}
+              <div class="servicebox"> <img src="{% static 'images/homepg/bose-portable-speaker.jpg' %}" alt="bose portable speaker" title="bose portable speaker" class="img-fluid">
+                <h3>Bose Portable Smart Speaker</h3>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              {% comment %} <div class="servicebox"> <img src="{% static 'images/homepg/bose-smart-soundbar-900.jpg' %}" alt="Bose Smart Soundbar 900" title="Bose Smart Soundbar 900" class="img-fluid"> {% endcomment %}
+              <div class="servicebox"> <img src="{% static 'images/homepg/webp/bose-smart-soundbar-900.webp' %}" alt="Bose Smart Soundbar 900" title="Bose Smart Soundbar 900" class="img-fluid">
+                <h3>Bose Smart Soundbar 900</h3>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              {% comment %} <div class="servicebox"> <img src="{% static 'images/homepg/bose-sounlink-mini-bluetooth.jpg' %}" alt="SoundLink® Mini Bluetooth®" title="SoundLink® Mini Bluetooth®" class="img-fluid"> {% endcomment %}
+              <div class="servicebox"> <img src="{% static 'images/homepg/webp/bose-sounlink-mini-bluetooth.webp' %}" alt="SoundLink® Mini Bluetooth®" title="SoundLink® Mini Bluetooth®" class="img-fluid">
+                <h3>SoundLink® Mini Bluetooth®</h3>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              {% comment %} <div class="servicebox"> <img src="{% static 'images/homepg/bose-soundlink-color-bluetooth.jpg' %}" alt="Bose SoundLink Color Bluetooth®" title="Bose SoundLink Color Bluetooth®" class="img-fluid"> {% endcomment %}
+              <div class="servicebox"> <img src="{% static 'images/homepg/webp/bose-soundlink-color-bluetooth.webp' %}" alt="Bose SoundLink Color Bluetooth®" title="Bose SoundLink Color Bluetooth®" class="img-fluid">
+                <h3>Bose SoundLink Color Bluetooth® </h3>
+              </div>
+            </div>
+          </div>
+          <div class="row gx-3">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              {% comment %} <div class="servicebox"> <img src="{% static 'images/homepg/bose-soundlink-micro-bluetooth.jpg' %}" alt="Bose SoundLink Micro Bluetooth" title="Bose SoundLink Micro Bluetooth" class="img-fluid"> {% endcomment %}
+              <div class="servicebox"> <img src="{% static 'images/homepg/webp/bose-soundlink-micro-bluetooth.webp' %}" alt="Bose SoundLink Micro Bluetooth" title="Bose SoundLink Micro Bluetooth" class="img-fluid">
+                <h3>Bose SoundLink Micro Bluetooth</h3>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              {% comment %} <div class="servicebox"> <img src="{% static 'images/homepg/bose-soundlink-revolve-ii.jpg' %}" alt="Bose SoundLink Revolve II" title="Bose SoundLink Revolve II" class="img-fluid"> {% endcomment %}
+              <div class="servicebox"> <img src="{% static 'images/homepg/webp/bose-soundlink-revolve-ii.webp' %}" alt="Bose SoundLink Revolve II" title="Bose SoundLink Revolve II" class="img-fluid">
+                <h3>Bose SoundLink Revolve II </h3>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              {% comment %} <div class="servicebox"> <img src="{% static 'images/homepg/bose-s1-pro-portable-bluetooth.jpg' %}" alt="Bose S1 Pro Portable Bluetooth" title="Bose S1 Pro Portable Bluetooth" class="img-fluid"> {% endcomment %}
+              <div class="servicebox"> <img src="{% static 'images/homepg/webp/bose-s1-pro-portable-bluetooth.webp' %}" alt="Bose S1 Pro Portable Bluetooth" title="Bose S1 Pro Portable Bluetooth" class="img-fluid">
+                <h3>Bose S1 Pro Portable Bluetooth</h3>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              {% comment %} <div class="servicebox"> <img src="{% static 'images/homepg/bose-smart-speaker-500.jpg' %}" alt="Bose Smart Speaker 500" title="Bose Smart Speaker 500" class="img-fluid"> {% endcomment %}
+              <div class="servicebox"> <img src="{% static 'images/homepg/webp/bose-smart-speaker-500.webp' %}" alt="Bose Smart Speaker 500" title="Bose Smart Speaker 500" class="img-fluid">
+                <h3>Bose Smart Speaker 500 </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <!-- <div class="btns"> <a href="" target="_blank" class="applybtnew-form" tabindex="0" data-bs-toggle="modal" data-bs-target="#exampleModal"> Book a Repair </a> <a href="contactus.html" class="applybtnew" tabindex="0"> Contact Us </a> </div> -->
+          <!-- <div class="btns"> <a href="https://www.boseservicecenter.co.in/appointment_form" target="_blank" class="applybtnew_service" tabindex="0" data-bs-toggle="modal" data-bs-target="#exampleModal"> Book a Repair </a> <a href="{% url 'contact-us' %}" class="applybtnew_service" tabindex="0"> Contact Us </a> </div> -->
+          <div class="btns"> <a href="{% url 'appointment_form' %}" class="applybtnew_service" tabindex="0" data-bs-toggle="modald" data-bs-target="#exampleModald"> Book a Repair </a> <a href="{% url 'contact-us' %}" class="applybtnew_service" tabindex="0"> Contact Us </a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="servicebanners">
+  <div class="container-fluid p-0">
+    <div class="serrbanwrap">
+      <div class="row gx-0">
+        {% comment %} <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center"> <a href="{% url 'appointment_form' %}"  class="applybtnew-form" tabindex="0" data-bs-toggle="modald" data-bs-target="#exampleModald"> <img src="{% static 'images/soundlink-flex-bluetooth-speaker.jpg' %}" alt="soundlink flex bluetooth speaker" title="soundlink flex bluetooth speaker" class="img-fluid"> </a> </div> {% endcomment %}
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center"> <a href="{% url 'appointment_form' %}"  class="applybtnew-form" tabindex="0" data-bs-toggle="modald" data-bs-target="#exampleModald"> <img src="{% static 'images/webp/soundlink-flex-bluetooth-speaker.webp' %}" alt="soundlink flex bluetooth speaker" title="soundlink flex bluetooth speaker" class="img-fluid"> </a> </div>
+        {% comment %} <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center"> <a href="{% url 'appointment_form' %}"  class="applybtnew-form" tabindex="0" data-bs-toggle="modald" data-bs-target="#exampleModald"> <img src="{% static 'images/bose-smart-ultra-soundbar-banner.jpg' %}" alt="bose smart ultra soundbar banner" title="bose smart ultra soundbar banner" class="img-fluid"> </a> </div> {% endcomment %}
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center"> <a href="{% url 'appointment_form' %}"  class="applybtnew-form" tabindex="0" data-bs-toggle="modald" data-bs-target="#exampleModald"> <img src="{% static 'images/webp/bose-smart-ultra-soundbar-banner.webp' %}" alt="bose smart ultra soundbar banner" title="bose smart ultra soundbar banner" class="img-fluid"> </a> </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="howdoeswork">
+  <div class="container">
+    <div class="workwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+          <h2 class="wow fadeInUp"> How Does It Works</h2>
+          <p class="wow fadeInDown mt-4">Get your device repaired in just three easy steps </p>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="row gx-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mb-4">
+              <div class="howdoesbox"> <img src="{% static 'images/step1.png' %}" alt="Tell us your Issue" title="Tell us your Issue" class="img-fluid">
+                <h4><span>Step 1.</span> Tell us your Issue</h4>
+                <p>Help us detailing the device problem to
+                  get it working properly again.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mb-4">
+              <div class="howdoesbox"> <img src="{% static 'images/step2.png' %}" alt="Get repair estimate" title="Get repair estimate" class="img-fluid">
+                <h4><span>Step 2.</span> Get repair estimate </h4>
+                <p>Check the repair Price estimate. </p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mb-4">
+              <div class="howdoesbox"> <img src="{% static 'images/step3.png' %}" alt="Bring or courier device" title="Bring or courier device" class="img-fluid">
+                <h4><span>Step 3.</span> Bring or courier device </h4>
+                <p>Handover your device at our office or 
+                  chooses device pickup, courier and
+                  a doorstep service. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="btns"> <a href="{% url 'appointment_form' %}"  class="applybtnew-form" tabindex="0" data-bs-toggle="modald" data-bs-target="#exampleModald"> Book online <i class="bi bi-chevron-double-right"></i> </a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="servicepg-offer">
+  <div class="container">
+    <div class="serpgwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center">
+          <div class="offbox">
+            <h3>Our Technicians <br>
+              are Ready to Fix <br>
+              <span>Your Device!</span></h3>
+            <a href="{% url 'appointment_form' %}" class="applybtnew-form" tabindex="0" data-bs-toggle="modald" data-bs-target="#exampleModald"> Book an Engineer <i class="bi bi-chevron-double-right"></i> </a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="customerfeedback">
+  <div class="container">
+    <div class="custmerwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+          <h2 class="wow fadeInUp"> customer feedback</h2>
+          <p class="wow fadeInDown mt-4">There are many valid reasons why you should choose us to take care of your valuable device</p>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div id="loading" style="display: block;">Loading reviews...</div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="customerfeedback-slider" id="feedback_notice">
+           
+            <!--item end--> 
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script> 
+<script>
+  $(document).ready(function(){
+
+    $(".applybtnew_form").on('click',function(){
+      //window.location.href=`https://www.boseservicecenter.co.in/appointment_form`;
+      window.location.href=`https://boseservicecenter.co.in/appointment_form`;
+    })
+
+
+
+    
+    function generateStars(rating) {
+        let starsHtml = '';
+        for (let i = 1; i <= 5; i++) {
+            starsHtml += i <= rating 
+                ? '<i class="bi bi-star-fill" aria-hidden="true"></i>' 
+                : '<i class="bi bi-star" aria-hidden="true"></i>';
+        }
+        return starsHtml;
+    }
+
+
+    function generateReviewStarHTML(starsHtml, reviewCount) {
+        return `
+            ${starsHtml}
+            <span class="total-reviws">${reviewCount} reviews  | <a href="#review-tab"> Write your review </a></span>
+        `;
+    }
+
+
+
+
+async function fetchReviews() {
+    const url = 'https://boseservicecenter.co.in/api/scrape-reviews';
+    try {
+        document.getElementById('loading').style.display = 'block';
+
+        const response = await fetch(url, {
+            method: 'GET',
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Error:', errorText);
+            return;
+        }
+
+        const reviews = await response.json();
+        for (let i = reviews.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [reviews[i], reviews[j]] = [reviews[j], reviews[i]];
+        }
+        $("#feedback_notice").empty();
+
+        let i = 0;
+        while (i < 5 && i < reviews.length) {
+            let review = reviews[i];
+            let nameParts = review.reviewer_name.split(' ');
+            let initials = nameParts[0].charAt(0) + (nameParts[1] ? nameParts[1].charAt(0) : '');
+
+            let starsHtmlForReview = review.review_html;
+            const spanMatches = starsHtmlForReview.match(/<span[^>]*class="[^"]*google-symbols[^"]*"[^>]*>.*?<\/span>/g);
+            let firstFiveSpans = '';
+            if (spanMatches && spanMatches.length > 0) {
+                firstFiveSpans = spanMatches.slice(0, 5).map(span => {
+                    if (span.includes('elGi1d')) {
+                        return `<span class="google-symbols elGi1d" style="color: #ffba25;">&#9733;</span>`;
+                    } else if (span.includes('gnOR4e')) {
+                        return `<span class="google-symbols gnOR4e" style="color:#e3e3e3;">&#9734;</span>`;
+                    } else {
+                        return ''; 
+                    }
+                }).join('');
+            }
+
+            const modifiedStarsHtml = `<span class="kvMYJc" role="img" aria-label="5 stars">${firstFiveSpans}</span>`;
+            const shortRating = review.rating.length > 210 ? review.rating.substring(0, 210) + '...' : review.rating;
+
+            $("#feedback_notice").append(`
+                <div class="item">
+                    <div class="feedbackbox wow fadeInDown">
+                        <div class="quote-bg">
+                            <p>${initials}</p>
+                        </div>
+                        <div><img src="${review.profile_image_url}" alt="" title=""></div>
+                        <p>${shortRating}</p>
+                        <div class="stars" style="font-size: 1.5rem;">${modifiedStarsHtml}</div>
+                        <h3>- ${review.reviewer_name}</h3>
+                    </div>
+                </div>
+            `);
+            i++;
+        }
+        document.getElementById('loading').style.display = 'none';
+
+        if ($(".customerfeedback-slider").hasClass('slick-initialized')) {
+            $(".customerfeedback-slider").slick('unslick');
+        }
+
+        $(".customerfeedback-slider").slick({
+            infinite: false,
+            autoplay: false,
+            rows: 1,
+            autoplaySpeed: 4000,
+            speed: 500,
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            dots: true,
+            pauseOnHover: false,
+            arrows: true,
+            adaptiveHeight: true, 
+            cssEase: 'linear',
+            swipeToSlide: true,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 2,
+                        dots: true,
+                        arrows: false,
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 2,
+                        arrows: false,
+                        dots: true,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 2,
+                        dots: true,
+                        arrows: false,
+                    }
+                },
+            ]
+        });
+
+        $(".customerfeedback-slider").slick('setPosition');
+
+    } catch (error) {
+        console.error('Failed to fetch reviews:', error);
+          document.getElementById('loading').style.display = 'none';
+      }
+  }
+
+  window.addEventListener('load', fetchReviews);
+
+
+      function generateStars(count) {
+          let stars = '';
+          for (let i = 0; i < count; i++) {
+              stars += '<span class="star">&#9733;</span>';
+          }
+          return stars;
+      }
+
+  })
+</script>
+{% endblock %}

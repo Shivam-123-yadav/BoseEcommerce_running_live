@@ -1,0 +1,1272 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- live -->
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+  <style>
+  #loading {
+    display: flex; 
+    align-items: center; 
+    text-align: center;
+  }
+  
+
+
+#accessories_header .icon-other .tooltipcart, #speaker_header .icon-other .tooltipcart, #headphone_headers .icon-other .tooltipcart {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+#accessories_header .icon-other .tooltipcart .tooltiptextcart, #speaker_header .icon-other .tooltipcart .tooltiptextcart, #headphone_headers .icon-other .tooltipcart .tooltiptextcart {
+  visibility: hidden;
+  opacity: 0;
+  width: 100px;
+  
+  color: #fff;
+  background-color: #555;
+  text-align: left;
+  font-size: 12px;
+  border-radius: 50px;
+  padding: 3px 0;
+  position: absolute;
+  z-index: 111;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  bottom: 125%;
+  /* left: 50%; */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+
+#accessories_header .icon-other .tooltipcart .tooltiptextcart::after, #speaker_header .icon-other .tooltipcart .tooltiptextcart::after, #headphone_headers .icon-other .tooltipcart .tooltiptextcart::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+} 
+
+#accessories_header .icon-other .tooltipcart:hover .tooltiptextcart, #speaker_header .icon-other .tooltipcart:hover .tooltiptextcart, #headphone_headers .icon-other .tooltipcart:hover .tooltiptextcart {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+  </style>
+</head>
+
+<section class="" id="banner">
+  <div class="container-fluid nopadding">
+    <div class="banwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center mt-0 mb-0">
+          <div class="banner-slider">
+
+            <div class="item"><h1> <img src="{% static 'images/webp/home-banner1.webp' %}"  alt="Bose Service Center" class="img-fluid testbgimg" fetchpriority="high"></h1>
+              <div class="boxwhite wow fadeInDown"> <img src="{% static 'images/bose-banner-logo-service.png' %}" alt="bose" class="img-fluid">
+                <h3>Repair &amp; Service <br>
+                  Center</h3>
+
+                <a href="https://www.boseservicecenter.co.in/appointment_form" class="applybtnew_form" tabindex="0" data-bs-toggle="modals" data-bs-target="#exampleModals"> Book Now </a> </div>
+
+            </div>
+            <!--item end--> 
+
+            <div class="item"> <img src="{% static 'images/webp/home-banner2.webp' %}"  alt="Bose Service Center" class="img-fluid testbgimg">
+              <div class="boxwhite boxwhite22 wow fadeInDown"> <img src="{% static 'images/bose-banner-logo-service.png' %}" alt="bose" class="img-fluid">
+
+                  <h3>Where style  &amp; &nbsp;&nbsp; <br>
+                     sound sync</h3>
+                
+                <a href="https://www.boseservicecenter.co.in/products-category?filter=portablebluetooth" class="buy_now_products" data-filter="portablebluetooth" tabindex="0" data-bs-toggle="modals" data-bs-target="#exampleModals"> BUY NOW </a> </div>
+              
+              <!--boxwhite end--> 
+            </div>
+            <!--item end-->
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="homepg-service">
+  <div class="container-fluid p-0">
+    <div class="homrepwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+          <h2 class="wow fadeInUp"> REPAIRS AND SERVICES</h2>
+          <p class="wow fadeInDown mt-4">"Professional Bose service and repair center. Expert diagnostics and repairs for all Bose audio equipment. <span></span> Genuine parts, timely service, and customer satisfaction guaranteed. Get your Bose device back to peak performance with us."</p>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="row gx-3">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              <div class="servicebox"> <img src="{% static 'images/homepg/bose-portable-speaker.jpg' %}" alt="bose portable speaker" title="bose portable speaker" class="img-fluid">
+                <h3>Bose Portable Smart Speaker</h3>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              <div class="servicebox"> <img src="{% static 'images/homepg/webp/bose-smart-soundbar-900.webp' %}" alt="Bose Smart Soundbar 900" title="Bose Smart Soundbar 900" class="img-fluid">
+                <h3>Bose Smart Soundbar 900</h3>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              <div class="servicebox"> <img src="{% static 'images/homepg/webp/bose-sounlink-mini-bluetooth.webp' %}" alt="SoundLink® Mini Bluetooth®" title="SoundLink® Mini Bluetooth®" class="img-fluid">
+                <h3>SoundLink® Mini Bluetooth®</h3>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              <div class="servicebox"> <img src="{% static 'images/homepg/webp/bose-soundlink-color-bluetooth.webp' %}" alt="Bose SoundLink Color Bluetooth®" title="Bose SoundLink Color Bluetooth®" class="img-fluid">
+                <h3>Bose SoundLink Color Bluetooth® </h3>
+              </div>
+            </div>
+          </div>
+          <div class="row gx-3">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              <div class="servicebox"> <img src="{% static 'images/homepg/webp/bose-soundlink-micro-bluetooth.webp' %}" alt="Bose SoundLink Micro Bluetooth" title="Bose SoundLink Micro Bluetooth" class="img-fluid">
+                <h3>Bose SoundLink Micro Bluetooth</h3>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              <div class="servicebox"> <img src="{% static 'images/homepg/webp/bose-soundlink-revolve-ii.webp' %}" alt="Bose SoundLink Revolve II" title="Bose SoundLink Revolve II" class="img-fluid">
+                <h3>Bose SoundLink Revolve II </h3>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              <div class="servicebox"> <img src="{% static 'images/homepg/webp/bose-s1-pro-portable-bluetooth.webp' %}" alt="Bose S1 Pro Portable Bluetooth" title="Bose S1 Pro Portable Bluetooth" class="img-fluid">
+                <h3>Bose S1 Pro Portable Bluetooth</h3>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+              <div class="servicebox"> <img src="{% static 'images/homepg/webp/bose-smart-speaker-500.webp' %}" alt="Bose Smart Speaker 500" title="Bose Smart Speaker 500" class="img-fluid">
+                <h3>Bose Smart Speaker 500 </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="btns"> <a href="{% url 'appointment_form' %}" class="applybtnew_service" tabindex="0" data-bs-toggle="modals" data-bs-target="#exampleModals"> Book a Repair </a> <a href="{% url 'our-services' %}" class="applybtnew_service" tabindex="0"> Read More </a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="homepg-access">
+    <div class="container">
+        <div class="homeacceswarp">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+              <h2 class="wow fadeInUp" id="accessories_list"> accessories</h2>
+                <p class="wow fadeInDown mt-4">Explore our selection of genuine Bose accessories for an enhanced audio experience. From replacement ear tips to <span></span> protective cases, find the perfect add-on to complement your Bose devices. Shop now for quality accessories<span></span> that amplify your listening enjoyment."</p>
+                </div>
+                  </div>
+                  <div class="row mt-4" id="accessories_header">
+                  </div>
+                  <div class="row mt-4">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="btns"> <a href="#accessories_list" id="accessories_view" data-filter="remote" class="accessories_btn"   tabindex="0"> View All <i class="bi bi-chevron-double-right"></i> </a> 
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+<section id="homepg-sale">
+  <div class="container">
+    <div class="homesalewrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+          <h2 class="wow fadeInUp" id="sale_list"> sale</h2>
+          <h5><span>Speakers:</span> Portable Bluetooth</h5>
+          <p class="wow fadeInDown mt-4">Bose speakers, renowned for their superior sound quality and innovative technology, are currently on sale, featuring a range of products <span></span> tailored for different audio experiences.  From the portable Bose SoundLink Revolve II, perfect for on-the-go listening<span></span> with its 360-degree sound,, there's something for everyone. </p>
+        </div>
+      </div>
+      <div class="row mt-4">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="row" id="speaker_header">
+            
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <!-- <div class="btns"> <a href="#sale_list" id="speaker_view" data-filter="portablebluetooth" class="applybtnew" tabindex="0"> View All <i class="bi bi-chevron-double-right"></i> </a> </div> -->
+          <div class="btns"> <a href="#sale_list" id="speaker_view" data-filter="portablebluetooth" class="speaker_btn" tabindex="0"> View All <i class="bi bi-chevron-double-right"></i> </a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="homepg-headphone">
+  <div class="container">
+    <div class="homehdwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+          <h5><span id="headphone_list">Headphones:</span> Wireless </h5>
+          <p class="wow fadeInDown mt-4"> The current sale on wireless headphones offers a great chance to snap up some high-quality audio gear at reduced prices. <span></span> Among the highlights are the latest noise-cancelling models, which are perfect for travelers or anyone looking to <span></span> block out ambient noise for a focused listening experience. </p>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="row" id="headphone_headers">
+        
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="btns"> <a href="#headphone_list" id="headphone_view" data-filter="wireless" class="headphone_btn"  tabindex="0"> View All <i class="bi bi-chevron-double-right"></i> </a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="homepg-offer">
+  <div class="container">
+    <div class="homeofferwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"><a href="https://www.boseservicecenter.co.in/products-category?filter=portablebluetooth"> <img src="{% static 'images/webp/offer1.webp' %}" alt="Bose portable bluetooth speaker" title="Bose portable bluetooth speaker" class="img-fluid"></a> </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="customerfeedback">
+  <div class="container">
+    <div class="custmerwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+          <h2 class="wow fadeInUp"> customer feedback</h2>
+          <p class="wow fadeInDown mt-4">There are many valid reasons why you should choose us to take care of your valuable device</p>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div id="loading" style="display: block;">Loading reviews...</div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="customerfeedback-slider" id="feedback_notice">
+          
+            <!--item end--> 
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+
+    $(".buy_now_products").on('click',function(){
+        let portablebluetooth_data=$(this).data('filter')
+        window.location.href = `https://www.boseservicecenter.co.in/products-category?filter=${portablebluetooth_data}`;
+      })
+
+
+
+
+
+  $(".applybtnew_form").on('click',function(){
+    window.location.href=`https://www.boseservicecenter.co.in/appointment_form`
+  })
+
+
+  function generateStars(rating) {
+        let starsHtml = '';
+        for (let i = 1; i <= 5; i++) {
+            starsHtml += i <= rating 
+                ? '<i class="bi bi-star-fill" aria-hidden="true"></i>' 
+                : '<i class="bi bi-star" aria-hidden="true"></i>';
+        }
+        return starsHtml;
+    }
+
+
+    function generateReviewStarHTML(starsHtml, reviewCount) {
+        return `
+            ${starsHtml}
+            <span class="total-reviws">${reviewCount} reviews  | <a href="#review-tab"> Write your review </a></span>
+        `;
+    }
+ 
+
+
+async function fetchReviews() {
+    const url = 'https://www.boseservicecenter.co.in/api/scrape-reviews';
+    try {
+        document.getElementById('loading').style.display = 'block';
+
+        const response = await fetch(url, {
+            method: 'GET',
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Error:', errorText);
+            return;
+        }
+
+        const reviews = await response.json();
+        for (let i = reviews.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [reviews[i], reviews[j]] = [reviews[j], reviews[i]];
+        }
+        $("#feedback_notice").empty();
+
+        let i = 0;
+        while (i < 5 && i < reviews.length) {
+            let review = reviews[i];
+            let nameParts = review.reviewer_name.split(' ');
+            let initials = nameParts[0].charAt(0) + (nameParts[1] ? nameParts[1].charAt(0) : '');
+
+            let starsHtmlForReview = review.review_html;
+            const spanMatches = starsHtmlForReview.match(/<span[^>]*class="[^"]*google-symbols[^"]*"[^>]*>.*?<\/span>/g);
+            let firstFiveSpans = '';
+            if (spanMatches && spanMatches.length > 0) {
+                firstFiveSpans = spanMatches.slice(0, 5).map(span => {
+                    if (span.includes('elGi1d')) {
+                        return `<span class="google-symbols elGi1d" style="color: #ffba25;">&#9733;</span>`;
+                    } else if (span.includes('gnOR4e')) {
+                        return `<span class="google-symbols gnOR4e" style="color:#e3e3e3;">&#9734;</span>`;
+                    } else {
+                        return ''; 
+                    }
+                }).join('');
+            }
+
+            const modifiedStarsHtml = `<span class="kvMYJc" role="img" aria-label="5 stars">${firstFiveSpans}</span>`;
+            const shortRating = review.rating.length > 210 ? review.rating.substring(0, 210) + '...' : review.rating;
+            $("#feedback_notice").append(`
+                <div class="item">
+                    <div class="feedbackbox wow fadeInDown">
+                        <div class="quote-bg">
+                            <p>${initials}</p>
+                        </div>
+                        <div><img src="${review.profile_image_url}" alt="" title=""></div>
+                        <p>${shortRating}</p>
+                        <div class="stars" style="font-size: 1.5rem;">${modifiedStarsHtml}</div>
+                        <h3>- ${review.reviewer_name}</h3>
+                    </div>
+                </div>
+            `);
+            i++;
+        }
+        document.getElementById('loading').style.display = 'none';
+
+        if ($(".customerfeedback-slider").hasClass('slick-initialized')) {
+            $(".customerfeedback-slider").slick('unslick');
+        }
+
+        $(".customerfeedback-slider").slick({
+            infinite: false,
+            autoplay: false,
+            rows: 1,
+            autoplaySpeed: 4000,
+            speed: 500,
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            dots: true,
+            pauseOnHover: false,
+            arrows: true,
+            adaptiveHeight: true, 
+            cssEase: 'linear',
+            swipeToSlide: true,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 2,
+                        dots: true,
+                        arrows: false,
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 2,
+                        arrows: false,
+                        dots: true,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 2,
+                        dots: true,
+                        arrows: false,
+                    }
+                },
+            ]
+        });
+
+        $(".customerfeedback-slider").slick('setPosition');
+
+    } catch (error) {
+        console.error('Failed to fetch reviews:', error);
+          document.getElementById('loading').style.display = 'none';
+      }
+  }
+
+  window.addEventListener('load', fetchReviews);
+
+
+
+function generateStars(count) {
+    let stars = '';
+    for (let i = 0; i < count; i++) {
+        stars += '<span class="star">&#9733;</span>'; 
+    }
+    return stars;
+}
+
+
+
+
+$(document).ready(function () {
+    async function fetchClusteringDetails() {
+        try {
+            const response = await $.ajax({
+                url: `{% url 'ClusteringDetails' %}`,
+                type: 'GET',
+                dataType: 'json',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken')
+                }
+            });
+
+            if (response.status === 'success') {
+                processClusteringData(response.data);
+            } else {
+                console.error('Error:', response.message);
+            }
+        } catch (error) {
+            console.error('Request failed:', error);
+        }
+    }
+
+
+    // random code 
+    function shuffleArray(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [array[i], array[j]] = [array[j], array[i]]; 
+          }
+      }
+
+  function processClusteringData(data) {
+      var combinedData = [].concat(
+            data.accessories.cushion || [],
+            data.accessories.remote || [],
+            data.accessories.powersupply || [],
+            data.accessories.cable || [],
+            data.accessories.carrycase || [],
+            data.accessories.adapter || [],
+            data.accessories.others || []
+        );
+
+              shuffleArray(combinedData);
+
+      for (let i = 0; i < Math.min(combinedData.length, 6); i++) {
+              let starsHTML = '';
+              let reviewCountHTML = '';
+              if (combinedData[i].average_rating > 0) {
+                
+                  starsHTML = generateStars(combinedData[i].average_rating); 
+                  reviewCountHTML = `<span>(${combinedData[i].review_count})</span>`; 
+              }
+
+      $("#accessories_header").append(`
+          <div class="col-12 col-sm-12 col-md-4 col-lg-4 product">
+            <div class="accessbox">
+              <div class="col-6 col-md-5"><a href="#accessories_list" class="product_details_acc" id="product_details" data-filters="${combinedData[i].category}"  data-id="${combinedData[i].id}" data-idss="${combinedData[i].slug}"> <img src="${combinedData[i].image1}" alt="carry case" title="carry case" class="img-fluid"> </div>
+              <div class="col-6 col-md-7 pd-0">
+                <h3>${combinedData[i].title}</h3>
+                <h4> <i class="bi bi-currency-rupee"></i>${combinedData[i].price}</h4>
+                  <div class="stars"> 
+                      ${starsHTML} ${reviewCountHTML}
+                  </div>
+                <div class="icon-other"> 
+                </a>
+
+                <div>
+
+                  <button type="button" class="accessories_add" data-id="${combinedData[i].id}">
+                    <i class="bi bi-cart-plus tooltipcart"><span class="tooltiptextcart">Add to Cart</span></i>
+                  </button>
+
+              </div>
+
+                <div class="d-flex gap-2"> 
+                  
+                   <button type="button" class="accessories_wish" data-id="${combinedData[i].id}">
+                    <i class="bi bi-heart tooltipcart"><span class="tooltiptextcart">Add to Wishlist</span></i>
+                  </button>
+
+                    <a href="#accessories_list" class="product_details_acc" id="product_details" data-filters="${combinedData[i].category}"  data-id="${combinedData[i].id}" data-idss="${combinedData[i].slug}">
+                      <i class="bi bi-eye tooltipcart"><span class="tooltiptextcart">Quick View</span></i>
+                    </a> 
+                </div>
+                    
+              </div>
+            </div>
+          </div>
+        </div>
+        `)
+      }
+
+
+
+      $(".accessories_wish").on('click',function(){
+        let data_id = $(this).data('id'); 
+
+
+        $.ajax({
+        url: '/check_user_logged_in',
+        type: 'GET',
+        success: function(response) {
+            if (response.logged_in) {
+
+        $.ajax({
+            url: '/add-to-wishlist/',
+            type: 'POST', 
+            data: {
+                'item_id': data_id, 
+                'csrfmiddlewaretoken': $('input[name="csrfmiddlewaretoken"]').val() 
+            },
+              success: function(response) {
+                if (response.status == 200) {
+
+                    toastr.success('Item added to wishlist!', 'Success', {
+                        positionClass: 'toast-top-right',
+                        timeOut: 3000,
+                        fadeOut: 1000,
+                        closeButton: true,
+                        progressBar: true,
+                        extendedTimeOut: 1000
+                    });
+
+                      let currentCount = parseInt($(".countnumbernew").text()) || 0;
+                      $(".countnumbernew").text(currentCount + 1);
+
+                      }
+                    else {
+                    toastr.options = {
+                      closeButton: true,
+                      debug: false,
+                      newestOnTop: true,
+                      progressBar: true,
+                      positionClass: "toast-top-right",
+                      preventDuplicates: true,
+                      onclick: null,
+                      showDuration: 300,
+                      hideDuration: 300,
+                      timeOut: 1000,
+                      extendedTimeOut: 1000,
+                      showEasing: "swing",
+                      hideEasing: "linear",
+                      showMethod: "slideDown",
+                      hideMethod: "slideUp",
+                    };
+                    toastr.error('Item already in wishlist.');
+                  }
+               
+              },
+              error: function(xhr, status, error) {
+                  console.error('Error adding item to wishlist:', error);
+              }
+          });
+
+        }
+        else{
+          window.location.href=`/login`
+        }
+      }
+    })
+
+        
+
+      });
+
+      function incrementWishlistCount() {
+        var countElement = $('.header-cart-wish').find('.countnumbernew');
+        var currentCount = parseInt(countElement.text(), 10) || 0;
+        countElement.text(currentCount + 1); 
+    }
+
+
+
+    function generateStars(rating) {
+      let starsHtml = '';
+      for (let i = 1; i <= 5; i++) {
+          starsHtml += i <= rating 
+              ? '<i class="bi bi-star-fill" aria-hidden="true"></i>' 
+                : '<i class="bi bi-star" aria-hidden="true"></i>';
+        }
+        return starsHtml;
+    }
+
+    function generateReviewStarHTML(starsHtml, reviewCount) {
+        return `
+            ${starsHtml}
+            <span class="total-reviws">${reviewCount} reviews  | <a href="#gotoreview"> Write your review </a></span>
+        `;
+    }
+
+      $(document).on('click', '.product_details_acc', function(event) {
+            event.preventDefault();
+            const itemId = $(this).data('id');
+            let slug_id=$(this).data('idss')
+            let accessories_title=$(this).data('filters')
+            window.location.href = `/bose-products/${slug_id}/?item_id=${itemId}`;
+        });
+
+
+
+
+          $(".accessories_add").on('click',function(){
+
+              let formdata=new FormData()
+              let access_id=$(this).data('id')
+              formdata.append('item_id',access_id)
+              formdata.append('quantity',1)
+
+              $.ajax({
+                url: '/check_user_logged_in',
+                type: 'GET',
+                success: function(response) {
+                if (response.logged_in) {
+                    $.ajax({
+                      url: `{% url 'add_to_card' %}`,
+                      type: 'POST',
+                      data: formdata,
+                      processData: false, 
+                      contentType: false,
+                      success: function(response) {
+                        if(response.status==404){
+                          console.error('please try again')
+                        }
+                        else if (response.status === 'error' && response.message) {
+
+                          toastr.options = {
+                              closeButton: true,
+                              debug: false,
+                              newestOnTop: true,
+                              progressBar: true,
+                              positionClass: "toast-top-right",
+                              preventDuplicates: true,
+                              onclick: null,
+                              showDuration: 300,
+                              hideDuration: 300,
+                              timeOut: 1000,
+                              extendedTimeOut: 1000,
+                              showEasing: "swing",
+                              hideEasing: "linear",
+                              showMethod: "slideDown",
+                              hideMethod: "slideUp",
+                          };
+                            toastr.error('Item already in cart.');
+                            }
+                          else {
+                            toastr.options = {
+                                closeButton: true,
+                                debug: false,
+                                newestOnTop: true,
+                                progressBar: true,
+                                positionClass: "toast-top-right",
+                                preventDuplicates: true,
+                                onclick: null,
+                                showDuration: 500,
+                                hideDuration: 500, 
+                                timeOut: 2000, 
+                                extendedTimeOut: 1000,
+                                showEasing: "swing", 
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "slideUp", 
+                            };
+                            toastr.success('Item added to cart!');
+                            let currentCount = parseInt($(".countnumber").text()) || 0;
+                            $(".countnumber").text(currentCount + 1);
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                        toastr.options = {
+                          closeButton: true,
+                          debug: false,
+                          newestOnTop: true,
+                          progressBar: true,
+                          positionClass: "toast-top-right",
+                          preventDuplicates: true,
+                          onclick: null,
+                          showDuration: 300,
+                          hideDuration: 300,
+                          timeOut: 1000,
+                          extendedTimeOut: 1000,
+                          showEasing: "swing",
+                          hideEasing: "linear",
+                          showMethod: "slideDown",
+                            hideMethod: "slideUp",
+                        };
+                        toastr.error('Item already in cart.');
+                    }
+                      });
+                    }
+                    else{
+                    window.location.href=`/login`
+
+                  }
+                }
+              });
+          });
+
+
+
+            $("#accessories_view").on('click',function(){
+              let title=$(this).data('filter');
+              window.location.href = `https://www.boseservicecenter.co.in/products-category?filter=${title}`;
+            })
+
+
+              var sale_speakers = [].concat(
+                    data.speaker.portablebluetooth || [],
+                    data.speaker.homecinema || [],
+                    data.speaker.soundbars || [],
+                    data.speaker.stereo || [],
+                    data.speaker.computerspeaker || [],
+                    data.speaker.portablepa || [],
+                    data.speaker.homeaudio || []
+                );
+
+                shuffleArray(sale_speakers);
+
+                for (let i = 0; i < Math.min(sale_speakers.length, 6); i++) {
+                  let starsHTML = '';
+                  let reviewCountHTML = '';
+
+                  if (sale_speakers[i].average_rating > 0) {
+                   
+                      starsHTML = generateStars(sale_speakers[i].average_rating);  
+                      reviewCountHTML = `<span>(${sale_speakers[i].review_count})</span>`; 
+                  }
+
+
+                  
+
+                  $("#speaker_header").append(`
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 article-box">
+                            <div class="salebox">
+                              <div class="col-6 col-md-5"><a href="#sale_list" class="sale_speaker" data-filters="${sale_speakers[i].category}" data-ids="${sale_speakers[i].id}" data-idss="${sale_speakers[i].slug}"><img src="${sale_speakers[i].image1}" alt="Bose S1 Pro Portable Bluetooth" title="Bose S1 Pro Portable Bluetooth" class="img-fluid article-img"></div>
+                                <div class="col-6 col-md-7 pd-0">
+                                  <h3>${sale_speakers[i].title}</h3>
+                                  <h4> <i class="bi bi-currency-rupee"></i>${sale_speakers[i].price}</h4>
+                                  <div class="stars"> 
+                                      ${starsHTML} ${reviewCountHTML}
+                                  </div>
+                                  <div class="icon-other">
+                                  </a>
+
+                                  <div> 
+                                      <button type="button" class="sale_speakers_add" data-id="${sale_speakers[i].id}">
+                                        <i class="bi bi-cart-plus tooltipcart"><span class="tooltiptextcart">Add to Cart</span></i>
+                                      </button>
+                                  </div>
+
+
+                                  <div class="d-flex gap-2"> 
+                              
+                                    <button type="button" class="speaker_wish" data-id="${sale_speakers[i].id}">
+                                      <i class="bi bi-heart tooltipcart"><span class="tooltiptextcart">Add to Wishlist</span></i>
+                                    </button>
+                                     
+                              
+                                    <button type="button" class="sale_speaker" data-filters="${sale_speakers[i].category}" data-ids="${sale_speakers[i].id}" data-idss="${sale_speakers[i].slug}">
+                                      <i class="bi bi-eye tooltipcart"><span class="tooltiptextcart">Quick View</span></i>
+                                    </button>
+                                    
+                                    </div>
+                                    
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      `)
+                  }
+
+
+            $(".speaker_wish").on('click',function(){
+              let data_id = $(this).data('id'); 
+
+
+              $.ajax({
+                url: '/check_user_logged_in',
+                type: 'GET',
+                success: function(response) {
+                if (response.logged_in) {
+                  $.ajax({
+                  url: '/add-to-wishlist/',
+                  type: 'POST', 
+                  data: {
+                    'item_id': data_id, 
+                    'csrfmiddlewaretoken': $('input[name="csrfmiddlewaretoken"]').val() 
+                      },
+                      success: function(response) {
+                      if (response.status == 200) {
+                        toastr.success('Item added to wishlist!', 'Success', {
+                            positionClass: 'toast-top-right',
+                            timeOut: 3000,
+                            fadeOut: 1000,
+                            closeButton: true,
+                            progressBar: true,
+                            extendedTimeOut: 1000
+                          });
+
+                          let currentCount = parseInt($(".countnumbernew").text()) || 0;
+                          $(".countnumbernew").text(currentCount + 1);
+
+                        }
+                          else {
+                          toastr.options = {
+                                closeButton: true,
+                                debug: false,
+                                newestOnTop: true,
+                                progressBar: true,
+                                positionClass: "toast-top-right",
+                                preventDuplicates: true,
+                                onclick: null,
+                                showDuration: 300,
+                                hideDuration: 300,
+                                timeOut: 1000,
+                                extendedTimeOut: 1000,
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "slideUp",
+                              };
+                              toastr.error('Item already in wishlist.');
+                          }
+                        },
+                          error: function(xhr, status, error) {
+                              console.error('Error adding item to wishlist:', error);
+                            }
+                        });
+
+                          }
+                      else{
+                        window.location.href=`/login`
+                      }
+                    }
+                  })
+
+            })
+
+
+
+        $(document).on('click', '.sale_speaker', function(event) {
+              event.preventDefault(); 
+              const itemId = $(this).data('ids'); 
+              let slug_id=$(this).data('idss')
+              let category_title=$(this).data('filters')
+
+              window.location.href = `/bose-products/${slug_id}/?item_id=${itemId}`;
+          });
+
+
+        $(".sale_speakers_add").on('click', function() {
+            let formdata = new FormData();
+            let access_id = $(this).data('id');
+            formdata.append('item_id', access_id);
+            formdata.append('quantity', 1);
+
+            $.ajax({
+            url: '/check_user_logged_in',
+            type: 'GET',
+            success: function(response) {
+            if (response.logged_in) {
+
+            $.ajax({
+                url: `{% url 'add_to_card' %}`,
+                type: 'POST',
+                data: formdata,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                if (response.status == 404) {
+                    console.error('Please try again');
+                } 
+                else if (response.status === 'error' && response.message) {
+
+                      toastr.options = {
+                          closeButton: true,
+                          debug: false,
+                          newestOnTop: true,
+                          progressBar: true,
+                          positionClass: "toast-top-right",
+                          preventDuplicates: true,
+                          onclick: null,
+                          showDuration: 300,
+                          hideDuration: 300,
+                          timeOut: 1000,
+                          extendedTimeOut: 1000,
+                          showEasing: "swing",
+                          hideEasing: "linear",
+                          showMethod: "slideDown",
+                          hideMethod: "slideUp",
+                      };
+                        toastr.error('Item already in cart.');
+                        }
+                      else {
+                        toastr.options = {
+                                closeButton: true,
+                                debug: false,
+                                newestOnTop: true,
+                                progressBar: true,
+                                positionClass: "toast-top-right",
+                                preventDuplicates: true,
+                                onclick: null,
+                                showDuration: 500,
+                                hideDuration: 500, 
+                                timeOut: 2000, 
+                                extendedTimeOut: 1000,
+                                showEasing: "swing", 
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "slideUp", 
+                            };
+                                toastr.success('Item added to cart!');
+                                let currentCount = parseInt($(".countnumber").text()) || 0;
+                                $(".countnumber").text(currentCount + 1);
+                                }
+                            },
+
+                              error: function (xhr, status, error) {
+                                toastr.options = {
+                                  closeButton: true,
+                                  debug: false,
+                                  newestOnTop: true,
+                                  progressBar: true,
+                                  positionClass: "toast-top-right",
+                                  preventDuplicates: true,
+                                  onclick: null,
+                                  showDuration: 300,
+                                  hideDuration: 300,
+                                  timeOut: 1000,
+                                  extendedTimeOut: 1000,
+                                  showEasing: "swing",
+                                  hideEasing: "linear",
+                                  showMethod: "slideDown",
+                                    hideMethod: "slideUp",
+                                };
+                                    toastr.error('Item already in cart.');
+                                }
+                              });
+
+                            }
+                  else{
+                    window.location.href=`/login`
+                  }
+                }
+              });
+
+        });
+
+
+              $("#speaker_view").on('click',function(){
+                    let title=$(this).data('filter');
+                    window.location.href = `https://www.boseservicecenter.co.in/products-category?filter=${title}`;
+                })
+
+
+                  var sale_headphones = [].concat(
+                      data.headphone.wireless || [],
+                      data.headphone.noisecancelling || [],
+                      data.headphone.earbuds || []
+                    );
+
+                    shuffleArray(sale_headphones);
+
+                  // for(let i=0;i<sale_headphones.length;i++){
+                  for (let i = 0; i < Math.min(sale_headphones.length, 6); i++) {
+
+                    let starsHTML = '';
+                    let reviewCountHTML = '';
+
+                    if (sale_headphones[i].average_rating > 0) {
+                        starsHTML = generateStars(sale_headphones[i].average_rating);  
+                        reviewCountHTML = `<span>(${sale_speakers[i].review_count})</span>`; 
+                    }
+
+                    $("#headphone_headers").append(`
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                            <div class="hombox">
+                              <div class="col-6 col-md-5"><a href="#headphone_list" class="sale_headphone" data-filters="${sale_headphones[i].category}" data-ids="${sale_headphones[i].id}" data-idss="${sale_headphones[i].slug}"> <img src="${sale_headphones[i].image1}" alt="Bose Sport Earbuds" title="Bose Sport Earbuds" class="img-fluid"> </div>
+                              <div class="col-6 col-md-7 pd-0">
+                                <h3>${sale_headphones[i].title}</h3>
+                                <h4> <i class="bi bi-currency-rupee"></i> ${sale_headphones[i].price}</h4>
+                                <div class="stars"> 
+                                    ${starsHTML} ${reviewCountHTML}
+                                </div>
+                                <div class="icon-other">
+                                </a>
+
+                                <div> 
+                                   <button type="button" class="sale_headphone_add" data-id="${sale_headphones[i].id}">
+                                      <i class="bi bi-cart-plus tooltipcart"><span class="tooltiptextcart">Add to Cart</span></i>
+                                   </button>
+                                </div>
+                                  
+                                <div class="d-flex gap-2"> 
+
+                                  <button type="button" class="headphone_click" data-id="${sale_headphones[i].id}">
+                                    <i class="bi bi-heart tooltipcart"><span class="tooltiptextcart">Add to Wishlist</span></i>
+                                  </button>
+                                  
+                                  <button type="button" class="sale_headphone" data-filters="${sale_headphones[i].category}" data-ids="${sale_headphones[i].id}" data-idss="${sale_headphones[i].slug}">
+                                    <i class="bi bi-eye tooltipcart"><span class="tooltiptextcart">Quick View</span></i>
+                                  </button> 
+
+                                </div>
+                                    
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    
+                  `)
+
+                  }
+
+
+        $(".headphone_click").on('click',function(){
+            let data_id = $(this).data('id'); 
+
+            $.ajax({
+            url: '/check_user_logged_in',
+            type: 'GET',
+            success: function(response) {
+            if (response.logged_in) {
+
+            $.ajax({
+            url: '/add-to-wishlist/',
+            type: 'POST', 
+            data: {
+              'item_id': data_id, 
+              'csrfmiddlewaretoken': $('input[name="csrfmiddlewaretoken"]').val() 
+            },
+            success: function(response) {
+            if (response.status == 200) {
+    
+                toastr.success('Item added to wishlist!', 'Success', {
+                    positionClass: 'toast-top-right',
+                    timeOut: 3000,
+                    fadeOut: 1000,
+                    closeButton: true,
+                    progressBar: true,
+                    extendedTimeOut: 1000
+                });
+
+                  let currentCount = parseInt($(".countnumbernew").text()) || 0;
+                  $(".countnumbernew").text(currentCount + 1);
+
+                  }
+                else {
+                toastr.options = {
+                  closeButton: true,
+                  debug: false,
+                  newestOnTop: true,
+                  progressBar: true,
+                  positionClass: "toast-top-right",
+                  preventDuplicates: true,
+                  onclick: null,
+                  showDuration: 300,
+                  hideDuration: 300,
+                  timeOut: 1000,
+                  extendedTimeOut: 1000,
+                  showEasing: "swing",
+                  hideEasing: "linear",
+                  showMethod: "slideDown",
+                  hideMethod: "slideUp",
+                };
+                toastr.error('Item already in wishlist.');
+              }
+            },
+              error: function(xhr, status, error) {
+                console.error('Error adding item to wishlist:', error);
+              }
+            });
+
+          }
+          else{
+            window.location.href=`/login`
+          }
+        }
+      })
+
+    })
+
+
+
+            $(document).on('click', '.sale_headphone', function(event) {
+              event.preventDefault(); 
+              const itemId = $(this).data('ids'); 
+              let slug_id=$(this).data('idss')
+                  let sale_headphone = $(this).data('filters')
+                  window.location.href = `/bose-products/${slug_id}/?item_id=${itemId}`;
+
+              });
+
+
+
+              $(".sale_headphone_add").on('click',function(){
+
+                    let formdata=new FormData()
+                    let access_id=$(this).data('id')
+                    formdata.append('item_id',access_id)
+                    formdata.append('quantity',1)
+                    $.ajax({
+                      url: '/check_user_logged_in',
+                      type: 'GET',
+                      success: function(response) {
+                      if (response.logged_in) {
+                      $.ajax({
+                      url: `{% url 'add_to_card' %}`,
+                      type: 'POST',
+                      data: formdata,
+                      processData: false, 
+                      contentType: false,
+                      success: function(response) {
+                          if(response.status==404){
+                            console.error('please try again')
+                          }
+                              
+                        else if (response.status === 'error' && response.message) {
+                              toastr.options = {
+                              closeButton: true,
+                              debug: false,
+                              newestOnTop: true,
+                              progressBar: true,
+                              positionClass: "toast-top-right",
+                              preventDuplicates: true,
+                              onclick: null,
+                              showDuration: 300,
+                              hideDuration: 300,
+                              timeOut: 1000,
+                              extendedTimeOut: 1000,
+                              showEasing: "swing",
+                              hideEasing: "linear",
+                              showMethod: "slideDown",
+                              hideMethod: "slideUp",
+                              };
+                            toastr.error('Item already in cart.');
+                            }
+                          else {
+                            toastr.options = {
+                                closeButton: true,
+                                debug: false,
+                                newestOnTop: true,
+                                progressBar: true,
+                                positionClass: "toast-top-right",
+                                preventDuplicates: true,
+                                onclick: null,
+                                showDuration: 500,
+                                hideDuration: 500, 
+                                timeOut: 2000, 
+                                extendedTimeOut: 1000,
+                                showEasing: "swing", 
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "slideUp", 
+                            };
+                            toastr.success('Item added to cart!');
+                            let currentCount = parseInt($(".countnumber").text()) || 0;
+                            $(".countnumber").text(currentCount + 1);
+                            }
+                        },
+                          error: function (xhr, status, error) {
+                                toastr.options = {
+                                  closeButton: true,
+                                  debug: false,
+                                  newestOnTop: true,
+                                  progressBar: true,
+                                  positionClass: "toast-top-right",
+                                  preventDuplicates: true,
+                                  onclick: null,
+                                  showDuration: 300,
+                                  hideDuration: 300,
+                                  timeOut: 1000,
+                                  extendedTimeOut: 1000,
+                                  showEasing: "swing",
+                                  hideEasing: "linear",
+                                  showMethod: "slideDown",
+                                    hideMethod: "slideUp",
+                                };
+                                toastr.error('Item already in cart.');
+                            }
+                        });
+
+                      }
+                      else{
+                        window.location.href=`/login`
+                      }
+                    }
+                  });
+
+
+            });
+
+
+                      $("#headphone_view").on('click',function(){
+                            let title=$(this).data('filter');
+                            window.location.href = `https://www.boseservicecenter.co.in/products-category?filter=${title}`;
+                        })
+
+
+            }
+
+          fetchClusteringDetails();
+
+        function getCookie(name) {
+              let cookieValue = null;
+              if (document.cookie && document.cookie !== '') {
+                  const cookies = document.cookie.split(';');
+                  for (let i = 0; i < cookies.length; i++) {
+                      const cookie = cookies[i].trim();
+                      // Check if this cookie string begins with the name we want
+                      if (cookie.substring(0, name.length + 1) === name + '=') {
+                          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+        return cookieValue;
+    }
+});
+
+
+})
+
+</script>
+
+
+  {% endblock %}

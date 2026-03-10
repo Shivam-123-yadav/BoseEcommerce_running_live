@@ -1,0 +1,2107 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block meta %}
+<meta charset="utf-8">
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="google-site-verification" content="NwrpN14CEh2EPcUnTo15852IZkXdnJS1Wla3nfPxL5c" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Bose Service Centre | Bose Repair Service Centre</title>
+<meta name="keywords" content="Bose Service Center in Mumbai, Bose Service Center in Andheri, Bose Service Center in Thane, Bose Service Center in Churchgate, Bose Service Center in Marine Lines, Bose Service Center in Charni Road, Bose Service Center in Grant Road, Bose Service Center in Mumbai Central, Bose Service Center in Mahalakshmi, Bose Service Center in Lower Parel, Bose Service Center in Elphinstone Road, Bose Service Center in Dadar , Bose Service Center in Matunga  Road, Bose Service Center in Mahim , Bose Service Center in Bandra, Bose Service Center in Khar, Bose Service Center in Santa Cruz, Bose Service Center in Ville Parle, Bose Service Center in Andheri, Bose Service Center in Jogeshwari, Bose Service Center in Goregaon, Bose Service Center in Malad, Bose Service Center in Kandivli, Bose Service Center in Borivali, Bose Service Center in  Dahisar, Bose Service Center in Mira Road, Bose Service Center in Bhayandar, Bose Service Center in Naigaon, Bose Service Center in  Vasai Road, Bose Service Center in Nalla Sopara, Bose Service Center in Virar, Bose Service Center in Palghar">
+<meta name="description" content="Get you bose speaker repaired at your comfort. Enjoy bose speaker service in the comfort of your place, our experts will reach your location to ensure hassle-free service.">
+<!-- For IE -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+<link rel="canonical" href="https://boseservicecenter.co.in/appointment_form" />
+<link rel="preload" as="image" href="{% static 'images/service-page-banner.jpg' %}" fetchpriority="high">
+<link rel="preload" as="image" href="{% static 'images/home-banner1.jpg' %}" fetchpriority="high">
+<meta name="title" content="Bose Service Centre | Bose Repair Service Centre"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Bose Service Centre | Bose Repair Service Centre | Buy Bose Products">
+<meta property="og:url" content="https://boseservicecenter.co.in/appointment_form" />
+<meta property="og:site_name" content="Bose Service Centre | Bose Repair Service Centre | Buy Bose Products" />
+<meta property="og:description" content="Get you bose speaker repaired at your comfort. Enjoy bose speaker service in the comfort of your place, our experts will reach your location to ensure hassle-free service." />
+<meta property="og:image" content="https://boseservicecenter.co.in/static/images/home-banner2.jpg" />
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Bose Service Center" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Bose Service Centre | Bose Repair Service Centre | Buy Bose Products" />
+<meta name="twitter:description" content="Get you bose speaker repaired at your comfort. Enjoy bose speaker service in the comfort of your place, our experts will reach your location to ensure hassle-free service." />
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<head>
+  <style>
+    .blinking-border {
+          border: 1px solid red;
+          box-shadow: 0 0 1px white;
+          animation: blink 1s infinite;
+      }
+
+    @keyframes blink {
+        0% { border-color: red; }
+        50% { border-color: transparent; }
+        100% { border-color: red; }
+    }
+
+
+    .service_unavailable{
+      font-size: 11px;
+      color: red;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 112px;
+      margin-top: -5px;
+    }
+
+    @media (max-width: 768px) {
+      .service_unavailable{
+        padding-left: 0;
+      }
+
+      #error_date {padding-left: 0px !important; top: -6px !important;}
+      #error_time_slot {padding-left: 5px !important; top: 2px !important;}
+    }
+
+    .time-slot.disabled {
+          pointer-events: none; /* Prevent click interactions */
+          color: gray;
+          opacity: 0.5;
+          cursor: not-allowed;
+      }
+
+
+      #error_name,#error_email,#errro_mobile,#error_address,#error_all_field{
+        font-size: .7rem;
+        color: red;
+        display: flex
+      }
+
+    .disablebtn
+      {
+      float: right;
+        top: 16px;
+        position: relative;
+        right: 21px;
+      }
+
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+
+  
+</head>
+
+
+<section class="" id="innerpage">
+  <div class="container-fluid nopadding">
+    <div class="innwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center mt-0 mb-0">
+          <div class="product-slider">
+            {% comment %} <div class="item"> <img src="{% static 'images/banners/appointment-form.jpg' %}" id="appointment_form_make" alt="About" class="img-fluid aboutbg"> {% endcomment %}
+            <div class="item"> <img src="{% static 'images/banners/webp/appointment-form.webp' %}" id="appointment_form_make" alt="About" class="img-fluid aboutbg">
+              <div class="boxwhite boxwhitenew wow fadeInDown">
+                <div id="finalFilterValue"  class="titleinner">Appointment Form <span></span> </div>
+                {% comment %} <h2 id="finalFilterValue">Appointment Form <span></span> </h2> {% endcomment %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="appointmentpage">
+  <div class="container">
+    <div class="appontwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="visit-service-tab" data-bs-toggle="pill" data-bs-target="#visit-service" type="button" role="tab" aria-controls="pills-home" aria-selected="true">   <i class="bi bi-calendar-check"></i> &nbsp; Book Your Service</button>
+            </li>
+ 
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="visit-service" role="tabpanel" aria-labelledby="visit-service-tab" tabindex="0">
+              <div class="container overflow-hidden">
+                <div class="multisteps-form">
+                  <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12 ml-auto mr-auto mb-4">
+                      <div class="multisteps-form__progress">
+                        <button class="multisteps-form__progress-btn js-active" type="button" title="Device">Device</button>
+                        <button class="multisteps-form__progress-btn" type="button" title="Problem" name="problem_error">Problem</button>
+                        <button class="multisteps-form__progress-btn" type="button" title="Sevice Center" name="service_error">Sevice Center</button>
+                        <button class="multisteps-form__progress-btn" type="button" title="Information" name="information_error">Information </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-12 col-lg-12 m-auto">
+                      <form class="multisteps-form__form">
+                        <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
+                          <h3 class="multisteps-form__title">Select Your Device</h3>
+                          <div class="multisteps-form__content">
+                            <div class="form-row mt-4">
+                              <div class="col">
+                                <div class="container-radio">
+                                  <input type="radio" name="os" id="os-android" value="Portable Speakers">
+                                  <input type="radio" name="os" id="os-ios" value="Sound Bar">
+                                  <input type="radio" name="os" id="os-ios1" value="Home Theater">
+                                  <input type="radio" name="os" id="os-ios2" value="Cushions Replacement">
+                                  <label for="os-android" class="os-android" tabindex="0">
+                                  <div class="tick"></div>
+                                  <span id="portable_speaker">Portable Speakers</span>
+                                  </label>
+                                  <label for="os-ios" class="os-ios" tabindex="0">
+                                  <div class="tick"></div>
+                                  <span>Sound Bar</span>
+                                  </label>
+                                  <label for="os-ios1" class="os-ios1" tabindex="0">
+                                  <div class="tick"></div>
+                                  <span>Home Theater</span>
+                                  </label>
+                                  <label for="os-ios2" class="os-ios2" tabindex="0">
+                                  <div class="tick"></div>
+                                  <span>Cushions Replacement</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="button-row d-flex mt-4">
+                              <button class="btn btn-primary ml-auto js-btn-next" name="device_name" type="button" title="Next"> Next <i class="bi bi-arrow-right"> </i></button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                          <h3 class="multisteps-form__title">Device Probelm</h3>
+                          <div class="multisteps-form__content">
+                            <div class="form-row mt-2">
+                              <div class="col">
+                                <div class="field-wrapper">
+                                  <textarea class="custom-textarea" placeholder="Write Bose Product Issue"></textarea>
+                                </div>
+                                <span id="bose_products_error_handle" style="font-size: .7rem;color: red;display: flex;margin-left: 5px;"></span>
+                              </div>
+                            </div>
+                            <div class="form-row mt-2">
+                              <div class="col">
+                                <div class="field-wrapper">
+                                  <label for="srNumber">Serial Number (Optional)</label>
+                                  <input type="text" name="srNumber" value="" id="srNumber" class="text-field-input">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="button-row d-flex mt-4">
+                              <button class="btn btn-primary js-btn-prev" type="button" title="Prev"> <i class="bi bi-arrow-left"></i> Prev </button>
+                              <!-- <button class="btn btn-primary ml-auto js-btn-next" name="problem_issue" type="button" title="Next">Next <i class="bi bi-arrow-right"></i></button> -->
+                              <button class="btn btn-primary ml-auto" name="problem_issue" type="button" title="Next">Next <i class="bi bi-arrow-right"></i></button>
+                          
+                            </div>
+                          </div>
+                        </div>
+                        <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                          <h3 class="multisteps-form__title">Select Service Center</h3>
+               
+                          <div class="multisteps-form__content">
+                            <div class="form-row mt-4">
+                              <div class="col">
+                                <div class="container-radio-city">
+                                  <input type="radio" name="service_center" id="os-andheri" value="Andheri">
+                                  <input type="radio" name="service_center" id="os-dadar" value="Dadar">
+                                  <input type="radio" name="service_center" id="os-thane" value="Thane">
+                                  <label for="os-andheri" class="os-andheri" tabindex="0">
+                                  <div class="dot"></div>
+                                  <span>Andheri</span>
+                                  </label>
+                                  <label for="os-dadar" class="os-dadar" tabindex="0">
+                                  <div class="dot"></div>
+                                  <span>Dadar</span>
+                                  </label>
+                                  <label for="os-thane" class="os-thane" tabindex="0">
+                                  <div class="dot"></div>
+                                  <span>Thane</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="button-row d-flex mt-4">
+                              <button class="btn btn-primary js-btn-prev" type="button" title="Prev"> <i class="bi bi-arrow-left"></i> Prev </button>
+                              <button class="btn btn-primary ml-auto js-btn-next" name="service_center" type="button" title="Next">Next <i class="bi bi-arrow-right"></i></button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                          <h3 class="multisteps-form__title">Add Your Information</h3>
+                          <div class="multisteps-form__content">
+                            <div class="row">
+                              <div class="col-12 col-md-6 mt-4">
+                                <div class="form-row mt-2">
+                                  <div class="col">
+                                    <div class="field-wrapper">
+                                      <label for="name">Name</label>
+                                      <input type="text" name="name" value="" id="name" class="text-field-input customer_name">
+                                      <span id="error_name"></span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-row mt-2">
+                                  <div class="col">
+                                    <div class="field-wrapper">
+                                      <label for="email">Email</label>
+                                      <input type="email" name="email"  value="" id="email" class="text-field-input customer_email">
+                                      <span id="error_email"></span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-row mt-2">
+                                  <div class="col">
+                                    <div class="field-wrapper">
+                                      <label for="mobile">Mobile</label>
+                                      <input type="text" name="mobile" value="" id="mobile" class="text-field-input customer_mobile">
+                                      <span id="errro_mobile"></span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-row mt-2">
+                                  <div class="col">
+                                    <div class="field-wrapper">
+                                      <textarea class="custom-textarea" placeholder="Address" name="customer_address"></textarea>
+                                      <span id="error_address"></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            
+                              <div class="col-12 col-md-6 mt-4">
+                                <div id="mainvisit">
+                                  <span id="loader" style="display: none; font-size: 22px; color:green; font-weight: 600; ">Processing...</span>
+                                  <div class="button dropdown">
+                                    <select id="colorselector" tabindex="0" name="select_box_op">
+                                      <option value="" selected disabled>Select Your Service</option>
+                                      <option value="red">Service Centre Visit</option>
+                                      <option value="yellow" id="onsite_visit_disabled">Onsite Visit (₹2360.00)</option> 
+                                      {% comment %} <option value="yellow" id="onsite_visit_disabled">Onsite Visit (₹2360.00)</option>  {% endcomment %}
+                                    </select>
+                                  </div>
+
+                                  <!-- <div class="loader-wrapper" style="display: none;">
+                                    <img src="{% static 'images/animationloader.gif' %}" alt="loader" style="width: 80px;">
+                                  </div> -->
+
+                                  <div class="red_class">
+
+                                  </div>
+
+
+                                  <div class="yellow_class">
+
+                                  </div>
+
+
+                                
+                               
+                                </div>
+                                <!-- mainvisit end --> 
+                              </div>
+                              <!-- col-12 col-md-6 end --> 
+                       
+                              
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="button-row d-flex mt-4 col-12">
+                              <button class="btn btn-primary js-btn-prev" type="button" title="Prev"> <i class="bi bi-arrow-left"></i> Prev </button>
+								
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+          <!-- tab-content end --> 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+
+    $(document).ready(function(){
+
+
+
+      if(window.location.pathname==='/appointment_form'){
+     //   const dynamicImageSrc = `/static/images/banners/appointment-form.jpg`;
+        const dynamicImageSrc = `/static/images/banners/webp/appointment-form.webp`;
+        $('#appointment_form_make').attr('src', dynamicImageSrc);
+      }
+
+
+        // toastr.options = {
+        //     "closeButton": true,       
+        //     "debug": false,                
+        //     "newestOnTop": true,          
+        //     "progressBar": true,    
+        //     "positionClass": "toast-top-right", 
+        //     "preventDuplicates": true,        
+        //     "onclick": null,
+        //     "showDuration": "300",           
+        //     "hideDuration": "1000",      
+        //     "timeOut": "5000",               
+        //     "extendedTimeOut": "1000",       
+        //     "showEasing": "swing",            
+        //     "hideEasing": "linear",        
+        //     "showMethod": "fadeIn",          
+        //     "hideMethod": "fadeOut"          
+        // };
+
+        // $("button[name='problem_error']").on('click', function() {
+
+        // });
+
+
+
+
+
+    
+        $('.text-field-input').on('focus', function(){
+          $(this).closest('.field-wrapper').addClass('focused');
+        });
+        
+        $('.text-field-input').on('blur', function(){
+      
+          if  ( $(this).val() === '') {
+            $(this).closest('.field-wrapper').removeClass('focused');
+          }
+        });
+        
+    });
+
+
+
+
+        $("select[name='select_box_op']").on('change', function() {
+
+            let options_select = $(this).val();
+
+            $(".red_class").hide();
+            $(".yellow_class").hide();
+
+            $(".red_class").empty();
+            $(".yellow_class").empty();
+            if ($(window).width() <= 768) {
+                $(".multisteps-form__form").css("height", "850px");
+            } else {
+                $(".multisteps-form__form").css("height", "550px");
+            }
+
+            if (options_select === "red") {
+                $(".red_class").show().prepend(`
+                    <div id="red">
+                        <div class="form-row mt-2">
+                            <div class="col">
+                                <div class="date-picker-container">
+                                    <label for="date-picker">Select Date:</label>
+                                    <input type="date" name="date_local" id="date-picker" class="styled-date-picker" />
+                                    </div>
+                                    <span id="error_date" style="color: red;font-size:.7rem;display:flex; position: relative; padding-left: 112px; top: -8px;"></span>
+                                  <span id="service_unavailable" class="service_unavailable"></span>
+                              
+                            </div>
+                        </div>
+                        <div class="form-row mt-2">
+                            <div class="time-picker">
+                                <label for="time-picker">Select Time Slot:</label>
+                                <div class="time-slots">
+                                    <div class="time-slot" data-time="10:00AM - 11:00AM" tabindex="0" id="first_slot">
+                                        <span class="tick">✔</span> <span class="time">10:00AM - 11:00AM</span>
+                                    </div>
+                                    <div class="time-slot" data-time="11:00AM - 12:00PM" tabindex="0" id="second_slot">
+                                        <span class="tick">✔</span> <span class="time">11:00AM - 12:00PM</span>
+                                    </div>
+                                    <div class="time-slot" data-time="12:00PM - 01:00PM" tabindex="0" id="third_slot">
+                                        <span class="tick">✔</span> <span class="time">12:00PM - 01:00PM</span>
+                                    </div>
+                                    <div class="time-slot" data-time="01:00PM - 02:00PM" tabindex="0" id="fourth_slot">
+                                        <span class="tick">✔</span> <span class="time">01:00PM - 02:00PM</span>
+                                    </div>
+                                    <div class="time-slot" data-time="02:00PM - 03:00PM" tabindex="0" id="fifth_slot">
+                                        <span class="tick">✔</span> <span class="time">02:00PM - 03:00PM</span>
+                                    </div>
+                                    <div class="time-slot" data-time="03:00PM - 04:00PM" tabindex="0" id="sixth_slot">
+                                        <span class="tick">✔</span> <span class="time">03:00PM - 04:00PM</span>
+                                    </div>
+                                    <div class="time-slot" data-time="04:00PM - 05:00PM" tabindex="0" id="seventh_slot">
+                                        <span class="tick">✔</span> <span class="time">04:00PM - 05:00PM</span>
+                                    </div>
+                                    <div class="time-slot" data-time="05:00PM - 06:00PM" tabindex="0" id="eighth_slot">
+                                        <span class="tick">✔</span> <span class="time">05:00PM - 06:00PM</span>
+                                    </div>
+                                    <div class="time-slot" data-time="06:00PM - 07:00PM" tabindex="0" id="ninth_slot">
+                                        <span class="tick">✔</span> <span class="time">06:00PM - 07:00PM</span>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <span id="error_time_slot" style="color: red;font-size:.7rem;display:flex; position: relative; padding-left: 124px; top: 3px;"></span>
+                        </div>
+                        <div class="form-row mt-5">
+                           <button class="btn btn-primary-submit ml-auto js-btn-nexts" name="visit_service" type="button" title="Submit">Submit</button>
+                        </div>
+                    </div>
+                `);
+
+                if ($(window).width() <= 768) {
+                    $(".multisteps-form__form").css("height", "900px");
+                }
+ 
+                             $(".time-slot").on("click", function() {
+                                    let time = $(this).data("time"); 
+                                    $(".time-slot").removeClass("blinking-border");  
+                                    $(this).addClass("blinking-border"); 
+                              });
+
+
+                              document.getElementById('date-picker').addEventListener('change', function() {
+                                $("input[name='date_local']").removeClass("blinking-border");
+                              });
+      
+                                document.querySelectorAll('.time-slot').forEach(slot => {
+                                  slot.classList.add('disabled');
+                                  slot.setAttribute('aria-disabled', 'true');
+                                  slot.setAttribute('tabindex', '-1'); 
+                                  slot.style.pointerEvents = 'none'; 
+                                  slot.style.opacity = '0.5'; 
+                              });
+
+
+                              $("input[name='date_local']").on("change blur", function () {
+                                    if ($(this).val() === "") {
+                                        $('#error_date').text('Date is required');
+                                    } else {
+                                        $('#error_date').text('');
+                                    }
+                                });
+
+                                const timeSlots = document.querySelectorAll('.time-slot');
+                                timeSlots.forEach(slot => {
+                                    slot.addEventListener('click', function() {
+                                        const selectedTime = this.getAttribute('data-time');
+                                        // alert('You selected: ' + selectedTime);
+                                        $("#error_time_slot").text('')
+                                    });
+                                });
+
+
+                                $("input[name='date_local']").on('change', function() {
+                                let date_slots = $(this).val();
+                                $.ajax({
+                                    url: '{% url "offsite_slot_check_book" %}',
+                                    type: 'POST',
+                                    data: {
+                                        visit_date: date_slots,
+                                        csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val()
+                                    },
+                                    success: function(response) {
+                                        $(".time-slot").removeClass("disabled").prop("disabled", false);
+
+                                        document.querySelectorAll('.time-slot').forEach(slot => {
+                                            slot.classList.remove('disabled');
+                                            slot.removeAttribute('aria-disabled'); 
+                                            slot.setAttribute('tabindex', '0'); 
+                                            slot.style.pointerEvents = '';
+                                            slot.style.opacity = '';
+                                        });
+                                        if (response.count > 0 && response.time_slots.length > 0) {
+                                            response.time_slots.forEach(function(slot) {
+                                                let matchingSlot = $(`.time-slot[data-time="${slot.time_slot}"]`);
+                                                if (matchingSlot.length) {
+                                                    matchingSlot.addClass("disabled").prop("disabled", true);
+                                                }
+                                            });
+                                        } else {
+                                            console.log("No time slots with count >= 2");
+                                        }
+                                    },
+                                    error: function(xhr, status, error) {
+                                        console.error("Error fetching time slots:", error);
+                                    }
+                                });
+                            });
+
+                                                           
+                                const dateInput = document.getElementById('date-picker');
+                                const today = new Date().toISOString().split('T')[0];
+                                dateInput.setAttribute('min', today);
+
+                                const disabledDates = [
+                                    '2025-01-26', '2025-02-19', '2025-02-26', '2025-03-14', '2025-03-30',
+                                    '2025-03-31', '2025-04-06', '2025-04-10', '2025-04-14',
+                                    '2025-05-01', '2025-05-12', '2025-06-07', '2025-07-06', '2025-08-15',
+                                    '2025-08-16', '2025-08-27', '2025-09-05', '2025-10-02', '2025-10-21',
+                                    '2025-10-20', '2025-10-21', '2025-12-25'
+                                ];
+
+                                function isDisabledDate(date) {
+                                    const selectedDate = new Date(date);
+                                    const day = selectedDate.getDay();
+                                    const dateString = selectedDate.toISOString().split('T')[0];
+                                  
+                                    return day === 0 || disabledDates.includes(dateString);  
+                                }
+
+                                function openDatePicker() {
+                                    const currentDate = new Date();
+                                    const day = currentDate.getDate();
+                                    const month = currentDate.getMonth();
+                                    const year = currentDate.getFullYear();
+                                    dateInput.showPicker?.();
+                                    
+                                    const days = dateInput.querySelectorAll('td');
+                                    days.forEach(dayCell => {
+                                        const date = new Date(year, month, dayCell.textContent);
+                                        const dateString = date.toISOString().split('T')[0];
+                                        
+                                        if (isDisabledDate(dateString)) {
+                                            dayCell.style.pointerEvents = 'none';
+                                            dayCell.style.backgroundColor = '#f2f2f2'; 
+                                        } else {
+                                            dayCell.style.pointerEvents = 'auto';
+                                            dayCell.style.backgroundColor = ''; 
+                                        }
+                                    });
+                                }
+                                dateInput.addEventListener('change', () => {
+                                const selectedDate = new Date(dateInput.value);
+                                const dateString = selectedDate.toISOString().split('T')[0];
+                                const isSunday = selectedDate.getDay() === 0;
+                                const isPublicHoliday = disabledDates.includes(dateString); 
+
+                                if (isSunday || isPublicHoliday) {
+                                    dateInput.value = ''; 
+                                    if (isSunday) {
+                                        $("#service_unavailable").text("Service is not available on Sundays.");
+                                    } else if (isPublicHoliday) {
+                                        $("#service_unavailable").text("Service is not available on Public Holidays.");
+                                    }
+                                } else {
+                                    $("#service_unavailable").text(''); 
+                                }
+                            });
+
+
+
+
+
+                }
+
+            else if (options_select === "yellow") {
+                $(".yellow_class").show().prepend(`
+                    <div id="yellow">
+                        <div class="form-row mt-2">
+                            <div class="col">
+                                <div class="date-picker-container">
+                                    <label for="date-picker1">Select Date:</label>
+                                    <input type="date" id="date-picker1" name='date-picker1' class="styled-date-picker" />
+                                </div>
+                                 <span id="error_date" style="color: red;font-size:.7rem;display:flex; position: relative; padding-left: 112px; top: -8px;"></span>
+                                <span id="service_unavailable" class="service_unavailable"></span>
+                                <span id="book_slots"></span>
+                            </div>
+                        </div>
+                        <div class="form-row mt-2">
+                            <div class="time-picker">
+                                <label for="time-picker" class="newlb">Select Time Slot:</label>
+                                <div class="time-slots">
+                                    <div class="time-slot" data-time="10:00AM - 12:00AM" tabindex="0" id="first_slot">
+                                        <span class="tick">✔</span> <span class="time">10:00AM - 12:00AM</span>
+                                    </div>
+                                    <div class="time-slot" data-time="12:00AM - 02:00PM" tabindex="0" id="second_slot">
+                                        <span class="tick">✔</span> <span class="time">12:00AM - 02:00PM</span>
+                                    </div>
+                                    <div class="time-slot" data-time="02:00PM - 04:00PM" tabindex="0" id="third_slot">
+                                        <span class="tick">✔</span> <span class="time">02:00PM - 04:00PM</span>
+                                    </div>
+                                    <div class="time-slot" data-time="04:00PM - 06:00PM" tabindex="0" id="fourth_slot">
+                                        <span class="tick">✔</span> <span class="time">04:00PM - 06:00PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                             <span id="error_time_slot" style="color: red;font-size:.7rem;display:flex; position: relative; padding-left: 117px; top: 3px;"></span>
+                        </div>
+                        <div class="form-row mt-3">
+                            <div class="col">
+                                <div class="onsitediv">
+                                    <h2>Onsite Service Charge : <span><i class="bi bi-currency-rupee iconsuperscript"></i>2360.00</span></h2>
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row mt-3" style="float: right;">
+                            <button class="btn btn-primary-submit" type="button" name="onsite_visit_service" title="Submit">Pay Now</button>
+                        </div>
+
+                        {% if request.user.is_authenticated and request.user.user_level == 9 %}
+                           <button class="btn disablebtn btn-primary-submit" type="button" name="manual_disabled_slot" title="Submit" style="float: right;top: 16px;position: relative;right: 21px;">Disabled</button>
+                        {% endif %}
+
+                        
+                    </div>
+                `);
+                
+
+                if ($(window).width() <= 768) {
+                    $(".multisteps-form__form").css("height", "850px");
+                }
+
+
+              $("input[name='date-picker1']").on("change blur", function () {
+                  var selectedDate = $(this).val(); 
+                  
+                  if (selectedDate === "") {
+                      $('#error_date').text('Date is required');
+                  } else {
+                      $('#error_date').text('');
+                      var currentTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
+                      var currentDateObj = new Date(currentTime);
+
+                      var today = currentDateObj.toISOString().split('T')[0];
+                      var currentHour = currentDateObj.getHours(); // Get current hour
+
+                      if (selectedDate === today) {
+                          console.log("Selected date matches today's date!");
+                          console.log("Current hour:", currentHour);
+
+                          if (currentHour >= 10 && currentHour < 12) {
+                              $(".time-slot").addClass("disabled").css({
+                                  "pointer-events": "none", 
+                                  "opacity": "0.5"         
+                              });
+
+                          } else if (currentHour >= 12 && currentHour < 14) {
+                              $(".time-slot").css({
+                                  "pointer-events": "none", 
+                                  "opacity": "0.5"         
+                              });
+
+                              console.log("12 pm to 2 pm")
+
+                          } else if (currentHour >= 14 && currentHour < 16) {
+                              $(".time-slot").addClass("disabled").css({
+                                  "pointer-events": "none", 
+                                  "opacity": "0.5"         
+                              });
+
+                          } else if (currentHour >= 16 && currentHour < 18) {
+                              $(".time-slot").addClass("disabled").css({
+                                  "pointer-events": "none", 
+                                  "opacity": "0.5"         
+                              });
+                          }
+                      }
+
+                      var startDate = new Date('2025-03-03');
+                      var endDate = new Date('2025-03-31');
+                      var currentDate = new Date(selectedDate);
+                      if (currentDate >= startDate && currentDate <= endDate) {
+                          $('#fourth_slot').addClass('disabled');  
+                          $('#fourth_slot').css('pointer-events', 'none');  
+                          $('#fourth_slot').css('opacity', '0.5');  
+                      } else {
+                          $('#fourth_slot').removeClass('disabled');  
+                          $('#fourth_slot').css('pointer-events', '');
+                          $('#fourth_slot').css('opacity', '');  
+                      }
+                  }
+              });
+
+
+                  const timeSlots = document.querySelectorAll('.time-slot');
+                  timeSlots.forEach(slot => {
+                      slot.addEventListener('click', function() {
+                          const selectedTime = this.getAttribute('data-time');
+                          $("#error_time_slot").text('')
+                      });
+                  });
+
+                document.querySelectorAll('.time-slot').forEach(slot => {
+                    slot.classList.add('disabled');
+                    slot.setAttribute('aria-disabled', 'true'); 
+                    slot.setAttribute('tabindex', '-1');
+                    slot.style.pointerEvents = 'none'; 
+                    slot.style.opacity = '0.5'; 
+                });
+
+//                $("input[name='date-picker1']").on('change', function() {
+//                let date_slots = $(this).val();
+//                $.ajax({
+//                    url: '{% url "onsite_slot_check_book" %}',
+//                    type: 'POST',
+//                    data: {
+//                        visit_date: date_slots,
+//                        csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val()
+//                    },
+//                    success: function(response) {
+//                      document.querySelectorAll('.time-slot').forEach(slot => {
+//                          slot.classList.remove('disabled');
+//                          slot.removeAttribute('aria-disabled');
+//                          slot.setAttribute('tabindex', '0'); 
+//                          slot.style.pointerEvents = ''; 
+//                          slot.style.opacity = ''; 
+//                      });
+//
+//                        if (response.time_slots && Array.isArray(response.time_slots)) {
+//                            const slotMapping = {
+//                                "10:00AM - 12:00AM": "#first_slot",
+//                                "12:00AM - 02:00PM": "#second_slot",
+//                                "02:00PM - 04:00PM": "#third_slot",
+//                                "04:00PM - 06:00PM": "#fourth_slot"
+//                            };
+//
+//                              Object.values(slotMapping).forEach(selector => {
+//                                  $(selector).removeClass('disabled blinking-border').attr('tabindex', '0');
+//                              });
+//
+//                              response.time_slots.forEach(slot => {
+//                                  const timeSlot = slot.time_slot;
+//                                  const paymentStatus = slot.payment_status;
+//
+//                                  if (paymentStatus === "paid" && slotMapping[timeSlot]) {
+//                                      const slotSelector = slotMapping[timeSlot];
+//                                      $(slotSelector).addClass('disabled').attr('tabindex', '-1').removeClass("blinking-border");
+//                                  }
+//                              });
+//                              
+//                          } else {
+//                              $('#first_slot, #second_slot, #third_slot, #fourth_slot').removeClass('disabled blinking-border').attr('tabindex', '0');
+//                          }
+//                      },
+//                      error: function(xhr, status, error) {
+//                          alert("An error occurred: " + error);
+//                      }
+//                  });
+//              });
+
+          $("input[name='date-picker1']").on("change blur", function () {
+              var selectedDate = $(this).val(); 
+              console.log("Selected Date:", selectedDate)
+              let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+              
+              if (selectedDate === "") {
+                  $('#error_date').text('Date is required');
+                  return;
+              } else {
+                  $('#error_date').text('');
+              }
+
+              var previouslySelectedSlot = $('.time-slot.selected').attr('id');
+              
+              var startDate = new Date('2025-03-03');
+              var endDate = new Date('2025-03-31');
+              var currentDate = new Date(selectedDate);
+              
+              if (currentDate >= startDate && currentDate <= endDate) {
+                  $('#fourth_slot').addClass('disabled')
+                      .css({
+                          'pointer-events': 'none',
+                          'opacity': '0.5'
+                      })
+                      .attr('tabindex', '-1');
+              } else {
+                  if (!$('#fourth_slot').hasClass('disabled-by-ajax')) {
+                      $('#fourth_slot').removeClass('disabled')
+                          .css({
+                              'pointer-events': '',
+                              'opacity': ''
+                          })
+                          .attr('tabindex', '0');
+                  }
+              }
+
+              const slotMapping = {
+                  "10:00AM - 12:00PM": "#first_slot",
+                  "12:00PM - 02:00PM": "#second_slot", 
+                  "02:00PM - 04:00PM": "#third_slot",
+                  "04:00PM - 06:00PM": "#fourth_slot"
+              };
+
+            document.querySelectorAll('.time-slot').forEach(slot => {
+                if (!$(slot).hasClass('disabled-by-date-range')) {
+                    slot.classList.remove('disabled', 'disabled-by-ajax', 'disabled-by-time', 'selected');
+                    slot.removeAttribute('aria-disabled');
+                    slot.setAttribute('tabindex', '0');
+                    slot.style.pointerEvents = '';
+                    slot.style.opacity = '';
+                }
+            });
+
+            $('.time-slot').removeClass('selected');
+            $('#error_time_slot').text('');
+
+            var currentTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
+            var currentDateObj = new Date(currentTime);
+            var today = currentDateObj.toISOString().split('T')[0];
+            var currentHour = currentDateObj.getHours();
+            var currentMinutes = currentDateObj.getMinutes();
+
+            if (selectedDate === today) {
+                console.log("Selected date matches today's date!");
+                console.log("Current hour:", currentHour, "Current minutes:", currentMinutes);
+
+                var currentTimeDecimal = currentHour + (currentMinutes / 60);
+                console.log("Current time in decimal:", currentTimeDecimal);
+
+                if (currentTimeDecimal >= 10) { 
+                    $("#first_slot").addClass("disabled disabled-by-time").css({
+                        "pointer-events": "none", 
+                        "opacity": "0.5"         
+                    }).attr('tabindex', '-1');
+                    console.log("Disabled 10AM-12PM slot");
+                }
+                
+                if (currentTimeDecimal >= 12) { 
+                    $("#second_slot").addClass("disabled disabled-by-time").css({
+                        "pointer-events": "none", 
+                        "opacity": "0.5"         
+                    }).attr('tabindex', '-1');
+                    console.log("Disabled 12PM-2PM slot");
+                }
+                
+                if (currentTimeDecimal >= 14) { 
+                    $("#third_slot").addClass("disabled disabled-by-time").css({
+                        "pointer-events": "none", 
+                        "opacity": "0.5"         
+                    }).attr('tabindex', '-1');
+                    console.log("Disabled 2PM-4PM slot");
+                }
+                
+                if (currentTimeDecimal >= 16) { 
+                    $("#fourth_slot").addClass("disabled disabled-by-time").css({
+                        "pointer-events": "none", 
+                        "opacity": "0.5"         
+                    }).attr('tabindex', '-1');
+                    console.log("Disabled 4PM-6PM slot");
+                }
+        
+              if (previouslySelectedSlot && $('#' + previouslySelectedSlot).hasClass('disabled')) {
+                  $('#error_time_slot').text('Previously selected time slot is no longer available for today. Please select a different time slot.');
+              }
+                } else {
+                    console.log("Selected date is not today - all slots should be available");
+                  
+                    $('.time-slot').each(function() {
+                        if (!$(this).hasClass('disabled-by-date-range') && !$(this).hasClass('disabled-by-ajax')) {
+                            $(this).removeClass('disabled disabled-by-time')
+                                .css({
+                                    'pointer-events': '',
+                                    'opacity': ''
+                                })
+                                .attr('tabindex', '0');
+                        }
+                    });
+                }
+
+                  let onsiteRequest = $.ajax({
+                      url: '{% url "onsite_slot_check_book" %}',
+                      type: 'POST',
+                      data: {
+                          visit_date: selectedDate,
+                          csrfmiddlewaretoken: csrfToken
+                      }
+                  });
+
+                  let manualRequest = $.ajax({
+                      url: '{% url "manual_slot_check_book" %}',
+                      type: 'POST',
+                      data: {
+                          visit_date: selectedDate,
+                          csrfmiddlewaretoken: csrfToken
+                      }
+                  });
+
+              $.when(onsiteRequest, manualRequest).done(function (onsiteRes, manualRes) {
+                  let allDisabledSlots = new Set();
+
+                  if (onsiteRes[0].time_slots) {
+                      onsiteRes[0].time_slots.forEach(slot => {
+                          if (slot.payment_status === 'paid') {
+                              allDisabledSlots.add(slot.time_slot);
+                          }
+                      });
+                  }
+
+                  if (manualRes[0].time_slots) {
+                      manualRes[0].time_slots.forEach(slot => {
+                          if (slot.payment_status === 'disabled') {
+                              allDisabledSlots.add(slot.time_slot);
+                          }
+                      });
+                  }
+
+                  allDisabledSlots.forEach(timeSlot => {
+                      const selector = slotMapping[timeSlot];
+                      if (selector) {
+                          if (!$(selector).hasClass('disabled-by-time')) {
+                              $(selector)
+                                  .addClass('disabled disabled-by-ajax')
+                                  .attr('tabindex', '-1')
+                                  .removeClass("blinking-border selected")
+                                  .css({
+                                      'pointer-events': 'none',
+                                      'opacity': '0.5'
+                                  });
+                          }
+                      }
+                  });
+          
+                  if (currentDate >= startDate && currentDate <= endDate) {
+                      $('#fourth_slot').addClass('disabled-by-date-range')
+                          .removeClass('disabled-by-ajax disabled-by-time selected')
+                          .attr('tabindex', '-1')
+                          .css({
+                              'pointer-events': 'none',
+                              'opacity': '0.5'
+                          });
+                  }
+          
+                        var currentlySelectedSlot = $('.time-slot.selected');
+                        if (currentlySelectedSlot.length > 0 && currentlySelectedSlot.hasClass('disabled')) {
+                            currentlySelectedSlot.removeClass('selected');
+                            $('#error_time_slot').text('The selected time slot is no longer available. Please choose another time slot.');
+                        }
+                    }).fail(function (xhr, status, error) {
+                        console.error("Error occurred while checking slots:", error);
+                    });
+                });
+
+                  $(document).on('click', '.time-slot:not(.disabled)', function() {
+                      $('.time-slot').removeClass('selected');
+                      $(this).addClass('selected');
+                      $('#error_time_slot').text('');
+                  });
+
+
+                        const dateInput = document.getElementById('date-picker1');
+                        const today = new Date().toISOString().split('T')[0];
+                        dateInput.setAttribute('min', today);
+
+                        const disabledDates = [
+                            '2025-01-26', '2025-02-19', '2025-02-26', '2025-03-14', '2025-03-30',
+                            '2025-03-31', '2025-04-06', '2025-04-10', '2025-04-14',
+                            '2025-05-01', '2025-05-12', '2025-06-07', '2025-07-06', '2025-08-15',
+                            '2025-08-16', '2025-08-27', '2025-09-05', '2025-10-02', '2025-10-21',
+                            '2025-10-20', '2025-10-21', '2025-11-05', '2025-12-25'
+                        ];
+
+                        // const slotNotAvailable = [
+                        //     '2025-02-05', '2025-02-06', '2025-02-07', '2025-02-08', '2025-02-09',
+                        //     '2025-02-10', '2025-02-11', '2025-02-12', '2025-02-13', '2025-02-14',
+                        //     '2025-02-15'
+                        // ];
+
+                        function isDisabledDate(date) {
+                            const selectedDate = new Date(date);
+                            const day = selectedDate.getDay(); // Sunday is 0
+                            const dateString = selectedDate.toISOString().split('T')[0];
+                            return day === 0 || disabledDates.includes(dateString);
+                        }
+
+                        function isSlotNotAvailable(date) {
+                            const dateString = new Date(date).toISOString().split('T')[0];
+                            return slotNotAvailable.includes(dateString);
+                        }
+
+                        function openDatePicker() {
+                            const currentDate = new Date();
+                            const day = currentDate.getDate();
+                            const month = currentDate.getMonth();
+                            const year = currentDate.getFullYear();
+                            dateInput.showPicker?.();
+
+                            const days = dateInput.querySelectorAll('td');
+                            days.forEach(dayCell => {
+                                const date = new Date(year, month, dayCell.textContent);
+                                const dateString = date.toISOString().split('T')[0];
+
+                                if (isDisabledDate(dateString) || isSlotNotAvailable(dateString)) {
+                                    dayCell.style.pointerEvents = 'none';
+                                    dayCell.style.backgroundColor = '#f2f2f2';
+                                } else {
+                                    dayCell.style.pointerEvents = 'auto';
+                                    dayCell.style.backgroundColor = '';
+                                }
+                            });
+                        }
+
+                        dateInput.addEventListener('click', openDatePicker);
+
+                        dateInput.addEventListener('change', () => {
+                            const selectedDate = new Date(dateInput.value);
+                            const day = selectedDate.getDay();
+                            const dateString = selectedDate.toISOString().split('T')[0];
+                             const isCustomBlocked = dateString >= '2025-06-17' && dateString <= '2025-06-29';
+
+                            if (day === 0) {
+                                dateInput.value = '';
+                                $("#service_unavailable").text("Service is not available on Sundays.");
+                            }
+
+                            else if (isCustomBlocked) {
+                                dateInput.value = '';
+                                $("#service_unavailable").text("Service is temporarily not available");
+                            } 
+
+                            else if (isDisabledDate(dateString)) {
+                                dateInput.value = '';
+                                $("#service_unavailable").text("Service is not available on Public Holidays.");
+                            } 
+                            // else if (isSlotNotAvailable(dateString)) {
+                            //     dateInput.value = '';
+                            //     $("#service_unavailable").text("The slot is not available from February 5th to February 15th.");
+                            // } 
+                            else {
+                                $("#service_unavailable").text('');
+                            }
+                        });
+
+
+                $("input[name='date-picker1']").on('click',function(){
+                  $("input[name='date-picker1']").removeClass("blinking-border");
+                })
+                  
+                $(document).on('click', '.time-slot', function() {
+                      $(".time-slot").removeClass("blinking-border");
+                      $('.time-slot').removeClass('selected');
+                      $(this).addClass('selected');
+                  });
+
+
+                  toastr.options = {
+                      "closeButton": true,      
+                      "debug": false,                   
+                      "newestOnTop": false,          
+                      "progressBar": true,         
+                      "positionClass": "toast-top-right",
+                      "preventDuplicates": true,      
+                      "onclick": null,            
+                      "showDuration": "300",      
+                      "hideDuration": "1000",        
+                      "timeOut": "5000",               
+                      "extendedTimeOut": "1000",    
+                      "showEasing": "swing",         
+                      "hideEasing": "linear",         
+                      "showMethod": "fadeIn",          
+                      "hideMethod": "fadeOut"       
+                  };
+
+
+                $(document).on("click", "button[name='onsite_visit_service']", async function () {
+
+                    let selectedOS = firstValue;
+                    let issueValue = issue;
+                    let serialValue = serialNumber;
+                    let service_center = service_centers;
+                    let customer_name = $(".customer_name").val();
+                    let customer_email = $(".customer_email").val();
+                    let customer_mobile = $(".customer_mobile").val();
+                    let customer_address = $("textarea[name='customer_address']").val();
+                    let selectedText = $('#colorselector option:selected').text();
+                    let date_locals = $("input[name='date-picker1']").val();
+                    let selectedTime = $(".time-slot.selected").data("time");
+
+                    
+                    if (customer_name === '') {
+                        $("#error_name").text("Name is required") 
+                    } else {
+                        $("#error_name").text('')
+                    }
+
+
+                    if (!selectedTime) {
+                        $("#error_time_slot").text('Time slot is required');
+                      } else {
+                        $("#error_time_slot").text('')
+                    }
+
+                    if (date_locals === '') {
+                      $("#error_date").text("Date is required");
+                    } else {
+                          $("#error_date").text("");
+                    }
+
+                    if (customer_address === '') {
+                    $("#error_name").text("Name is required") 
+                    } else {
+                        $("#error_name").text('')
+                    }
+                    if (customer_address === '') {
+                        $("#error_address").text("Address is required") 
+                    } else {
+                        $("#error_address").text('')
+                    }
+
+                    if(customer_mobile === ''){
+                      $("#errro_mobile").text("Mobile Number is required") 
+                    } else {
+                        $("#errro_mobile").text('')
+                    }
+
+                    if (customer_email === '') {
+                        $("#error_email").text("Email is required");
+                        document.getElementById('error_email').style.borderColor = 'red';
+                    } else {
+                        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                        if (!emailPattern.test(customer_email)) {
+                            $("#error_email").text("Invalid email format");
+                            document.getElementById('error_email').style.borderColor = 'red';
+                        } else {
+                            $("#error_email").text("");
+                            document.getElementById('error_email').style.borderColor = '';
+                        }
+                    }
+                      
+                    
+
+                    $(".blinking-border").removeClass("blinking-border");
+
+                    if (!selectedOS) {
+                        toastr.error("Please select Device Name");
+                        return;
+                    }
+                    if (!service_center) {
+                        toastr.error("Please select Service Center");
+                        return;
+                    }
+
+                    //if (customer_mobile) {
+                    //  customer_mobile = customer_mobile.replace(/^\+?0*91/, '');
+                    //  customer_mobile = customer_mobile.replace(/^0+/, '');
+                    //}
+
+                    if (customer_mobile) {
+                      customer_mobile = customer_mobile.trim();
+                      if (/^91\d{8}$/.test(customer_mobile)) {
+                          console.log("Valid mobile number:", customer_mobile);
+                      } else {
+                          customer_mobile = customer_mobile.replace(/^\+?0*91/, '');
+                          customer_mobile = customer_mobile.replace(/^0+/, '');
+                          if (/^\d{10}$/.test(customer_mobile)) {
+                              console.log("Valid mobile number:", customer_mobile);
+                          } else {
+                              console.log("Invalid mobile number. It must be exactly 10 digits or 91 followed by 8 digits.");
+                              customer_mobile = ""; 
+                          }
+                      }
+                  }
+
+
+                    if (!customer_mobile || customer_mobile.length !== 10 || !/^\d{10}$/.test(customer_mobile)) {
+                          $(".customer_mobile").addClass("blinking-border");
+                      } else {
+                          $(".customer_mobile").removeClass("blinking-border");
+                      }
+                    
+                    if(!customer_name){
+                      $(".customer_name").addClass("blinking-border");
+                    }
+
+                    if (!customer_email) {
+                        $(".customer_email").addClass("blinking-border");
+                    }
+                    if (!customer_mobile) {
+                        $(".customer_mobile").addClass("blinking-border");
+                     
+                    }
+                    if (!customer_address) {
+                        $("textarea[name='customer_address']").addClass("blinking-border");
+                      
+                    }
+                    if (!selectedText) {
+                        $('#colorselector').addClass("blinking-border");
+                       
+                    }
+                    if (!date_locals) {
+                        $("input[name='date-picker1']").addClass("blinking-border");
+                       
+                    }
+                    if (!selectedTime) {
+                        $(".time-slot").addClass("blinking-border");
+                       
+                    }
+
+                    let formdata = {
+                        device_name: selectedOS,
+                        issue_description: issueValue,
+                        device_serial_number: serialValue,
+                        service_center_name: service_center,
+                        customer_name: customer_name,
+                        customer_email: customer_email,
+                        customer_mobile: customer_mobile,
+                        customer_address: customer_address,
+                        visit_type: selectedText,
+                        visit_date: date_locals,
+                        time_slot: selectedTime
+                    };
+
+                      try {
+                        const response = await $.ajax({
+                            url: `{% url 'onside-visit-appointments' %}`,
+                            type: 'POST',
+                            data: formdata,
+                            headers: {
+                                'X-CSRFToken': $("input[name='csrfmiddlewaretoken']").val()
+                            },
+                            dataType: 'json'
+                        });
+
+                        if (response.status === 'success') {
+                          $(".customer_name").val('');
+                          $(".customer_email").val('');
+                          $(".customer_mobile").val('');
+                          $("textarea[name='customer_address']").val('');
+                          $('#colorselector').val('');
+                          $("input[name='date-picker1']").val('');
+                          $(".time-slot").removeClass("selected");
+
+                          window.location.href=`${response.payment_link}`
+                        } else {
+                            console.warn(response.message)
+                        }
+                    } catch (error) {
+
+                    }
+
+
+                  });
+
+
+
+            }
+
+            else {
+                console.warn('none');
+            }
+
+        });
+
+
+
+      $(document).on("click", "button[name='manual_disabled_slot']", async function () {
+
+          let selectedOS = firstValue;  
+          let issueValue = issue;  
+          let serialValue = serialNumber;  
+          let service_center = service_centers;  
+          let customer_name = $(".customer_name").val();
+          let customer_email = $(".customer_email").val();
+          let customer_mobile = $(".customer_mobile").val();
+          let customer_address = $("textarea[name='customer_address']").val();
+          let selectedText = $('#colorselector option:selected').text();
+          let date_locals = $("input[name='date-picker1']").val();
+          let selectedTime = $(".time-slot.selected").data("time");
+
+      
+          let formdata = {
+              device_name: selectedOS,
+              issue_description: issueValue,
+              device_serial_number: serialValue || "", 
+              service_center_name: service_center,
+              customer_name: customer_name,
+              customer_email: customer_email,
+              customer_mobile: customer_mobile,
+              customer_address: customer_address,
+              visit_type: selectedText,
+              visit_date: date_locals,
+              time_slot: selectedTime
+          };
+
+          if (!customer_name || !customer_email || !customer_mobile || !customer_address || !selectedTime || !date_locals) {
+              alert('Please fill all required fields');
+              return;
+          }
+
+          try {
+              const response = await $.ajax({
+                  url: "{% url 'create_manual_appointment' %}", 
+                  type: 'POST',
+                  data: JSON.stringify(formdata), 
+                  headers: {
+                      'X-CSRFToken': $("input[name='csrfmiddlewaretoken']").val() 
+                  },
+                  contentType: 'application/json',
+                  dataType: 'json'
+              });
+
+              if (response.status == 'success') {
+                  $(".customer_name").val('');
+                  $(".customer_email").val('');
+                  $(".customer_mobile").val('');
+                  $("textarea[name='customer_address']").val('');
+                  $('#colorselector').val('');
+                  $("input[name='date-picker1']").val('');
+                  $(".time-slot").removeClass("selected");
+
+                  setTimeout(function(){
+                    window.location.href=`https://boseservicecenter.co.in/`
+                  },1000)
+
+              } else {
+                  console.warn('Error from server:', response.message);  
+              }
+          } catch (error) {
+              console.error("Error occurred during AJAX request:", error);
+          }
+      });
+
+
+        // Remove blinking-border class on keyup or change
+          $(".customer_name, .customer_email, .customer_mobile, textarea[name='customer_address'], #colorselector, input[name='date_local'], .time-slot").on("keyup change", function() {
+              $(this).removeClass("blinking-border");
+          });
+
+          const button = $("button[name='device_name']");
+          button.prop("disabled",true)
+
+          const radios = document.querySelectorAll('input[name="os"]');
+            radios.forEach(radio => {
+              radio.addEventListener('change', function () {
+                if (this.checked) {
+                    const button = $("button[name='device_name']");
+                    button.prop("disabled",false)
+                }
+              });
+            });
+
+
+            const service_center = $("button[name='service_center']");
+            service_center.prop("disabled",true)
+
+            const service_centes = document.querySelectorAll('input[name="service_center"]');
+
+            service_centes.forEach(radio => {
+              radio.addEventListener('change', function () {
+                if (this.checked) {
+                    const button = $("button[name='service_center']");
+                    button.prop("disabled",false)
+                }
+              });
+            });
+
+
+
+
+
+          //   toastr.options = {
+          //     "closeButton": true,       
+          //     "debug": false,                
+          //     "newestOnTop": true,          
+          //     "progressBar": true,    
+          //     "positionClass": "toast-top-right", 
+          //     "preventDuplicates": true,        
+          //     "onclick": null,
+          //     "showDuration": "300",           
+          //     "hideDuration": "1000",      
+          //     "timeOut": "5000",               
+          //     "extendedTimeOut": "1000",       
+          //     "showEasing": "swing",            
+          //     "hideEasing": "linear",        
+          //     "showMethod": "fadeIn",          
+          //     "hideMethod": "fadeOut"          
+          // };
+
+
+          //   $("button[name='problem_error']").on('click', function() {
+          //       firstValue = $("input[name='os']:checked").val();
+          //       if (firstValue === undefined) {
+          //          toastr.error("Please Select Device Name")
+          //       } else {
+          //         // toastr.success("You selected: " + firstValue); 
+          //       }
+          //   });
+          $("button[name='problem_error']").css('pointer-events', 'none');
+          $("button[name='service_error']").css('pointer-events', 'none');
+          $("button[name='information_error']").css('pointer-events', 'none');
+
+
+          let firstValue = null;
+          let issue = null;
+          let serialNumber = null;
+          let service_centers = null;
+
+          $("button[name='device_name']").on('click', function() {
+              firstValue = $("input[name='os']:checked").val();
+
+              if (!firstValue) {
+                  // console.log("Please select an OS before proceeding.");
+                  return;
+              }
+
+              if (firstValue === "Cushions Replacement") {
+                 $("#onsite_visit_disabled").prop("disabled",true);
+              }else{
+                $("#onsite_visit_disabled").prop("disabled",false);
+              }
+              // console.log(firstValue)
+          });
+
+          $("button[name='problem_issue']").on('click', function() {
+              issue = $(".custom-textarea").val().trim();
+              serialNumber = $("#srNumber").val().trim();
+
+              if (!issue) {
+                $("#bose_products_error_handle").text("Bose Product Issue is required");
+                return;
+              }
+              $(this).addClass('js-btn-next');
+          });
+
+
+          // $(".custom-textarea").on("keyup",function(){
+          //   $("#bose_products_error_handle").text("");
+          // })
+          $(".custom-textarea").on("keyup", function() {
+            var text = $(this).val().trim();
+            if (!text) {
+              $("#bose_products_error_handle").text("Bose Product Issue is required");
+            } else {
+              $("#bose_products_error_handle").text("");
+            }
+          });
+
+
+
+
+          $("button[name='service_center']").on('click', function() {
+              service_centers = $("input[name='service_center']:checked").val();
+              if (!service_centers) {
+                  // console.log("Please select a service center before proceeding.");
+                  return;
+              }
+              // console.log("Selected Service Center: " + service_centers);
+          });
+
+            $(document).on('click', '.time-slot', function() {
+                $('.time-slot').removeClass('selected');
+                $(this).addClass('selected');
+            });
+
+
+
+            // $("input[name='mobile']").on('change blur',function(){
+            //     const mobile = $(this).val();
+            //     const errorElement = $("#errro_mobile");
+
+            //     if (mobile.length < 10 || mobile.length > 10) {
+            //         errorElement.text("Mobile number is required").show();
+            //     } else {
+            //         errorElement.hide(); 
+            //     }
+            // })
+
+            // $("input[name='mobile']").on('change blur', function() {
+            //     const mobile = $(this).val();
+            //     const errorElement = $("#errro_mobile");
+            //     if (mobile.length !== 10) {
+            //         errorElement.text("Mobile number is required").show();
+            //     } 
+            //     else if (!/^\d{10}$/.test(mobile)) {
+            //         errorElement.text("Please enter a valid mobile number").show();
+            //     } 
+            //     else {
+            //         errorElement.hide(); 
+            //     }
+            // });
+
+            {% comment %} $("input[name='mobile']").on('change blur', function() {
+                const mobile = $(this).val();
+                const errorElement = $("#errro_mobile");
+
+                // Check if the mobile number is not exactly 10 digits long
+                if (mobile.length !== 10) {
+                    errorElement.text("Please enter a valid mobile number").show();
+                } 
+                // Check if the mobile number contains non-numeric characters
+                else if (!/^\d{10}$/.test(mobile)) {
+                    errorElement.text("Please enter a valid mobile number").show();
+                } 
+                else {
+                    errorElement.hide(); 
+                }
+            }); {% endcomment %}
+
+            $("input[name='mobile']").on('change blur', function() {
+                const mobile = $(this).val().trim();
+                const errorElement = $("#errro_mobile");
+                if (!mobile) {
+                    errorElement.text("Mobile number is required").show();
+                } 
+                else {
+                    errorElement.hide();
+                }
+            });
+          
+
+
+
+            $(".customer_name").on('change blur', function () {
+                const customerName = $(this).val();
+                if (customerName.trim() === "") {
+                    $("#error_name").text("Name is required").show();
+                } else {
+                    $("#error_name").hide();
+                }
+            });
+
+
+            $(".customer_email").on('change blur', function() {
+                const customer_email = $(this).val();
+                
+                if (customer_email === '') {
+                    $("#error_email").text("Email is required");
+                    document.getElementById('error_email').style.borderColor = 'red';
+                } else {
+                    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                    if (!emailPattern.test(customer_email)) {
+                        $("#error_email").text("Enter valid email ID");
+                        document.getElementById('error_email').style.borderColor = 'red';
+                    } else {
+                        $("#error_email").text("");
+                        document.getElementById('error_email').style.borderColor = '';
+                    }
+                }
+            });
+
+
+            // $("textarea[name='customer_address']").on('input', function() {
+            //         var address = $(this).val().trim();
+            //         if (address === "") {
+            //             $('#error_address').text('Address is required.').show(); 
+            //         } else {
+            //             $('#error_address').hide();
+            //         }
+            //     });
+
+              $("textarea[name='customer_address']").on('change blur', function() {
+                    var address = $(this).val().trim();
+                    if (address === "") {
+                        $('#error_address').text('Address is required.').show(); 
+                    } else {
+                        $('#error_address').hide();
+                    }
+                });
+
+
+            $(document).on('click', "button[name='visit_service']", function() {
+
+       
+                let selectedOS = firstValue;
+                let issueValue = issue;
+                let serialValue = serialNumber;
+                let service_center = service_centers;
+                
+                let customer_name = $(".customer_name").val();
+                let customer_email = $(".customer_email").val();
+                let customer_mobile = $(".customer_mobile").val();
+                let customer_address = $("textarea[name='customer_address']").val();
+
+                var selectedText = $('#colorselector option:selected').text();
+                let date_locals = $("input[name='date_local']").val();
+                let selectedTime = $(".time-slot.selected").data("time");
+
+                if (customer_name === '') {
+                    $("#error_name").text("Name is required") 
+                } else {
+                    $("#error_name").text('')
+                }
+
+                if (!selectedTime) {
+                  $("#error_time_slot").text('Time slot is required');
+                } else {
+                  $("#error_time_slot").text('')
+                }
+
+
+                if (customer_address === '') {
+                    $("#error_address").text("Address is required") 
+                } else {
+                    $("#error_address").text('')
+                }
+
+
+                if (customer_email === '') {
+                    $("#error_email").text("Email is required");
+                    document.getElementById('error_email').style.borderColor = 'red';
+                } else {
+                    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                    if (!emailPattern.test(customer_email)) {
+                        $("#error_email").text("Enter valid email ID");
+                        document.getElementById('error_email').style.borderColor = 'red';
+                    } else {
+                        $("#error_email").text("");
+                        document.getElementById('error_email').style.borderColor = '';
+                    }
+                }
+
+                if (date_locals === '') {
+                    $("#error_date").text("Date is required");
+                } else {
+                    $("#error_date").text("");
+                }
+
+                //if (customer_mobile) {
+                //  customer_mobile = customer_mobile.replace(/^\+?0*91/, '');
+                //  customer_mobile = customer_mobile.replace(/^0+/, '');
+                //}
+
+                if (customer_mobile) {
+                  customer_mobile = customer_mobile.trim();
+                  if (/^91\d{8}$/.test(customer_mobile)) {
+                      console.log("Valid mobile number:", customer_mobile);
+                  } else {
+                      customer_mobile = customer_mobile.replace(/^\+?0*91/, '');
+                      customer_mobile = customer_mobile.replace(/^0+/, '');
+                      if (/^\d{10}$/.test(customer_mobile)) {
+                          console.log("Valid mobile number:", customer_mobile);
+                      } else {
+                          console.log("Invalid mobile number. It must be exactly 10 digits or 91 followed by 8 digits.");
+                          customer_mobile = ""; 
+                      }
+                  }
+              }
+              
+              
+
+                if (
+                    !customer_name ||
+                    !customer_email ||
+                    !customer_mobile ||
+                    customer_mobile.length !== 10 || 
+                    isNaN(customer_mobile) || 
+                    !customer_address || 
+                    !selectedText || 
+                    !date_locals || 
+                    !selectedTime
+                ) {
+                    if (!customer_mobile || customer_mobile.length !== 10 || isNaN(customer_mobile)) {
+                        $(".customer_mobile").addClass("blinking-border");
+                        $("#errro_mobile").text('Mobile number is required')
+                    } else {
+                        $(".customer_mobile").removeClass("blinking-border");
+                    }
+
+                    $("#loader").hide();
+                } else {
+                    $(".customer_mobile").removeClass("blinking-border");
+                    $(".customer_name").val('');
+                    $(".customer_email").val('');
+                    $(".customer_mobile").val('');
+                    $("textarea[name='customer_address']").val('');
+                    $("input[name='date_local']").val('');
+                    $('#colorselector').val(''); 
+                    $(".time-slot.selected").removeClass('selected');
+                    $("button[name='visit_service']").prop("disabled", true);
+
+                    $("#loader").show();
+                }
+
+                if (!selectedOS) {
+                    toastr.options = {
+                      "closeButton": true,
+                      "debug": false,
+                      "newestOnTop": false,
+                      "progressBar": true,
+                      "positionClass": "toast-top-right",
+                      "preventDuplicates": false,
+                      "onclick": null,
+                      "showDuration": "300",
+                      "hideDuration": "1000",
+                      "timeOut": "5000",
+                      "extendedTimeOut": "1000",
+                      "showEasing": "swing",
+                      "hideEasing": "linear",
+                      "showMethod": "fadeIn",
+                      "hideMethod": "fadeOut"
+                  };
+                  toastr.error("Please Select Device Name");
+                    return;
+                }
+
+                if (!service_center) {
+                  toastr.options = {
+                      "closeButton": true,
+                      "debug": false,
+                      "newestOnTop": false,
+                      "progressBar": true,
+                      "positionClass": "toast-top-right",
+                      "preventDuplicates": false,
+                      "onclick": null,
+                      "showDuration": "300",
+                      "hideDuration": "1000",
+                      "timeOut": "5000",
+                      "extendedTimeOut": "1000",
+                      "showEasing": "swing",
+                      "hideEasing": "linear",
+                      "showMethod": "fadeIn",
+                      "hideMethod": "fadeOut"
+                    };
+                    toastr.error("Please Select Service Center");
+                    return;
+                }
+
+                let isEmpty = false;
+                if (!customer_name) {
+                    $(".customer_name").addClass("blinking-border");
+                    isEmpty = true;
+                    
+                }
+                if (!customer_email) {
+                    $(".customer_email").addClass("blinking-border");
+                    isEmpty = true;
+                }
+                if (!customer_mobile) {
+                    $(".customer_mobile").addClass("blinking-border");
+                    isEmpty = true;
+                }
+ 
+                // if (!customer_mobile || customer_mobile.length !== 10 || isNaN(customer_mobile)) {
+                //   $(".customer_mobile").addClass("blinking-border");
+                //       toastr.error("Mobile number must be exactly 10 digits.");
+                //       isEmpty = true;
+                //   } else {
+                //       $(".customer_mobile").removeClass("blinking-border");
+                //   }
+
+                if (!customer_address) {
+                    $("textarea[name='customer_address']").addClass("blinking-border");
+                    isEmpty = true;
+                }
+                if (!selectedText) {
+                    $('#colorselector').addClass("blinking-border");
+                    isEmpty = true;
+                }
+                if (!date_locals) {
+                    $("input[name='date_local']").addClass("blinking-border");
+                    isEmpty = true;
+                }else{
+                  $("input[name='date_local']").removeClass("blinking-border");
+                  isEmpty = false;
+                }
+
+                if (!selectedTime) {
+                    $(".time-slot").addClass("blinking-border");
+                    isEmpty = true;
+                }else{
+                  $(".time-slot").removeClass("blinking-border");
+                  isEmpty = false;
+                }
+
+                
+                if (isEmpty) {
+                  // $("button[name='visit_service']").prop("disabled", false);
+                  return;
+                }
+
+
+
+                let formdata = new FormData();
+                formdata.append("device_name",selectedOS)
+                formdata.append("issue_description",issueValue)
+                formdata.append("device_serial_number",serialValue)
+                formdata.append("service_center_name",service_center)
+                formdata.append("customer_name",customer_name)
+                formdata.append("customer_email",customer_email)
+                formdata.append("customer_mobile",customer_mobile)
+                formdata.append("customer_address",customer_address)
+                formdata.append("visit_type",selectedText)
+                formdata.append("visit_date",date_locals)
+                formdata.append("time_slot",selectedTime)
+           
+                
+                $.ajax({
+                  url: `{% url 'offsite_visit' %}`, 
+                      type: 'POST',
+                      data: formdata,
+                      contentType: false,  
+                      processData: false,  
+                      success: function(response) {
+                        $("#loader").hide();
+                        $("form")[0].reset();
+                          toastr.options = {
+                          "closeButton": true,
+                          "debug": false,
+                          "newestOnTop": false,
+                          "progressBar": true,
+                          "positionClass": "toast-top-right",
+                          "preventDuplicates": false,
+                          "onclick": null,
+                          "showDuration": "300",
+                          "hideDuration": "1000",
+                          "timeOut": "5000",
+                          "extendedTimeOut": "1000",
+                          "showEasing": "swing",
+                          "hideEasing": "linear",
+                          "showMethod": "fadeIn",
+                          "hideMethod": "fadeOut"
+                        };
+                        toastr.success("Appointment has been Successfully !");
+
+                          setTimeout(() => {
+                            window.location.reload();
+                          }, 2500);
+                         
+                      },
+                      error: function(xhr, status, error) {
+                  
+                          console.warn('Error:', error);
+                          // $("button[name='visit_service']").prop("disabled", false);
+                      }
+                  });
+
+
+
+              
+          });
+
+
+	</script> 
+
+<script>
+
+
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      const timeSlots = document.querySelectorAll(".time-slot");
+
+      timeSlots.forEach((slot) => {
+        slot.addEventListener("click", () => {
+          timeSlots.forEach((s) => s.classList.remove("selected"));
+
+          // Add the "selected" class to the clicked slot
+          slot.classList.add("selected");
+        });
+      });
+    });
+	
+	const DOMstrings = {
+  stepsBtnClass: 'multisteps-form__progress-btn',
+  stepsBtns: document.querySelectorAll(`.multisteps-form__progress-btn`),
+  stepsBar: document.querySelector('.multisteps-form__progress'),
+  stepsForm: document.querySelector('.multisteps-form__form'),
+  stepsFormTextareas: document.querySelectorAll('.multisteps-form__textarea'),
+  stepFormPanelClass: 'multisteps-form__panel',
+  stepFormPanels: document.querySelectorAll('.multisteps-form__panel'),
+  stepPrevBtnClass: 'js-btn-prev',
+  stepNextBtnClass: 'js-btn-next' };
+ 
+ 
+const removeClasses = (elemSet, className) => {
+ 
+  elemSet.forEach(elem => {
+ 
+    elem.classList.remove(className);
+ 
+  });
+ 
+};
+ 
+const findParent = (elem, parentClass) => {
+ 
+  let currentNode = elem;
+ 
+  while (!currentNode.classList.contains(parentClass)) {
+    currentNode = currentNode.parentNode;
+  }
+ 
+  return currentNode;
+ 
+};
+ 
+const getActiveStep = elem => {
+  return Array.from(DOMstrings.stepsBtns).indexOf(elem);
+};
+ 
+const setActiveStep = activeStepNum => {
+ 
+  removeClasses(DOMstrings.stepsBtns, 'js-active');
+ 
+  DOMstrings.stepsBtns.forEach((elem, index) => {
+ 
+    if (index <= activeStepNum) {
+      elem.classList.add('js-active');
+    }
+ 
+  });
+};
+ 
+const getActivePanel = () => {
+ 
+  let activePanel;
+ 
+  DOMstrings.stepFormPanels.forEach(elem => {
+ 
+    if (elem.classList.contains('js-active')) {
+ 
+      activePanel = elem;
+ 
+    }
+ 
+  });
+ 
+  return activePanel;
+ 
+};
+ 
+const setActivePanel = activePanelNum => {
+ 
+  removeClasses(DOMstrings.stepFormPanels, 'js-active');
+ 
+  DOMstrings.stepFormPanels.forEach((elem, index) => {
+    if (index === activePanelNum) {
+ 
+      elem.classList.add('js-active');
+ 
+      setFormHeight(elem);
+ 
+    }
+  });
+ 
+};
+ 
+const formHeight = activePanel => {
+ 
+  const activePanelHeight = activePanel.offsetHeight;
+ 
+  DOMstrings.stepsForm.style.height = `${activePanelHeight}px`;
+ 
+};
+ 
+const setFormHeight = () => {
+  const activePanel = getActivePanel();
+ 
+  formHeight(activePanel);
+};
+ 
+DOMstrings.stepsBar.addEventListener('click', e => {
+ 
+  const eventTarget = e.target;
+ 
+  if (!eventTarget.classList.contains(`${DOMstrings.stepsBtnClass}`)) {
+    return;
+  }
+ 
+  const activeStep = getActiveStep(eventTarget);
+ 
+  setActiveStep(activeStep);
+ 
+  setActivePanel(activeStep);
+});
+ 
+DOMstrings.stepsForm.addEventListener('click', e => {
+ 
+  const eventTarget = e.target;
+ 
+  if (!(eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`) || eventTarget.classList.contains(`${DOMstrings.stepNextBtnClass}`)))
+  {
+    return;
+  }
+ 
+  const activePanel = findParent(eventTarget, `${DOMstrings.stepFormPanelClass}`);
+ 
+  let activePanelNum = Array.from(DOMstrings.stepFormPanels).indexOf(activePanel);
+ 
+  if (eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`)) {
+    activePanelNum--;
+ 
+  } else {
+ 
+    activePanelNum++;
+ 
+  }
+ 
+  setActiveStep(activePanelNum);
+  setActivePanel(activePanelNum);
+ 
+});
+ 
+window.addEventListener('load', setFormHeight, false);
+ 
+window.addEventListener('resize', setFormHeight, false);
+ 
+ 
+const setAnimationType = newType => {
+  DOMstrings.stepFormPanels.forEach(elem => {
+    elem.dataset.animation = newType;
+  });
+};
+ 
+//changing animation
+const animationSelect = document.querySelector('.pick-animation__select');
+ 
+animationSelect.addEventListener('change', () => {
+  const newAnimationType = animationSelect.value;
+ 
+  setAnimationType(newAnimationType);
+});	
+		
+	 
+		
+	</script> 
+
+<!-- prodcut input numbers plus and minus script start  --> 
+
+
+<script>
+DOMstrings.stepsForm.addEventListener('click', e => {
+  let eventTarget = e.target;
+
+  // If the target is the <i> element inside the button, use its parent <button>
+  if (eventTarget.tagName === 'I') {
+    eventTarget = eventTarget.closest('button');
+  }
+
+  // Check if the event target is the "Prev" or "Next" button
+  if (!(eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`) || eventTarget.classList.contains(`${DOMstrings.stepNextBtnClass}`))) {
+    return;
+  }
+
+  const activePanel = findParent(eventTarget, `${DOMstrings.stepFormPanelClass}`);
+  let activePanelNum = Array.from(DOMstrings.stepFormPanels).indexOf(activePanel);
+
+  // Adjust active panel number based on button type
+  if (eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`)) {
+    activePanelNum--;
+  } else {
+    activePanelNum++;
+  }
+
+  setActiveStep(activePanelNum);
+  setActivePanel(activePanelNum);
+});
+
+
+</script>
+
+
+
+
+
+{% endblock %}

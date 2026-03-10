@@ -1,0 +1,1109 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- live -->
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+<style>
+.tab-content .profile-name { font-size: 14px; color: #000; font-weight: bold;}
+.tab-content .change-photo { position: relative;
+    display: block;
+    background: #666;
+    color: #fff;
+    border: dotted 1px #666;
+    padding: 3px 20px 0px 20px;
+    height: 25px;
+  	transition: background-color .3s ease, color .3s ease;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+
+  .tab-content .cont-right {display: flex; justify-content: center; align-items: center; flex-direction: column; gap:6px;}
+
+
+    .tab-content .change-photo:hover {background: #ef6950; color: #fff;}
+
+    .tab-content textarea.form-control-new {
+    min-height: calc(4.5em + 0.75rem + 2px);
+}
+
+.img-thumbnail-new {
+    padding: 0.25rem;
+    background-color: #f5f5f5;
+    border: 1px dashed #ef6950;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
+  
+  }
+
+
+  #order_history::-webkit-scrollbar{
+    display: none;
+  }
+
+  #order_history{
+    max-height: 300px;
+  overflow-y: scroll;
+  height: 100%;
+  position: relative;
+  display: block;
+  overflow-x: hidden;
+  }
+
+
+
+      input.error, textarea.error,select.error {
+          border: 1px solid red;
+          animation: blink 1s infinite;  /* Blinking effect */
+      }
+
+      @keyframes blink {
+          0% {
+              border-color: red;
+          }
+          50% {
+              border-color: transparent;
+          }
+          100% {
+              border-color: red;
+          }
+      }
+
+</style>
+
+
+</head>
+
+<section class="" id="innerpage">
+  <div class="container-fluid nopadding">
+    <div class="innwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center mt-0 mb-0">
+          <div class="product-slider">
+            <!-- <div class="item"> <img src="{% static 'images/inner-banner.jpg' %}" id="dynamicImages" alt="About" class="img-fluid aboutbg"> -->
+            <div class="item"> <img src="{% static 'images/banners/profile.jpg' %}" id="dynamicImages" alt="About" class="img-fluid aboutbg">
+              <div class="boxwhite boxwhitenew wow fadeInDown">
+                <h1 class="titleinner">Profile <span></span> </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="profilepage">
+  <div class="container">
+    <div class="row gutters-sm">
+      <div class="col-md-4 d-none d-md-block">
+        <div class="card">
+          <div class="card-body">
+            <nav class="nav flex-column nav-pills nav-gap-y-1"> <a href="#profile" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded active"> <i class="bi bi-person-fill"></i> Profile Information </a> <a href="#account" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded"> <i class="bi bi-gear-wide"></i> Account Settings </a> <a href="#security" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded"> <i class="bi bi-shield-check"></i> Security </a> <a href="#orders" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded"> <i class="bi bi-bookmark-check"></i> Orders </a> <!--<a href="#wishlist" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded"> <i class="bi bi-heart"></i> Wishlist </a>--> <span id="user_logout_main"><a href="javascript:void(0);" id="account_logout" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded"> <i class="bi bi-box-arrow-left"></i> Logout </a></span> </nav>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header border-bottom mb-3 d-flex d-md-none">
+            <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
+              <li class="nav-item"> <a href="#profile" data-toggle="tab" class="nav-link has-icon active"> <i class="bi bi-person-fill"></i> </a> </li>
+              <li class="nav-item"> <a href="#account" data-toggle="tab" class="nav-link has-icon"> <i class="bi bi-gear-wide"></i> </a> </li>
+              <li class="nav-item"> <a href="#security" data-toggle="tab" class="nav-link has-icon"> <i class="bi bi-shield-check"></i> </a> </li>
+              <li class="nav-item"> <a href="#orders" data-toggle="tab" class="nav-link has-icon"> <i class="bi bi-bookmark-check"></i> </a> </li>
+              <!-- <li class="nav-item"> <a href="#wishlist" data-toggle="tab" class="nav-link has-icon"> <i class="bi bi-heart"></i> </a> </li> -->
+              <li class="nav-item"> <a href="#notification" id="account_logout" data-toggle="tab" class="nav-link has-icon"> <i class="bi bi-box-arrow-left"></i> </a> </li>
+            </ul>
+          </div>
+          <div class="card-body tab-content">
+            <div class="tab-pane active" id="profile">
+              <h6>YOUR PROFILE INFORMATION</h6>
+              <hr>
+              <form>
+                <div class="row">
+                  <div class="col-md-6 mt-2"> <div class="form-group">
+                    <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+                      <!-- <img class="rounded-circle" id="profileImage" width="100px" src=""> -->
+                      <img class="rounded-circle img-thumbnail-new" id="profileImage" src="" title="Profile Image" alt="Profile Image" onclick="document.getElementById('upload').click();" style="width: 100px; height: 100px;">
+                   <!-- <div class="cont-right"> <span class="profile-name">Bapu Sonar</span>                     
+                    
+                      <span class="change-photo"><input type="file" id="upload" hidden/>
+                      <label for="upload" id="change_profiles">Change photo</label></span>
+                      <input type="file" id="upload" hidden/>
+                      <label for="upload" id="change_profiles">Change photo</label>
+                      </div> -->
+                      <div class="cont-right">
+                        <span class="profile-name"></span>
+                        <span class="change-photo">
+                        <input type="file" id="upload" hidden />
+                        <label for="upload" id="change_profile">Change photo</label></span>
+                      </div>
+                    
+
+
+                    </div>
+                </div>  
+
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" class="form-control" name="full_name" id="fullName" aria-describedby="fullNameHelp" placeholder="Enter your fullname">
+              </div>
+
+              <div class="form-group">
+                <label for="mob">Mobile</label>
+                <input type="text" class="form-control" name="mobile" id="mob" placeholder="Enter your mobile number" value="">
+              </div>
+            
+              <div class="form-group">
+                <label class="form-label" for="email-address">Email Address</label>
+                <input type="email" class="form-control" name="email" id="email-address" placeholder="Enter email" disabled>
+              </div>
+
+              
+              
+            <!-- </div>
+
+                <div class="col-md-6">
+                 
+
+                  <div class="form-group">
+                    <label for="bio">Your Address</label>
+                    <textarea class="form-control form-control-new autosize" name="address" id="bio" placeholder="Write your address"></textarea>
+                  </div>
+                <div class="form-group">
+                  <label class="form-label" for="state">State</label>
+                  <input type="text" class="form-control" name="state" id="state" placeholder="Enter State">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="city">City</label>
+                  <input type="text" class="form-control" name="city" id="city" placeholder="Enter City">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="zip-code">Zip / Postal code</label>
+                  <input type="text" class="form-control" name="postal_code" id="zip-code" placeholder="Enter Postal code">
+                </div>
+              </div></div>
+                <button type="button" class="btn btn-primary me-2" id="edit_profile">Edit Profile</button>
+                <button type="button" class="btn btn-light" id="update_profiles">Save</button> -->
+              </div>
+
+              <div class="col-md-6">
+               
+
+              <div class="form-group">
+                <label for="bio">Your Address</label>
+                <textarea class="form-control form-control-new autosize" name="address" id="bio" placeholder="Write your address"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="state">State</label>
+                <input type="text" class="form-control" name="state" id="state" placeholder="Enter State">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="city">City</label>
+                <input type="text" class="form-control" name="city" id="city" placeholder="Enter City">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="zip-code">Zip / Postal code</label>
+                <input type="text" class="form-control" name="postal_code" id="zip-code" placeholder="Enter Postal code">
+              </div>
+              </div>
+              <div class="form-group">
+                <button type="button" class="btn btn-primary me-2" id="edit_profile">Edit Profile</button>
+                <button type="button" class="btn btn-light" id="update_profiles">Save</button>
+                <button type="button" class="btn btn-light" id="create_profile" style="display: none;">Create Profile</button>
+              </div></div>
+              </form>
+
+
+
+                  <div class="col-md-12 mt-3 p-0">
+                        <div data-bs-toggle="collapse" style="border: dashed 1px rgb(201, 201, 201);">
+                            <label class="card-radio-label mb-0">
+                            <div class="card-radio text-truncate p-3"> 
+                              <span class="fs-14 fw-bold mb-1 d-block text-uppercase">Address </span> <span class="fs-16 mb-2 d-block text-capitalize" id="customer_name"></span> <span class="text-muted fw-normal text-wrap mb-1 d-block" id="customer_address"></span> <span class="text-muted fw-normal d-block" id="customer_mobile"></span><span class="text-muted fw-normal d-block" id="customer_email"></span> <span class="text-muted fw-normal d-block" id="customer_address"></span> <span class="text-muted fw-normal d-block" id="customer_state"></span> <span class="text-muted fw-normal d-block" id="customer_city"></span> <span class="text-muted fw-normal d-block" id="customer_zip"></span> 
+                            </div>
+                          </label>
+                          
+                        </div>
+                      </div>
+
+
+            </div>
+            <div class="tab-pane" id="account">
+              <h6>ACCOUNT SETTINGS</h6>
+              <hr>
+              <form>
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" class="form-control" id="username" name="usernames" aria-describedby="usernameHelp" placeholder="Enter your username" disabled>
+                  <small id="usernameHelp" class="form-text text-muted">After changing your username, your old username becomes available for anyone else to claim.</small> </div>
+                <hr>
+                <div class="form-group">
+                  <label class="d-block text-danger">Delete Account</label>
+                  <p class="text-muted font-size-sm">Once you delete your account, there is no going back. Please be certain.</p>
+                </div>
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalDelete" type="button">Delete Account</button>
+              </form>
+            </div>
+            <div class="tab-pane" id="security">
+              <h6>SECURITY SETTINGS</h6>
+              <hr>
+              <form id="changePasswordForm">
+                <div class="form-group">
+                  <label class="d-block">Change Password</label>
+                  <input type="password" class="form-control" placeholder="Enter your old password" name="old_password">
+                  <input type="password" class="form-control mt-1" placeholder="New password" name="new_password">
+                  <input type="password" class="form-control mt-1" placeholder="Confirm new password" name="confirm_password">
+                </div>
+                <button type="button" class="btn btn-primary" id="change_password" >Change Password</button>
+              </form>
+              <hr>
+              <form>
+                <div class="form-group mb-0">
+                  <label class="d-block">Sessions</label>
+                  <p class="font-size-sm text-secondary">This is a list of devices that have logged into your account. Revoke any sessions that you do not recognize.</p>
+                  <ul class="list-group list-group-sm">
+                    <li class="list-group-item has-icon">
+                      <div>
+                        <h6 class="mb-0">India Maharashtra Mumbai 190.24.335.55</h6>
+                        <small class="text-muted">Your current session seen in United States</small> </div>
+                    </li>
+                  </ul>
+                </div>
+              </form>
+            </div>
+
+            <div class="tab-pane" id="orders">
+              <h6>YOUR ORDERS</h6>
+              
+
+
+              <div id="order_history">
+              
+              </div>
+           
+
+              <!-- <div class="row mt-3">
+                <div class="shoplist" id="product-2">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                      <div class="col-md-3 col-2"><img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" class="img-fluid rounded-3" alt="Cotton T-shirt"></div>
+                      <div class="col-md-3 col-4 mb-2">
+                        <h3 class="headtitle">Product Name</h3>
+                        <p>Bose Speaker</p>
+                      </div>
+                      <div class="col-md-4 col-3 mb-2">
+                        <div class="pricing">
+                          <h3 class="headtitle">Price</h3>
+                          <p> <span class="total-price">₹500</span></p>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-3 mb-2">
+                        <h3 class="headtitle">Action</h3>
+                        <div class="quantity-controls">
+                          <button class="remove-btn" onclick="removeProduct('product-2')"><i class="bi bi-trash"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="statusof"> <span class="cancleed">Cancelled on 2024 Dec 03</span></div>
+                  </div>
+                </div>
+              </div> -->
+
+            </div>
+            <div class="tab-pane" id="wishlist">
+              <h6>YOUR WISHLIST</h6>
+              <hr>
+              <div class="row mt-3">
+                <div class="shoplist" id="product-11">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                      <div class="col-md-3 col-2"><img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" class="img-fluid rounded-3" alt="Cotton T-shirt"></div>
+                      <div class="col-md-3 col-4 mb-2">
+                        <h3 class="headtitle">Product Name</h3>
+                        <p>Bose Speaker</p>
+                      </div>
+                      <div class="col-md-4 col-3 mb-2">
+                        <div class="pricing">
+                          <h3 class="headtitle">Price</h3>
+                          <p><span class="total-price">₹1000</span></p>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-3 mb-2">
+                        <h3 class="headtitle">Action</h3>
+                        <div class="quantity-controls">
+                          <button class="remove-btn" onclick="removeProduct('product-1')"><i class="bi bi-trash"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- shoplist end --> 
+                  
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="shoplist" id="product-22">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                      <div class="col-md-3 col-2"><img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" class="img-fluid rounded-3" alt="Cotton T-shirt"></div>
+                      <div class="col-md-3 col-4 mb-2">
+                        <h3 class="headtitle">Product Name</h3>
+                        <p>Bose Speaker</p>
+                      </div>
+                      <div class="col-md-4 col-3 mb-2">
+                        <div class="pricing">
+                          <h3 class="headtitle">Price</h3>
+                          <p><span class="total-price">₹700</span></p>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-3 mb-2">
+                        <h3 class="headtitle">Action</h3>
+                        <div class="quantity-controls">
+                          <button class="remove-btn" onclick="removeProduct('product-2')"><i class="bi bi-trash"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- shoplist end --> 
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Account </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <span class="span1">Are you sure! you want to delete your account?</span>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-secondary-new" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-primary btn-secondary-new" id="account_delete">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  
+  
+<script>
+  $(document).ready(function(){
+
+
+
+
+    if(window.location.pathname==='/profile'){
+      const dynamicImageSrc = `/static/images/banners/profile.jpg`;
+      $('#dynamicImages').attr('src', dynamicImageSrc);
+    }
+
+
+
+
+     async function getOrderHistory() {
+            let get_user_id=localStorage.getItem('user_id')
+
+            if (!get_user_id) {
+                alert("Please enter a User ID.");
+                return;
+            }
+
+            const data = { 'user_id': get_user_id };
+
+            try {
+                const response = await $.ajax({
+                    url: `{% url 'order-history' %}`,  
+                    method: 'POST',
+                    data: data,
+                    dataType: 'json',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}'  
+                    }
+                });
+
+                for (let i = 0; i < response.payment_status.length; i++){
+            
+                if(response.payment_status[i].update_status==0){
+                    continue;
+                  }else if(response.payment_status[i].update_status==null || response.payment_status[i].update_status === ""){
+                    let created_date = response.payment_status[i].created_at.split('T')[0];
+                    $("#order_history").append(`
+                     <div class="row mt-3">
+                       <div class="shoplist" id="product-${i}">
+                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                           <div class="row">
+                             <div class="col-md-3 col-2"><a href="bose-products/${response.payment_status[i].item_slug}/?item_id=${response.payment_status[i].product_id}"><img src="${response.payment_status[i].image_url}" class="img-fluid rounded-3" alt="${response.payment_status[i].item_title}"></a></div>
+                             <div class="col-md-3 col-4 mb-2">
+                               <h3 class="headtitle">${response.payment_status[i].item_title}</h3>
+                             </div>
+                             <div class="col-md-4 col-3 mb-2">
+                               <div class="pricing">
+                                 <h3 class="headtitle">Price</h3>
+                                 <p> <span class="total-price">₹${response.payment_status[i].amount}</span></p>
+                               </div>
+                                </div>
+                                <div class="col-md-2 col-3 mb-2">
+                               <h3 class="headtitle">Action</h3>
+                               <div class="quantity-controls">
+                                 <button class="remove-btn" data-id="${response.payment_status[i].payment_id}" onclick="removeProduct('product-${i}')"><i class="bi bi-trash"></i></button>
+                               </div>
+                             </div>
+                             <div class="statusof"><span class="bspan">Purchase Date :- ${created_date}</span> <span class="">Your order is being processed</span></div>
+                           </div>
+                          </div>
+                      
+                        </div>
+                      </div>
+                      `)
+                    }else{
+                      console.log('No action needed for this item');
+                    }
+
+
+                  }
+
+                } catch (error) {
+              console.error("Error:", error);
+              // alert('Error occurred while fetching order history.');
+            }
+        }
+
+
+        $(window).on('load', function() {
+            getOrderHistory();
+        });
+
+
+
+
+      $(document).on('click', '.remove-btn', function() {
+          const productId = $(this).data('id'); 
+          const userId = localStorage.getItem('user_id'); 
+          const clickedButton = $(this); 
+          $.ajax({
+          url: '{% url "update-status" %}',  
+          method: 'POST',
+          data: {
+              'product_id': productId,
+              'update_status': 0,  
+              'user_id': userId  
+          },
+          dataType: 'json',
+          headers: {
+              'X-CSRFToken': '{{ csrf_token }}'  
+            },
+            success: function(response) {
+                if (response.success) {
+                    const productRow = clickedButton.closest('.shoplist'); 
+                    productRow.find('.statusof span:last').text('Your item has been removed'); 
+                    clickedButton.prop('disabled', true);  
+                    clickedButton.find('i').removeClass('bi-trash').addClass('bi-check'); 
+                    productRow.remove(); 
+                } else {
+                    alert(response.message); 
+                }
+            },
+            error: function(error) {
+                console.error("Error:", error);
+                alert('An error occurred while updating the status.');
+            }
+            });
+        });
+
+
+
+        
+
+        $('#profileImage').attr('src', 'https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg');
+
+          function previewImage(event) {
+              const file = event.target.files[0];
+              if (file) {
+                  const reader = new FileReader();
+                  reader.onload = function (e) {
+                      // Set the uploaded image as the source of the profile image
+                      document.getElementById('profileImage').src = e.target.result;
+                  };
+                  reader.readAsDataURL(file);
+              }
+          }
+
+          $("#upload").on('change', function(event) {
+          event.preventDefault();
+          let userid = localStorage.getItem('user_id');
+        
+          if (!userid) {
+              alert('User not logged in');
+              return;
+          }
+
+          let filename = this.files[0];
+
+          if (!filename) {
+              alert('Please select a file to upload');
+              return; 
+          }
+          
+          let formData = new FormData();
+          formData.append("userid", userid);
+          formData.append("filename", filename);
+          $.ajax({
+              url: "{% url 'change_profile_data' %}",
+              type: 'POST',
+              data: formData,
+              contentType: false,  
+              processData: false,  
+              success: function(response) {
+                  console.log('File uploaded successfully');
+                  console.log(response);
+                  let newProfileImageUrl = response.image_url;
+                $('#profileImage').attr('src', newProfileImageUrl);
+                $('#main_profile').attr('src', newProfileImageUrl);
+              },
+              error: function(xhr, status, error) {
+                  console.log('Error uploading file');
+                  console.log(error); 
+              }
+          });
+          
+      });
+
+
+
+    let userid = localStorage.getItem('user_id');
+    $.ajax({
+        url: `{% url 'get_user_profile' %}`, 
+        type: 'POST',
+        data: {
+            'userid': userid,  
+            'csrfmiddlewaretoken': '{{ csrf_token }}' 
+        },
+        success: function(response) {
+          if(response.user_profile){
+              let response_url=response.user_profile.profile_image_url
+              $('#profileImage').attr('src', response_url);
+              $('#main_profile').attr('src', response_url);
+          }else{
+            console.log('not found!')
+          }
+
+        },
+        error: function(xhr, status, error) {
+
+        }
+    });
+
+
+
+
+  $('#user_logout_main').click(function() {
+    $.ajax({
+        url: '{% url "logout" %}', 
+        type: 'POST', 
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken') 
+        },
+        success: function(response) {
+            window.location.href = 'https://www.boseservicecenter.co.in/login';
+        },
+        error: function(response) {
+            alert(response.responseJSON.error || 'An error occurred while logging out.');
+        }
+    });
+});
+
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+
+
+
+    $("#account_logout").on('click',function(){
+                $.ajax({
+                  url: "{% url 'logout' %}", 
+                  type: 'POST',    
+                  headers: {
+                      'X-CSRFToken': getCookie('csrftoken') 
+                  },
+                  success: function(response) {
+                    window.location.href = `https://www.boseservicecenter.co.in/login`
+                  },
+                  error: function(response) {
+                      alert(response.responseJSON.error);
+                  }
+              });
+          })
+
+    $("#update_profiles").prop('disabled', true);
+
+    $("#edit_profile").on('click',function(){
+          $.ajax({
+          url: '{% url "get_profile" %}',
+          type: 'GET',
+          headers: {
+            'X-CSRFToken': '{{ csrf_token }}'
+          },
+          success: function(response) {
+            console.log(response,'profile')
+            // Populate the form fields with current profile dat
+            $("input[name='full_name']").val(response.full_name);
+            $("textarea[name='address']").val(response.address);
+            $("input[name='mobile']").val(response.mobile);
+            $("input[name='email']").val(response.email);
+            $("input[name='state']").val(response.state);
+            $("input[name='city']").val(response.city);
+            $("input[name='postal_code']").val(response.postal_code);
+            $("#update_profiles").prop('disabled', false);
+            $("#edit_profile").prop("disabled",true)
+
+            // enable input box
+            const fullName = $("input[name='full_name']")
+            const address = $("textarea[name='address']")
+            const mobile = $("input[name='mobile']")
+            // const email =  $("input[name='email']")
+            const state = $("input[name='state']")
+            const city =  $("input[name='city']")
+            const postalCode =  $("input[name='postal_code']")
+
+            fullName.prop("disabled",false)
+            address.prop("disabled",false)
+            mobile.prop("disabled",false)
+            // email.prop("disabled",false)
+            state.prop("disabled",false)
+            city.prop("disabled",false)
+            postalCode.prop("disabled",false)
+
+            },
+            error: function(xhr, status, error) {
+                console.warn('Error fetching profile data: ' + error);
+              }
+            });
+
+        });
+
+
+      const fullName = $("input[name='full_name']")
+      const address = $("textarea[name='address']")
+      const mobile = $("input[name='mobile']")
+      const email =  $("input[name='email']")
+      const state = $("input[name='state']")
+      const city =  $("input[name='city']")
+      const postalCode =  $("input[name='postal_code']")
+
+      fullName.prop("disabled",true)
+      address.prop("disabled",true)
+      mobile.prop("disabled",true)
+      email.prop("disabled",true)
+      state.prop("disabled",true)
+      city.prop("disabled",true)
+      postalCode.prop("disabled",true)
+
+      // function validateFields() {
+      //   let fieldsValid = true;
+
+      //   const fullName = $("input[name='full_name']");
+      //   const address = $("textarea[name='address']");
+      //   const mobile = $("input[name='mobile']");
+      //   const email = $("input[name='email']");
+      //   const state = $("input[name='state']");
+      //   const city = $("input[name='city']");
+      //   const postalCode = $("input[name='postal_code']");
+
+      //   const fields = [fullName, address, mobile, email, state, city, postalCode];
+      //   fields.forEach(field => field.removeClass('error'));
+
+      //   if (fullName.val().trim() === "") {
+      //       fullName.addClass('error');
+      //       fieldsValid = false;
+      //   }
+
+      //   let email_regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+      //   if (email.val().trim() === "" || !email_regex.test(email.val())) {
+      //       email.addClass('error');
+      //       fieldsValid = false;
+      //   }
+
+      //   let mobileValue = mobile.val().trim();
+      //   if (mobileValue === "" || mobileValue.length !== 10 || !/^\d+$/.test(mobileValue)) {
+      //       mobile.addClass('error');
+      //       fieldsValid = false;
+      //   }
+
+      //   if (address.val().trim() === "") {
+      //       address.addClass('error');
+      //       fieldsValid = false;
+      //   }
+
+      //   if (state.val().trim() === "") {
+      //       state.addClass('error');
+      //       fieldsValid = false;
+      //   }
+
+      //   if (city.val().trim() === "") {
+      //       city.addClass('error');
+      //       fieldsValid = false;
+      //   }
+
+      //   if (postalCode.val().trim() === "") {
+      //       postalCode.addClass('error');
+      //       fieldsValid = false;
+      //   }
+
+      //       return fieldsValid;
+      //   }
+
+      //   function toggleUpdateButton() {
+      //       const isValid = validateFields();
+      //       $("#update_profiles").prop('disabled', !isValid);
+      //   }
+
+
+      function validateFields() {
+        let fieldsValid = true;
+
+        const fullName = $("input[name='full_name']");
+        const address = $("textarea[name='address']");
+        const mobile = $("input[name='mobile']");
+        const email = $("input[name='email']");
+        const state = $("input[name='state']");
+        const city = $("input[name='city']");
+        const postalCode = $("input[name='postal_code']");
+
+        const fields = [fullName, address, mobile, email, state, city, postalCode];
+        fields.forEach(field => field.removeClass('error'));
+
+        if (fullName.val().trim() === "") {
+            fullName.addClass('error');
+            fieldsValid = false;
+        }
+
+        // let email_regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        // if (email.val().trim() === "" || !email_regex.test(email.val())) {
+        //     email.addClass('error');
+        //     fieldsValid = false;
+        // }
+
+        let email_regex = /^[a-zA-Z0-9._%+-]+@[\w.-]+$/;
+        if (email.val().trim() === "" || !email_regex.test(email.val())) {
+            email.addClass('error');
+            fieldsValid = false;
+        }
+
+
+        let mobileValue = mobile.val().trim();
+        if (mobileValue === "" || mobileValue.length !== 10 || !/^\d+$/.test(mobileValue)) {
+            mobile.addClass('error');
+            fieldsValid = false;
+        }
+
+        if (address.val().trim() === "") {
+            address.addClass('error');
+            fieldsValid = false;
+        }
+
+        if (state.val().trim() === "") {
+            state.addClass('error');
+            fieldsValid = false;
+        }
+
+        if (city.val().trim() === "") {
+            city.addClass('error');
+            fieldsValid = false;
+        }
+
+        if (postalCode.val().trim() === "") {
+            postalCode.addClass('error');
+            fieldsValid = false;
+        }
+
+        return fieldsValid;
+    }
+
+    function toggleUpdateButton() {
+          const isValid = validateFields();
+          const isBlinking = $(".error").length > 0;
+          $("#update_profiles").prop('disabled', true);
+          $("#update_profiles").prop('disabled', !isValid || isBlinking);
+      }
+
+
+
+      // removed on input error class
+
+          function validateField(field) {
+            if (field.val().trim() === '' || (field.attr('name') === 'mobile' && !/^\d{10}$/.test(field.val())) || 
+                (field.attr('name') === 'email' && !/\S+@\S+\.\S+/.test(field.val())) || 
+                (field.attr('name') === 'postal_code' && !/^\d{6}$/.test(field.val()))) {
+              field.addClass('error');
+            } else {
+              field.removeClass('error');
+            }
+          }
+
+          fullName.on('input', function() {
+            validateField(fullName);
+          });
+          address.on('input', function() {
+            validateField(address);
+          });
+          mobile.on('input', function() {
+            validateField(mobile);
+          });
+          email.on('input', function() {
+            validateField(email);
+          });
+          state.on('input', function() {
+            validateField(state);
+          });
+          city.on('input', function() {
+            validateField(city);
+          });
+          postalCode.on('input', function() {
+            validateField(postalCode);
+          });
+
+
+
+
+
+        $("#update_profiles").on('click', function() {
+
+          if (!validateFields()) {
+            return;
+          }
+
+          const fullName = $("input[name='full_name']");
+          const address = $("textarea[name='address']");
+          const mobile = $("input[name='mobile']");
+          const email =  $("input[name='email']");
+          const state = $("input[name='state']");
+          const city =  $("input[name='city']");
+          const postalCode =  $("input[name='postal_code']");
+
+
+          const data = {
+            'full_name': fullName.val(),
+            'address': address.val(),
+            'mobile': mobile.val(),
+            'email': email.val(),
+            'state': state.val(),
+            'city': city.val(),
+            'postal_code': postalCode.val(),
+          };
+
+          $.ajax({
+            url: `{% url 'update_profile' %}`,
+            type: 'POST',
+            data: data,
+            headers: {
+              'X-CSRFToken': '{{ csrf_token }}'
+            },
+            success: function(response) {
+              console.log(response,'responseeeeeeeeeeeeeeeeeeeee')
+              if (response.status === 200) {
+                console.log('Profile updated successfully');
+                $("#update_profiles").prop('disabled', true);
+                $("#edit_profile").prop("disabled",false)
+
+                $("input[name='full_name']").val('');
+                $("textarea[name='address']").val('');
+                $("input[name='mobile']").val('');
+                $("input[name='email']").val('');
+                $("input[name='state']").val('');
+                $("input[name='city']").val('');
+                $("input[name='postal_code']").val('');
+
+                const fullName = $("input[name='full_name']")
+                const address = $("textarea[name='address']")
+                const mobile = $("input[name='mobile']")
+                const email =  $("input[name='email']")
+                const state = $("input[name='state']")
+                const city =  $("input[name='city']")
+                const postalCode =  $("input[name='postal_code']")
+
+                fullName.prop("disabled",true)
+                address.prop("disabled",true)
+                mobile.prop("disabled",true)
+                email.prop("disabled",true)
+                state.prop("disabled",true)
+                city.prop("disabled",true)
+                postalCode.prop("disabled",true)
+
+                fetchUpdatedProfile();
+                } else {
+                  console.log('Error: ' + response.message);
+                }
+              },
+              error: function(xhr, status, error) {
+                console.log('An error occurred: ' + error);
+              }
+            });
+        });
+
+        function fetchUpdatedProfile() {
+          $.ajax({
+              url: `{% url 'update_profile' %}`,
+              type: 'GET',
+              headers: {
+                  'X-CSRFToken': '{{ csrf_token }}'
+              },
+              success: function(response) {
+                  console.log(response, 'responseffffffffffffffffffffffffffffff');
+                  if (response.status === 200) {
+                      console.log('Profile fetched successfully');
+                      $(".profile-name").empty();
+                      $("#change_picture").val(response.id)
+                      
+                      $("#customer_name").text(response.full_name);
+                      $(".profile-name").append(response.full_name)
+                      $("#customer_address").text(response.address);
+                      $("#customer_mobile").text(response.mobile)
+                      $("#customer_email").text(response.email)
+
+                      $("#customer_state").text(response.state)
+                      $("#customer_city").text(response.city)
+                      $("#customer_zip").text(response.postal_code)
+
+                  }
+              },
+              error: function(xhr, status, error) {
+                  console.log('An error occurred: ' + error);
+              }
+          });
+      }
+
+
+      fetchUpdatedProfile();
+
+          $(document).ready(function() {
+                $.ajax({
+                    url: `{% url 'check_user_login' %}`,  
+                    method: 'GET',       
+                    success: function(response) {
+                      $("input[name='usernames']").val(response.user_data.username)
+                    },
+                    error: function(xhr, status, error) {
+                    }
+                });
+            });
+
+
+        $("#account_delete").on('click',function(){
+
+            $.ajax({
+            url: "{% url 'delete_account' %}", 
+            type: 'POST',
+            headers: {
+              'X-CSRFToken': '{{ csrf_token }}' 
+            },
+            success: function(response) {
+
+              
+              setTimeout(function(){
+                  $("#exampleModalDelete").modal('hide')
+                  window.location.href=`/login`
+                },1000)
+              
+            },
+            error: function(xhr, status, error) {
+              console.log('Error: ' + xhr.responseJSON.message);  // Show error message
+            }
+        });
+          
+    });
+        toastr.options = {
+            closeButton: true,
+            debug: false,
+            newestOnTop: true,
+            progressBar: true,
+            positionClass: "toast-top-right",
+            preventDuplicates: true,
+            onclick: null,
+            showDuration: 300,           
+            hideDuration: 300,             
+            timeOut: 1000,                  
+            extendedTimeOut: 1000,         
+            showEasing: "swing",           
+            hideEasing: "linear",           
+            showMethod: "slideDown",        
+            hideMethod: "slideUp",          
+            };
+
+        $('#change_password').click(function () {
+            var oldPassword = $('input[name="old_password"]').val();
+            var newPassword = $('input[name="new_password"]').val();
+            var confirmPassword = $('input[name="confirm_password"]').val();
+
+            if (newPassword !== confirmPassword) {
+                toastr.error('Both password does not match.');
+                return;
+            }
+
+            var data = {
+              old_password: oldPassword,
+              new_password: newPassword,
+              confirm_password: confirmPassword  
+            };
+
+              $.ajax({
+                url: `{% url 'change-password' %}`, 
+                method: 'POST',
+                contentType: 'application/json',  
+                data: JSON.stringify(data),  
+                success: function(response) {
+                  console.log(response)
+                    if(response.status===200){
+                        toastr.success(response.message);
+                        setTimeout(function(){
+                            window.location.href=`https://www.boseservicecenter.co.in/login`
+                        },2500) 
+                      }else if(response.status===301){
+                          toastr.error(response.message)
+                      }else if(response.status===402){
+                        toastr.error(response.message)
+                      }else if(response.status===400){
+                        toastr.error(response.message)
+                      }
+                
+                    },
+                    error: function(xhr, status, error) {
+                      console.warn('error',error)
+                    }
+                  });
+              });
+
+
+        })
+</script>
+
+
+{% endblock %}

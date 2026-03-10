@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block meta %}
+<meta charset="utf-8">
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="google-site-verification" content="NwrpN14CEh2EPcUnTo15852IZkXdnJS1Wla3nfPxL5c" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Bose Service Centre | Repair & Home Service</title>
+<meta name="title" content="Bose Service Centre | Repair & Home Service">
+<meta name="keywords" content="Bose Service Center, Bose Repair Mumbai, Bose Speaker Service, Bose Headphone Repair, Bose Service Home Pickup, Bose Audio Repair">
+<meta name="description" content="Get your Bose speaker repaired at your convenience. Enjoy Bose speaker service from the comfort of your home. Our experts will reach your location for a hassle-free experience.">
+
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+<link rel="canonical" href="https://www.boseservicecenter.co.in/login" />
+<link rel="preload" as="image" href="{% static 'images/service-page-banner.jpg' %}" fetchpriority="high">
+<link rel="preload" as="image" href="{% static 'images/home-banner1.jpg' %}" fetchpriority="high">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Bose Service Centre | Repair & Home Service">
+<meta property="og:description" content="Get your Bose speaker repaired at your convenience. Enjoy Bose speaker service from the comfort of your home. Our experts will reach your location for a hassle-free experience." />
+<meta property="og:url" content="https://www.boseservicecenter.co.in/login" />
+<meta property="og:site_name" content="Bose Service Centre" />
+<meta property="og:image" content="https://www.boseservicecenter.co.in/static/images/home-banner2.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Bose Service Center" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Bose Service Centre | Repair & Home Service" />
+<meta name="twitter:description" content="Get your Bose speaker repaired at your convenience. Enjoy Bose speaker service from the comfort of your home. Our experts will reach your location for a hassle-free experience." />
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<section id="login">
+  <div class="container">
+    <div class="loginwrap">
+      <div class="row">
+        <div class="col-12">
+          <div class="login-form">
+            <h2 class="mb-4">Login</h2>
+            <div id="message" style="display:none; color: whitesmoke;"></div>
+            <form class="requires-validation" novalidate>
+              <div class="row g-2">
+                <span id="success" style="color:green;"></span>   <span id="error" style="color:red;"></span>
+                <div class="mb-3 col-12">
+                  <label for="email" class="form-label visually-hidden">Email address</label>
+                  <input type="email" class="form-control pl-25" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email" autocomplete="off" >
+                  <i class="form-icon fa fa-envelope"></i>
+                </div>
+              </div>
+              <div class="row g-2">
+                <span id="success" style="color:green;"></span>
+                <span id="error" style="color:red;"></span>
+                <div class="mb-3 col-12 position-relative">
+                    <label for="password" class="form-label visually-hidden">Password</label>
+                    <input type="password" class="form-control pl-25" id="password" placeholder="Password" name="password" autocomplete="off" required>
+                    
+                    <i class="form-icon fa fa-lock position-absolute"></i>
+                    <i class="form-icon-right bi bi-eye position-absolute" id="togglePassword" style="right: 10px; cursor: pointer;"></i>
+                  </div>
+                  <span style="display: block;
+                  position: absolute;
+                  color: #f78989;
+                  font-size: 11px;
+                  margin-top: 80px;
+                  margin-left: 5px;" id="error_logger"></span>
+            </div>
+
+              <button type="button" class="btn btn-primary subbuttn mt-3" id="click_to_login">Login</button>
+              <div class="mt-4 text-center">
+                <a href="{% url 'forgate-password' %}" >Forget Password?</a>
+              </div>
+            </form>
+            <div class="mt-2">
+              <p class="mb-0">Don't have an account? <a href="{% url 'registration' %}" class="">Register</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+
+<script>
+
+
+window.onload = function() {
+    const registrationMessage = sessionStorage.getItem('registration_message');
+    if (registrationMessage) {
+        const messageDiv = document.getElementById('message');
+        messageDiv.textContent = registrationMessage;
+        messageDiv.style.display = 'block';
+        setTimeout(() => {
+            messageDiv.style.display = 'none';
+            sessionStorage.removeItem('registration_message');
+        }, 2000);
+    }
+
+    const updateMessage = sessionStorage.getItem('update_message');
+    if (updateMessage) {
+        const messageDiv = document.getElementById('message');
+        messageDiv.textContent = updateMessage;
+        messageDiv.style.display = 'block';
+        setTimeout(() => {
+            messageDiv.style.display = 'none';
+            sessionStorage.removeItem('update_message');
+        }, 2000);
+    }
+}
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    togglePassword.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        togglePassword.classList.toggle('bi-eye');
+        togglePassword.classList.toggle('bi-eye-slash');
+    });
+});
+
+
+  $(document).ready(function(){
+
+  
+
+    $("#click_to_login").on('click',function(){
+  
+
+      let formdata = new FormData()
+      let email=$("input[name='email']").val()
+      let password = $("input[name='password']").val()
+      if (!email || !password) {
+        console.warn('Please enter both email and password.')
+        return;
+    }
+
+      formdata.append("email",email)
+      formdata.append('password',password)
+
+      $.ajax({
+        method: "POST",
+        url: "{% url 'create-login' %}",
+        data: formdata,
+        datatype: "json",
+        processData: false,
+        contentType: false,
+
+        success: function (data) {  
+
+          if (data.status == 201 || data.status == 200) { 
+              localStorage.setItem("user_id", data.user_id);
+              localStorage.removeItem("token");
+              window.location.href = `https://www.boseservicecenter.co.in/products-category?filter=portablebluetooth`;
+          }
+          else if(data.status==400){
+            $("#error_logger").empty()
+            $("#error_logger").prepend('Password Does Not Match')
+          }else if(data.status==404){
+            $("#error_logger").empty()
+            $("#error_logger").prepend('Email Does Not Match')
+          }
+  
+        },
+
+        error: function (jqXHR, textStatus, errorThrown) { // Error handling
+          console.error("Error:", textStatus, errorThrown);
+      }
+
+      
+    })
+
+
+
+    })
+  
+
+  });
+
+</script>
+
+
+{% endblock %}

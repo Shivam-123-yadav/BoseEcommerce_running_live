@@ -1,0 +1,911 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<head>
+  <style>
+    .table > :not(caption) > * > * {
+          padding: 0.4rem 0.2rem !important;
+          background-color: var(--bs-table-bg) !important;
+          border-bottom-width: 1px !important;
+          box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg) !important;
+      }
+
+      .color-name{
+        font-size: 12px;
+        color: #ef6950;
+        font-weight: 600;
+      }
+      
+      input.error, textarea.error,select.error {
+          border: 2px solid red;
+          animation: blink 1s infinite;  /* Blinking effect */
+      }
+
+      @keyframes blink {
+          0% {
+              border-color: red;
+          }
+          50% {
+              border-color: transparent;
+          }
+          100% {
+              border-color: red;
+          }
+      }
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+</head>
+
+
+<section id="checkout">
+  <div class="container">
+    <div class="chkwrphd">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+          <h2>Checkout </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- container end-->
+  
+  <div class="container">
+    <div class="chkwrp">
+      <div class="row">
+        <div class="col-xl-8">
+          <div class="card">
+            <div class="card-body">
+              <ol class="activity-checkout mb-0 px-4 mt-3">
+                <li class="checkout-item">
+                  <div class="avatar checkout-icon p-1">
+                    <div class="avatar-title rounded-circle bg-primary"> 
+                      <!--                                    <i class="bx bxs-receipt text-white font-size-20"></i>--> 
+                      <i class="bi bi-receipt"></i> </div>
+                  </div>
+                  <div class="feed-item-list">
+                    <div>
+                      <h5 class="font-size-16 mb-1">Billing Info</h5>
+                      <p class="text-muted text-truncate mb-4">Add your Address </p>
+                      <div class="mb-3">
+                        <form>
+                          <div>
+                            <div class="row">
+                              <div class="col-lg-4">
+                                <div class="mb-3">
+                                  <label class="form-label" for="billing-name">Name</label>
+                                  <input type="text" class="form-control" id="billing-name" placeholder="Enter name" name="customer_name">
+                                </div>
+                              </div>
+                              <div class="col-lg-4">
+                                <div class="mb-3">
+                                  <label class="form-label" for="billing-email-address">Email Address</label>
+                                  <input type="email" class="form-control" id="billing-email-address" placeholder="Enter email" name="customer_email">
+                                </div>
+                              </div>
+                              <div class="col-lg-4">
+                                <div class="mb-3">
+                                  <label class="form-label" for="billing-phone">Phone</label>
+                                  <input type="text" class="form-control" id="billing-phone" placeholder="Enter Phone no."  name="customer_number">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label" for="billing-address">Address</label>
+                              <textarea class="form-control" id="billing-address" rows="3" placeholder="Enter full address" name="customer_address"></textarea>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-4">
+                                <div class="mb-4 mb-lg-0">
+                                  <label class="form-label">State</label>
+                                  <select class="form-control form-select" title="State" name="customer_state">
+                                    <option value="" disabled selected>Select state</option>
+                                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chandigarh">Chandigarh</option>
+                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                    <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                                    <option value="Daman and Diu">Daman and Diu</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                    <option value="Jharkhand">Jharkhand</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Ladakh">Ladakh</option>
+                                    <option value="Lakshadweep">Lakshadweep</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Manipur">Manipur</option>
+                                    <option value="Meghalaya">Meghalaya</option>
+                                    <option value="Mizoram">Mizoram</option>
+                                    <option value="Nagaland">Nagaland</option>
+                                    <option value="Odisha">Odisha</option>
+                                    <option value="Puducherry">Puducherry</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Sikkim">Sikkim</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Tripura">Tripura</option>
+                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                    <option value="Uttarakhand">Uttarakhand</option>
+                                    <option value="West Bengal">West Bengal</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-lg-4">
+                                <div class="mb-4 mb-lg-0">
+                                  <label class="form-label" for="billing-city">City</label>
+                                  <input type="text" class="form-control" id="billing-city" placeholder="Enter City" name="customer_city">
+                                </div>
+                              </div>
+                              <div class="col-lg-4">
+                                <div class="mb-0">
+                                  <label class="form-label" for="zip-code">Zip / Postal code</label>
+                                  <input type="text" class="form-control" id="zip-code" placeholder="Enter Postal code" name="customer_postalcode">
+                                </div>
+                              </div>
+                            </div>
+                            <!-- row end -->
+                            
+                            <div class="row mt-3">
+                              <div class="col-lg-12">
+                                <div class="mt-4 mb-0 d-flex gap-3" style="justify-content:flex-end; align-items: center; vertical-align: middle"> <span style="">Add or Update Address</span>
+                                  <button class="btn add-address-btn" id="create_user"> Create </button>
+                                  <button class="btn add-address-btn" name="customer_update"> Update <i class="bi bi-update"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- row end --> 
+                            
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="checkout-item">
+                  <div class="avatar checkout-icon p-1">
+                    <div class="avatar-title rounded-circle bg-primary"> 
+                      <!--                                    <i class="bx bxs-truck text-white font-size-20"></i>--> 
+                      <i class="bi bi-truck"></i> </div>
+                  </div>
+                  <div class="feed-item-list">
+                    <div>
+                      <h5 class="font-size-16 mb-1">Shipping Info</h5>
+                      <p class="text-muted text-truncate mb-4">Select your Delivery Address</p>
+                      <div class="mb-3">
+                        <div class="row">
+                          <div class="col-md-12 col-12">
+                            <div data-bs-toggle="collapse">
+                              <label class="card-radio-label mb-0">
+                              <input type="radio" name="address" id="info-address1" class="card-radio-input" checked="">
+                              <div class="card-radio text-truncate p-3"> <span class="fs-14 mb-4 d-block">Customer Information</span> <span class="fs-14 mb-2 d-block" name="first_names"></span> <span class="text-muted fw-normal text-wrap mb-1 d-block"><span name="emails"></span><span name="mobile_numbers"></span><span name="address_data"></span><span name="citys"></span><span name="states"></span><span name="postal_code"></span> </span> <span class="text-muted fw-normal d-block"></span> </div>
+                              </label>
+                              <div class="edit-btn bg-light  rounded"> <a href="#" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit"> 
+                                <!--                                                            <i class="bx bx-pencil font-size-16"></i>--> 
+                                <i class="bi bi-pencil font-size-16" name="edit-btn"></i> </a> </div>
+                            </div>
+                          </div>
+
+                          <div class="col-md-12 col-12" style="display: none;">
+                            <div>
+                              <label class="card-radio-label mb-0">
+                              <input type="radio" name="address" id="info-address2" class="card-radio-input">
+                              <div class="card-radio text-truncate p-3"> <span class="fs-14 mb-4 d-block">Address 2</span> <span class="fs-14 mb-2 d-block">Bapu Sonar</span> <span class="text-muted fw-normal text-wrap mb-1 d-block">B-302, 3rd Floor, Malhar Residency, near Railway Station, Shivaji Path, Dada Patil Wadi, Thane, Maharashtra 400602.</span> <span class="text-muted fw-normal d-block">Mo. 91-98926-88888</span> </div>
+                              </label>
+                              <div class="edit-btn bg-light  rounded"> <a href="#" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit"> 
+                                <!--                                                            <i class="bx bx-pencil font-size-16"></i>--> 
+                                <i class="bi bi-pencil font-size-16"></i> </a> </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="checkout-item" style="display: none;">
+                  <div class="avatar checkout-icon p-1">
+                    <div class="avatar-title rounded-circle bg-primary"> 
+                      <!--                                    <i class="bx bxs-wallet-alt text-white font-size-20"></i>--> 
+                      <i class="bi bi-wallet2"></i> </div>
+                  </div>
+
+                  <div class="feed-item-list">
+                    <div>
+                      <h5 class="font-size-16 mb-1">Payment Info</h5>
+                      <p class="text-muted text-truncate mb-4">Select your Payment Option</p>
+                    </div>
+                    <div>
+                      <h5 class="font-size-14 mb-3">Payment method :</h5>
+                      <div class="row">
+                        <div class="col-lg-3 col-sm-6">
+                          <div data-bs-toggle="collapse">
+                            <label class="card-radio-label">
+                              <input type="radio" name="pay-method" id="pay-methodoption1" class="card-radio-input">
+                              <span class="card-radio py-3 text-center text-truncate"> 
+                              <!--                                                        <i class="bx bx-credit-card d-block h2 mb-3"></i>--> 
+                              <i class="bi bi-credit-card-2-front d-block h3 mb-3"></i> 
+                              <!--														<i class="bi bi-credit-card "></i>--> 
+                              Credit / Debit Card </span> </label>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                          <div>
+                            <label class="card-radio-label">
+                              <input type="radio" name="pay-method" id="pay-methodoption2" class="card-radio-input">
+                              <span class="card-radio py-3 text-center text-truncate"> 
+                              <!--                                                        <i class="bx bxs-bank d-block h2 mb-3"></i>--> 
+                              <i class="bi bi-bank2 d-block h2 mb-3"></i> Net Banking </span> </label>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                          <div>
+                            <label class="card-radio-label">
+                              <input type="radio" name="pay-method" id="pay-methodoption3" class="card-radio-input" checked="">
+                              <span class="card-radio py-3 text-center text-truncate"> 
+                              <!--                                                        <i class="bx bx-money d-block h2 mb-3"></i>--> 
+                              <i class="bi bi-cash d-block h2 mb-3"></i> <span>Cash on Delivery</span> </span> </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="row my-4">
+            <div class="col"> <a href="ecommerce-products.html" class="btn btn-link text-muted" style="display: none;"> 
+              
+              <i class="bi bi-arrow-left me-1"></i> Continue Shopping </a> </div>
+
+          </div>
+          <!-- end row--> 
+        </div>
+        <div class="col-xl-4">
+          <div class="card checkout-order-summary">
+            <div class="card-body">
+              <div class="p-3 bg-light mb-3">
+                <h5 class="font-size-16 mb-0">Order Summary 
+                  <!-- <span class="float-end ms-2">#MN0124</span> -->
+                </h5>
+              </div>
+
+
+            
+
+                  <div class="table-responsive">
+                    <table class="table table-centered mb-0 table-nowrap">
+                      <thead>
+                        <tr>
+                          <th class="border-top-0" style="width: 25%;" scope="col">Product</th>
+                          <th class="border-top-0" scope="col" style="width: 40%;">Product Desc</th>
+                          <th class="border-top-0" scope="col" style="width: 35%; text-align: right; padding-right: 15px !important;">Price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% if cart_items %}
+                            {% for item in cart_items %}
+                        <tr>
+                          <th scope="row">
+                          
+                            {% if item.color_image_url %}
+                                <img src="{{item.color_image_url}}" alt="product-img" title="product-img" class="avatar-lg rounded" data-id="{{item.id}}" data-slug="{{item.slug}}" style="cursor: pointer;">
+                                {% else %}
+                                <img src="/media/{{item.image}}" alt="product-img" title="product-img" class="avatar-lg rounded" data-id="{{item.id}}" data-slug="{{item.slug}}" style="cursor: pointer;">
+                            {% endif %}
+                            
+                          </th>
+                          <td><h5 class="font-size-14 text-truncate" id="back_to_product" data-id="{{item.id}}" data-slug="{{item.slug}}"><a href="#" class="text-dark" data-id="{{item.id}}" data-slug="{{item.slug}}"> {{ item.title }}</a></h5>
+                            {% if item.color_name %}
+                            <span data-id="{{item.item_id}}" class="color-name">Color : {{item.color_name}}</span>
+                            {% else %}
+
+                            {% endif %}
+                          
+                            
+                            <p class="text-muted mb-0 mt-1"><i class="bi bi-currency-rupee"></i>   <span class="mrp_price">{{ item.mrp_price }}</span> x <span class="quantity">{{item.quantity}}</span></p></td>
+                            <td style="text-align: right; padding-right: 15px !important;"><i class="bi bi-currency-rupee"></i><span id="multiply_amt" class="font-size-14"></span></td>
+                        </tr>
+
+                    
+                        {% endfor %}
+                        {% else %}
+                            <p>No items in your cart.</p>
+                        {% endif %}
+                        
+
+                        <tr>
+                          <td colspan="2"><h5 class="font-size-14 m-0">Sub Total :</h5></td>
+                          <td style="text-align: right; padding-right: 15px !important;"><i class="bi bi-currency-rupee"></i><span id="subtotal_amt">{{ total_subtotal|floatformat:2 }}</span></td>
+                        </tr>
+                        <tr>
+                          <td colspan="2"><h5 class="font-size-14 m-0">Discount :</h5></td>
+                          <td style="text-align: right; padding-right: 15px !important;"> - <i class="bi bi-currency-rupee"></i> <span class="discount_amount">{{ total_discount|floatformat:2 }}</span></td>
+                        </tr> 
+
+                        <tr>
+                          <td colspan="2"><h5 class="font-size-14 m-0">Shipping Charge :</h5></td>
+                          <td style="text-align: right; padding-right: 15px !important;">+<i class="bi bi-currency-rupee"></i>{{ total_shipping_charge|floatformat:2 }} </td>
+                        </tr>
+
+                        <tr class="bg-light">
+                          <td colspan="2"><h5 class="font-size-14 m-0">Total:</h5></td>
+                          <td style="text-align: right; padding-right: 15px !important; font-weight: 700 !important;"><i class="bi bi-currency-rupee"></i>{{ final_total_price|floatformat:2 }}</td>
+                        </tr>
+
+                          
+
+                       
+                      </tbody>
+                    </table>
+                  </div>
+             
+
+
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-end mt-2 mt-sm-0"> 
+              <a href="#" class="btn btn-success-new" id="placeOrderButton"> 
+              <i class="bi bi-cart-plus"></i> &nbsp;Procced </a> 
+            </div>
+          </div>
+          <!-- end col --> 
+          
+        </div>
+      </div>
+    </div>
+    <!-- end row --> 
+    
+  </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+  $(document).ready(function(){
+
+
+$(document).ready(function () {
+    $('.color-name').each(function () {
+        let originalText = $(this).text();
+        let updatedText = originalText
+            .replace(/-/g, ' ')
+            .toLowerCase() 
+            .replace(/\b\w/g, function (char) {
+                return char.toUpperCase();
+            });
+
+        $(this).text(updatedText);
+    });
+});
+
+
+
+    $(document).ready(function(){
+        $('tr').each(function(){
+            var mrpPrice = parseFloat($(this).find('.mrp_price').text());
+            var quantity = parseInt($(this).find('.quantity').text());  
+            
+            if (!isNaN(mrpPrice) && !isNaN(quantity)) {  
+                var totalPrice = mrpPrice * quantity;  
+                $(this).find('#multiply_amt').text(totalPrice.toFixed(2)); 
+            }
+        });
+    });
+
+
+
+    $("#back_to_product").on('click',function(){
+        let data_id=$(this).data('id');
+        var slugs = $(this).data('slug');
+        if(slugs){
+          window.location.href =`/bose-products/${slugs}/?item_id=${data_id}`
+
+        }else{
+          console.warn('id is missing !!')
+        }
+    });
+
+
+    $(".text-dark").on('click',function(){
+        var slugs = $(this).data('slug');
+        if(slugs){
+            window.location.href =`/bose-products/${slugs}`
+        }else{
+          console.log('id is missing !!')
+        }
+    })
+
+
+    $('img').click(function(){
+      let data_id=$(this).data('id');
+      var slugs = $(this).data('slug');
+      if(slugs){
+        window.location.href =`/bose-products/${slugs}/?item_id=${data_id}`
+
+      }else{
+        console.warn('id is missing !!')
+      }
+
+    })
+
+
+    $(document).ready(function() {
+        $('#placeOrderButton').addClass('disabled').attr('aria-disabled', 'true');
+        document.querySelector('button[name="customer_update"]').disabled = true;
+    });
+    $("#placeOrderButton").on('click', function() {
+        $.ajax({
+            url: "{% url 'BuyProductsView' %}",
+            type: "POST",
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+      beforeSend: function() {
+        // disable button to prevent double clicks
+        $('#placeOrderButton').addClass('disabled').attr('aria-disabled', 'true');
+      },
+      success: function(response) {
+        if (response.status === "success") {
+          // redirect to payment link
+          window.location.href = response.payment_link;
+        } else {
+          // show returned message
+          var msg = response.message || 'Unable to place order.';
+          toastr.options = { closeButton: true, progressBar: true };
+          toastr.error(msg);
+          $('#placeOrderButton').removeClass('disabled').attr('aria-disabled', 'false');
+        }
+      },
+      error: function(xhr, status, error) {
+        console.error("An error occurred: ", xhr.responseText || error);
+        var resp = null;
+        try {
+          resp = JSON.parse(xhr.responseText);
+        } catch (e) {
+          resp = null;
+        }
+        var message = (resp && (resp.message || resp.error)) ? (resp.message || resp.error) : 'An error occurred while placing the order.';
+        toastr.options = { closeButton: true, progressBar: true };
+        toastr.error(message);
+        // re-enable button so user can try again after fixing
+        $('#placeOrderButton').removeClass('disabled').attr('aria-disabled', 'false');
+      }
+          });
+    });
+  // blinking bordet
+    $("input[name='customer_name'], input[name='customer_email'], input[name='customer_number'], textarea[name='customer_address'], select[name='customer_state'], input[name='customer_city'], input[name='customer_postalcode']").on('keyup', function() {
+        $(this).removeClass('error');
+    });
+
+    $('select').on('change', function() {
+        $(this).removeClass('error');
+    });
+
+
+
+
+
+      let nameField = $("input[name='customer_name']");
+      let email_field = $("input[name='customer_email']");
+      let mobile_num = $("input[name='customer_number']");
+      let customerAddress = $("textarea[name='customer_address']");
+      let customer_states = $("select[name='customer_state']");
+      let customer_citys = $("input[name='customer_city']");
+      let customer_postalcodes = $("input[name='customer_postalcode']");
+
+      nameField.prop('disabled', true);
+      email_field.prop('disabled', true);
+      mobile_num.prop('disabled', true);
+      customerAddress.prop('disabled', true);
+      customer_states.prop('disabled', true);
+      customer_citys.prop('disabled', true);
+      customer_postalcodes.prop('disabled', true);
+
+
+
+
+    $("#create_user").on('click', function(e) {
+        e.preventDefault();
+        let formData = new FormData();
+
+          let fieldsValid = true;
+          let nameField = $("input[name='customer_name']");
+          let email_field=$("input[name='customer_email']");
+          let mobile_num=$("input[name='customer_number']");
+          let customerAddress=$("textarea[name='customer_address']");
+          let customer_states=$("select[name='customer_state']");
+          let customer_citys=$("input[name='customer_city']");
+          let customer_postalcodes=$("input[name='customer_postalcode']");
+
+          nameField.prop('disabled', false);
+          email_field.prop('disabled', false);
+          mobile_num.prop('disabled', false);
+          customerAddress.prop('disabled', false);
+          customer_states.prop('disabled', false);
+          customer_citys.prop('disabled', false);
+          customer_postalcodes.prop('disabled', false);
+
+
+
+          if (nameField.val().trim() === "") {
+              nameField.addClass('error');
+              fieldsValid = false;
+          } else {
+              nameField.removeClass('error');
+          }
+
+          if(email_field.val().trim()===""){
+            email_field.addClass('error')
+            fieldsValid = false;
+          }else{
+            email_field.removeClass('error')
+          }
+
+
+
+          let mobileValue = mobile_num.val().trim();
+          if (mobileValue === "") {
+              mobile_num.addClass('error');
+              fieldsValid = false;
+          } else if (mobileValue.length !== 10 || !/^\d+$/.test(mobileValue)) {
+              mobile_num.addClass('error');
+              fieldsValid = false;
+          } else {
+              mobile_num.removeClass('error');
+          }
+
+          if(customerAddress.val().trim()===""){
+            customerAddress.addClass('error')
+            fieldsValid = false;
+          }else{
+            customerAddress.removeClass('error')
+          }
+          if (customer_states.val() === "" || customer_states.val() === null) {
+              customer_states.addClass('error');
+              fieldsValid = false;
+          } else {
+              customer_states.removeClass('error');
+          }
+
+          if(customer_citys.val().trim()===""){
+            customer_citys.addClass('error');
+            fieldsValid = false;
+          }else{
+            customer_citys.removeClass('error');
+          }
+
+          if(customer_postalcodes.val().trim()===""){
+            customer_postalcodes.addClass('error');
+            fieldsValid = false;
+          }else{
+            customer_postalcodes.removeClass('error');
+          }
+
+          if (!fieldsValid) {
+              return;
+          }
+
+
+        let first_name = $("input[name='customer_name']").val();
+        let customer_email = $("input[name='customer_email']").val();
+        let customer_number = $("input[name='customer_number']").val();
+        let customer_address = $("textarea[name='customer_address']").val();
+        let customer_state = $("select[name='customer_state']").val();
+        let customer_city = $("input[name='customer_city']").val();
+        let customer_postalcode = $("input[name='customer_postalcode']").val();
+
+        formData.append("first_name", first_name);
+        formData.append("email", customer_email);
+        formData.append("phone_number", customer_number);
+        formData.append("address", customer_address);
+        formData.append("city", customer_city);
+        formData.append("state", customer_state);
+        formData.append("postal_code", customer_postalcode);
+
+    $.ajax({
+        url: '{% url "createuser" %}', 
+        type: 'POST',
+        data: formData,
+        headers: {
+            'X-CSRFToken': '{{ csrf_token }}' 
+        },
+        contentType: false, 
+        processData: false,  
+        success: function(response) {
+            $('#create_user').prop('disabled', true);
+            $('i[name="edit-btn"]').prop('disabled', false);
+            $('#placeOrderButton').removeClass('disabled').attr('aria-disabled', 'true');
+
+            document.querySelector('button[name="customer_update"]').disabled = true;
+
+            let customer_name = $("input[name='customer_name']").val('');
+            let customer_email = $("input[name='customer_email']").val('');
+            let customer_num = $("input[name='customer_number']").val('');
+            let customer_address = $("textarea[name='customer_address']").val('');
+            let customer_state = $("select[name='customer_state']").val('');
+            let customer_city = $("input[name='customer_city']").val('');
+            let customer_post = $("input[name='customer_postalcode']").val('');
+
+            customer_name.prop('disabled', true);
+            customer_email.prop('disabled', true);
+            customer_num.prop('disabled', true);
+            customer_address.prop('disabled', true);
+            customer_state.prop('disabled', true);
+            customer_city.prop('disabled', true);
+            customer_post.prop('disabled', true);
+
+
+            $("span[name='first_names']").text(response.response_data.first_name).after('<br>');
+            $("span[name='emails']").text(response.response_data.email).after('<br>');
+            $("span[name='mobile_numbers']").text(response.response_data.phone_number).after('<br>');
+            $("span[name='address_data']").text(response.response_data.address).after('<br>');
+            $("span[name='citys']").text(response.response_data.city).after('<br>');
+            $("span[name='states']").text(response.response_data.state).after('<br>');
+            $("span[name='postal_code']").text(response.response_data.postal_code).after('<br>'); 
+
+           
+        },
+        error: function(xhr) {
+            console.error('An error occurred:', xhr.responseText);
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                showMethod: 'fadeIn',
+                hideMethod: 'fadeOut',
+                showDuration: 300, 
+                hideDuration: 300,
+                timeOut: 5000, 
+            };
+
+            toastr.error('Email Already Exists!');
+
+        }
+    });
+});
+
+
+
+
+$(document).ready(function() {
+    $.ajax({
+        url: `{% url "createuser" %}`, 
+        type: 'GET',
+        headers: {
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        success: function(response) {
+          $('#create_user').prop('disabled', true);
+          $('#placeOrderButton').removeClass('disabled').attr('aria-disabled', 'true');
+          document.querySelector('button[name="customer_update"]').disabled = true;
+          if(response.status===200){
+            $("span[name='first_names']").text(response.response_data.first_name).after('<br>');
+              $("span[name='emails']").text(response.response_data.email).after('<br>');
+              $("span[name='mobile_numbers']").text(response.response_data.phone_number).after('<br>');
+              $("span[name='address_data']").text(response.response_data.address).after('<br>');
+              $("span[name='citys']").text(response.response_data.city).after('<br>');
+              $("span[name='states']").text(response.response_data.state).after('<br>');
+              $("span[name='postal_code']").text(response.response_data.postal_code).after('<br>'); 
+          }
+  
+        },
+        error: function(xhr, status, error) {
+            console.log('Request failed: ' + error);
+        }
+    });
+});
+
+
+
+// edit click
+$('i[name="edit-btn"]').prop('disabled', true);
+
+$('i[name="edit-btn"]').click(function (e) {
+        e.preventDefault();
+        
+        $.ajax({
+            url: `{% url 'customer-details' %}`,
+            method: 'GET',
+            dataType: 'json',
+            success: function (response) {
+              $('#placeOrderButton').addClass('disabled').attr('aria-disabled', 'true');
+              document.querySelector('button[name="customer_update"]').disabled = false;
+              if (response.status === 'success') {
+              let first_name=$("span[name='first_names']").text()
+              let emails=$("span[name='emails']").text()
+              let mobile_num=$("span[name='mobile_numbers']").text()
+              let address=$("span[name='address_data']").text()
+              let city=$("span[name='citys']").text()
+              let states=$("span[name='states']").text()
+              let postal_codes=$("span[name='postal_code']").text()
+
+
+              $("input[name='customer_name']").val(first_name);
+              $("input[name='customer_email']").val(emails);
+              $("input[name='customer_number']").val(mobile_num);
+              $("textarea[name='customer_address']").val(address);
+              $("select[name='customer_state']").val(states);
+              $("input[name='customer_city']").val(city);
+              $("input[name='customer_postalcode']").val(postal_codes);
+
+
+              let nameField = $("input[name='customer_name']");
+              let email_field = $("input[name='customer_email']");
+              let mobile_nums = $("input[name='customer_number']");
+              let customerAddress = $("textarea[name='customer_address']");
+              let customer_states = $("select[name='customer_state']");
+              let customer_citys = $("input[name='customer_city']");
+              let customer_postalcodes = $("input[name='customer_postalcode']");
+
+              nameField.prop('disabled', false);
+              email_field.prop('disabled', false);
+              mobile_nums.prop('disabled', false);
+              customerAddress.prop('disabled', false);
+              customer_states.prop('disabled', false);
+              customer_citys.prop('disabled', false);
+              customer_postalcodes.prop('disabled', false);
+
+            }
+
+            },
+            error: function () {
+                console.warn('Error fetching user details.');
+            }
+        });
+    });
+
+
+    $("button[name='customer_update']").on('click', function(e) {
+          e.preventDefault();
+
+          let formData = new FormData();
+          let fieldsValid = true;
+
+          // Get all fields
+          let nameField = $("input[name='customer_name']");
+          let emailField = $("input[name='customer_email']");
+          let mobileNum = $("input[name='customer_number']");
+          let customerAddress = $("textarea[name='customer_address']");
+          let customerState = $("select[name='customer_state']");
+          let customerCity = $("input[name='customer_city']");
+          let customerPostalCode = $("input[name='customer_postalcode']");
+
+          if (nameField.val().trim() === "") {
+              nameField.addClass('error');
+              fieldsValid = false;
+          } else {
+              nameField.removeClass('error');
+          }
+
+          if (emailField.val().trim() === "") {
+              emailField.addClass('error');
+              fieldsValid = false;
+          } else {
+              emailField.removeClass('error');
+          }
+
+          let mobileValue = mobileNum.val().trim();
+          if (mobileValue === "") {
+              mobileNum.addClass('error');
+              fieldsValid = false;
+          } else if (mobileValue.length !== 10 || !/^\d+$/.test(mobileValue)) {
+              mobileNum.addClass('error');
+              fieldsValid = false;
+          } else {
+              mobileNum.removeClass('error');
+          }
+
+
+          if (customerAddress.val().trim() === "") {
+              customerAddress.addClass('error');
+              fieldsValid = false;
+          } else {
+              customerAddress.removeClass('error');
+          }
+
+          if (customerState.val() === "" || customerState.val() === null) {
+              customerState.addClass('error');
+              fieldsValid = false;
+          } else {
+              customerState.removeClass('error');
+          }
+
+          if (customerCity.val().trim() === "") {
+              customerCity.addClass('error');
+              fieldsValid = false;
+          } else {
+              customerCity.removeClass('error');
+          }
+
+          if (customerPostalCode.val().trim() === "") {
+              customerPostalCode.addClass('error');
+              fieldsValid = false;
+          } else {
+              customerPostalCode.removeClass('error');
+          }
+          if (!fieldsValid) {
+              return;
+          }
+        formData.append("first_name", nameField.val());
+        formData.append("email", emailField.val());
+        formData.append("phone_number", mobileNum.val());
+        formData.append("address", customerAddress.val());
+        formData.append("city", customerCity.val());
+        formData.append("state", customerState.val());
+        formData.append("postal_code", customerPostalCode.val());
+
+        $.ajax({
+            url: '{% url "customer-details" %}',
+            type: 'POST',
+            data: formData,
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            contentType: false,
+            processData: false,
+            success: function(response) {
+
+              $('#placeOrderButton').removeClass('disabled').attr('aria-disabled', 'true');
+                document.querySelector('button[name="customer_update"]').disabled = true;
+                $("input[name='customer_name']").val('');
+                $("input[name='customer_email']").val('');
+                $("input[name='customer_number']").val('');
+                $("textarea[name='customer_address']").val('');
+                $("select[name='customer_state']").val('');
+                $("input[name='customer_city']").val('');
+                $("input[name='customer_postalcode']").val('');
+
+
+                $("span[name='first_names']").text(response.updated_details.first_name);
+                $("span[name='emails']").text(response.updated_details.email);
+                $("span[name='mobile_numbers']").text(response.updated_details.phone_number);
+                $("span[name='address_data']").text(response.updated_details.address);
+                $("span[name='citys']").text(response.updated_details.city);
+                $("span[name='states']").text(response.updated_details.state);
+                $("span[name='postal_code']").text(response.updated_details.postal_code); 
+
+                let first_name = $("input[name='customer_name']");
+                let customer_email = $("input[name='customer_email']");
+                let customer_number = $("input[name='customer_number']");
+                let customer_address = $("textarea[name='customer_address']");
+                let customer_state = $("select[name='customer_state']");
+                let customer_city = $("input[name='customer_city']");
+                let customer_postalcode = $("input[name='customer_postalcode']");
+
+
+                first_name.prop('disabled', true);
+                customer_email.prop('disabled', true);
+                customer_number.prop('disabled', true);
+                customer_address.prop('disabled', true);
+                customer_state.prop('disabled', true);
+                customer_city.prop('disabled', true);
+                customer_postalcode.prop('disabled', true);
+
+                },
+                error: function(xhr) {
+                    console.error('An error occurred:', xhr.responseText);
+                    alert('Error: ' + xhr.responseText);
+                }
+            });
+      });
+
+
+
+  })
+</script>
+
+{% endblock %}

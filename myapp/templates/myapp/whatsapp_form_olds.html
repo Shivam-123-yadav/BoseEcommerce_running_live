@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send WhatsApp Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Send WhatsApp Message</h2>
+    
+    <label>Phone Number (with country code):</label>
+    <input type="text" id="phone" placeholder="e.g. 919876543210">
+    <br>
+
+    <label>Message:</label>
+    <input type="text" id="message" placeholder="Type your message">
+    <br>
+
+    <button onclick="sendWhatsApp()">Send Message</button>
+
+    <script>
+        function sendWhatsApp() {
+            var phone = document.getElementById("phone").value;
+            var message = document.getElementById("message").value;
+            
+            if (phone === "" || message === "") {
+                alert("Please enter both phone number and message.");
+                return;
+            }
+
+            // Encode the message for URL
+            var encodedMessage = encodeURIComponent(message);
+
+            // WhatsApp URL
+            var whatsappURL = "https://wa.me/" + phone + "?text=" + encodedMessage;
+
+            // Open in a new tab
+            window.open(whatsappURL, "_blank");
+        }
+    </script>
+
+</body>
+</html>

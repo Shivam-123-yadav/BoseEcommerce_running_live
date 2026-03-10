@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload CSV File</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #response {
+            margin-top: 20px;
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <h1>Upload products Details</h1>
+
+    <div>
+        <label for="exampleSelect">Choose an option:</label>
+        <select id="exampleSelect">
+            <option value="" select>Selected</option>
+            <option value="accessories">products Details</option>
+            <!-- <option value="color_type">color Type</option> -->
+        </select>
+    </div>
+
+    <br><br>
+  
+    <form id="csvUploadForm" enctype="multipart/form-data">
+        <label for="file">Select CSV file:</label>
+        <input type="file" name="file" id="file" accept=".csv" required>
+        <button type="submit">Upload</button>
+    </form>
+
+
+    <div id="response"></div>
+
+
+    
+    <script>
+        $(document).ready(function() {
+
+
+        $("#exampleSelect").on('change',function(){
+            if (this.value === 'accessories') {
+                window.location.href = 'media/ProductsDetails_csv_upload_finals_v1_new.csv';
+            }else{
+                console.log('deepak')
+            } 
+            
+        })
+
+
+
+        $('#csvUploadForm').one('submit', function(e) {
+            e.preventDefault();
+            
+            var formData = new FormData(this); 
+            // var submitButton = $(this).find('button[type="submit"]');
+            // submitButton.prop('disabled', true).text('Uploading...'); 
+            
+            $.ajax({
+                url: '{% url "upload_csv" %}',
+                type: 'POST',
+                headers: {
+                        'X-CSRFToken': getCookie('csrftoken') 
+                    },
+                data: formData,
+                contentType: false, 
+                processData: false, 
+                success: function(response) {
+                    $('#response').removeClass('error').addClass('success').text(response.message);
+                    $('#file').val('');
+                    // submitButton.prop('disabled', false).text('Submit');
+                },
+                error: function(xhr) {
+                    $('#response').removeClass('success').addClass('error').text(xhr.responseJSON.message || 'An error occurred.');
+                }
+            });
+        });
+    });
+
+
+
+
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

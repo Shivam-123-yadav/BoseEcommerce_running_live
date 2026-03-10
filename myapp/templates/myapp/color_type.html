@@ -1,0 +1,58 @@
+<!-- <form id="csvUploadForm" enctype="multipart/form-data">
+    <input type="file" id="csvFileInput" name="csv_file" accept=".csv" required />
+    <button type="submit">Upload CSV</button>
+</form>
+<div id="uploadStatus"></div>
+
+<script>
+document.getElementById('csvUploadForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); 
+
+    const fileInput = document.getElementById('csvFileInput');      
+    const statusDiv = document.getElementById('uploadStatus');
+
+    if (fileInput.files.length === 0) {
+        statusDiv.innerText = 'Please select a CSV file to upload.';
+        return;
+    }
+    const formData = new FormData();
+    formData.append('csv_file', fileInput.files[0]);
+
+    try {
+        const response = await fetch(`{% url 'upload_csvtype' %}`, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken') 
+            },
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.status === 200) {
+            statusDiv.innerText = result.message;
+        } else {
+            statusDiv.innerText = `Error: ${result.message}`;
+        }
+    } catch (error) {
+        statusDiv.innerText = 'An error occurred while uploading the CSV file.';
+        console.error('Upload Error:', error);
+    }
+}); -->
+
+<!-- 
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+</script> -->

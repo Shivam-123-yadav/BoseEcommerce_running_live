@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block meta %}
+<meta charset="utf-8">
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="google-site-verification" content="NwrpN14CEh2EPcUnTo15852IZkXdnJS1Wla3nfPxL5c" />
+{% comment %} <meta name="google-site-verification" content="ORIIwaH8hRWedFjsgat-BdEyno0hoZDkMZhe-Aafp9Y" /> {% endcomment %}
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Bose Service Centre | Bose Repair Service Centre</title>
+<meta name="keywords" content="Bose Service Center in Mumbai, Bose Service Center in Andheri, Bose Service Center in Thane, Bose Service Center in Churchgate, Bose Service Center in Marine Lines, Bose Service Center in Charni Road, Bose Service Center in Grant Road, Bose Service Center in Mumbai Central, Bose Service Center in Mahalakshmi, Bose Service Center in Lower Parel, Bose Service Center in Elphinstone Road, Bose Service Center in Dadar , Bose Service Center in Matunga  Road, Bose Service Center in Mahim , Bose Service Center in Bandra, Bose Service Center in Khar, Bose Service Center in Santa Cruz, Bose Service Center in Ville Parle, Bose Service Center in Andheri, Bose Service Center in Jogeshwari, Bose Service Center in Goregaon, Bose Service Center in Malad, Bose Service Center in Kandivli, Bose Service Center in Borivali, Bose Service Center in  Dahisar, Bose Service Center in Mira Road, Bose Service Center in Bhayandar, Bose Service Center in Naigaon, Bose Service Center in  Vasai Road, Bose Service Center in Nalla Sopara, Bose Service Center in Virar, Bose Service Center in Palghar">
+<meta name="description" content="Get you bose speaker repaired at your comfort. Enjoy bose speaker service in the comfort of your place, our experts will reach your location to ensure hassle-free service.">
+<!-- For IE -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+<link rel="canonical" href="https://boseservicecenter.co.in/registration" />
+<link rel="preload" as="image" href="{% static 'images/service-page-banner.jpg' %}" fetchpriority="high">
+<link rel="preload" as="image" href="{% static 'images/home-banner1.jpg' %}" fetchpriority="high">
+<meta name="title" content="Bose Service Centre | Bose Repair Service Centre"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Bose Service Centre | Bose Repair Service Centre | Buy Bose Products">
+<meta property="og:url" content="https://boseservicecenter.co.in/registration" />
+<meta property="og:site_name" content="Bose Service Centre | Bose Repair Service Centre | Buy Bose Products" />
+<meta property="og:description" content="Get you bose speaker repaired at your comfort. Enjoy bose speaker service in the comfort of your place, our experts will reach your location to ensure hassle-free service." />
+<meta property="og:image" content="https://boseservicecenter.co.in/static/images/home-banner2.jpg" />
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Bose Service Center" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Bose Service Centre | Bose Repair Service Centre | Buy Bose Products" />
+<meta name="twitter:description" content="Get you bose speaker repaired at your comfort. Enjoy bose speaker service in the comfort of your place, our experts will reach your location to ensure hassle-free service." />
+{% endblock %}
+
+
+
+{% block content %}
+
+<head>
+  <style>
+
+
+  </style>
+</head>
+
+<section id="login">
+  <div class="container">
+    <div class="loginwrap">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="login-form">
+            <h2 class="mb-4">Create a new account</h2>
+            <form>
+              <div class="row gx-3">
+                <div class="mb-3 col-12 col-sm-12 col-md-6 col-lg-6">
+                  <label for="fname" class="form-label visually-hidden">First Name</label>
+                  <input type="text" class="form-control pl-25" id="fname" placeholder="First Name" name="fname">
+                  <!--                  <i class="form-icon"><img src="images/icons/user-icon.png" alt="" title=""></i>--> 
+                  <i class="form-icon fa fa-user"></i> 
+                </div>
+                <div class="mb-3 col-12 col-sm-12 col-md-6 col-lg-6">
+                  <label for="lname" class="form-label visually-hidden">Last Name</label>
+                  <input type="text" class="form-control pl-25" id="lname" placeholder="Last Name" name='lname'>
+                  <!--                  <i class="form-icon"><img src="images/icons/user-icon.png" alt="" title=""></i> --> 
+                  <i class="form-icon fa fa-user"></i> </div>
+              </div>
+
+               
+              <div class="row">
+                {% comment %} <span>hii</span> {% endcomment %}
+                <div class="mb-3 col-12 col-sm-12 col-md-12 col-lg-12">
+                  <label for="repeatpassword" class="form-label visually-hidden">Username</label>
+                  <input type="text" class="form-control pl-25" id="username" placeholder="Enter username" name="username">
+                  <!--                  <i class="form-icon"><img src="images/icons/password-icon.png" alt="" title=""></i> --> 
+                  <i class="form-icon fa fa-user"></i> <i class="form-icon-right bi bi-eye pr-3"></i> 
+                  <i class="form-icon-right bi bi-eye pr-3" id="toggle-password_username" style="cursor: pointer;"></i>
+                </div>
+                <span id="username_exits"></span>
+              </div>
+
+              <div class="row">
+                <div class="mb-3 col-12 col-sm-12 col-md-12 col-lg-12">
+                  <label for="email" class="form-label visually-hidden">Email address</label>
+                  <input type="email" class="form-control pl-25" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                  <!--                  <i class="form-icon"><img src="images/icons/mail-icon.png" alt="" title=""></i>--> 
+                  <i class="form-icon fa fa-envelope"></i> </div>
+              </div>
+              <span id="email_exits"></span>
+              <div class="row">
+                <div class="mb-3 col-12 col-sm-12 col-md-12 col-lg-12">
+                  <label for="password" class="form-label visually-hidden">Password</label>
+                  <input type="password" class="form-control pl-25" id="password" placeholder="Password" name="password">
+                  <!--                  <i class="form-icon"><img src="images/icons/password-icon.png" alt="" title=""></i> --> 
+                  <i class="form-icon fa fa-lock"></i> <i class="form-icon-right bi bi-eye pr-3"></i>
+                  <i class="form-icon-right bi bi-eye pr-3" id="toggle-password" style="cursor: pointer;"></i>
+                 </div>
+              </div>
+
+              <button type="button" class="btn btn-primary subbuttn mt-3" id="register_now">Register Now</button>
+              <!-- <div class="mt-4 text-center"> <a href="#" class="">Forget Password ?</a> </div> -->
+            </form>
+            <div class="mt-2">
+              <p class="mb-0">Already have an account ? <a href="{% url 'login_panel' %}" class="">Login</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+<script>
+  $(document).ready(function(){
+
+    $('#toggle-password').click(function(){
+            // Toggle the input type between password and text
+            var passwordField = $('#password');
+            var passwordFieldType = passwordField.attr('type');
+
+            if(passwordFieldType === 'password'){
+                passwordField.attr('type', 'text'); // Show password as text
+                $(this).removeClass('bi-eye-slash').addClass('bi-eye'); // Change eye icon to open
+            } else {
+                passwordField.attr('type', 'password'); // Hide password
+                $(this).removeClass('bi-eye').addClass('bi-eye-slash'); // Change eye icon to slash
+            }
+        });
+
+
+        $("#toggle-password_username").on('click',function(){
+          let username=$("input[name='username']");
+          var usernameFieldType = username.attr('type');
+          $(this).removeClass('bi-eye-slash').addClass('bi-eye');
+          if(usernameFieldType === 'password'){
+            username.attr('type', 'text'); // Show password as text
+                $(this).removeClass('bi-eye-slash').addClass('bi-eye'); // Change eye icon to open
+            } else {
+              username.attr('type', 'password'); // Hide password
+                $(this).removeClass('bi-eye').addClass('bi-eye-slash'); // Change eye icon to slash
+            }
+
+        });
+
+        $('#username').on('keyup', function () {
+          const username = $(this).val();
+
+          if (username) {
+              $.ajax({
+                  url: '{% url "check_username" %}',  // URL to your Django view
+                  type: 'POST',
+                  data: {
+                      'username': username,
+                      'csrfmiddlewaretoken': '{{ csrf_token }}'  // Include CSRF token
+                  },
+                  success: function(response) {
+                      if(response.status === 200){
+                          $("#username_exits").text(response.message).css("color", "white");;
+                      }  else {
+                          $("#username_exits").text('');
+                      }
+                  },
+                  error: function(xhr, status, error) {
+                      console.log('Error:', error);
+                  }
+              });
+          } else {
+              $("#username_exits").text('');
+          }
+      });
+
+  $('#email').on('keyup', function () {
+      const email = $(this).val();
+
+      if (email) {
+          $.ajax({
+            url: '{% url "check_email" %}', 
+            type: 'POST',
+            data: {
+                'email': email,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+              success: function(response) {
+              if(response.status===200){
+
+                $("#email_exits").text(response.message).css("color", "white");
+              }else{
+                $("#email_exits").text('')
+              }
+              
+                },
+                error: function(xhr, status, error) {
+                    console.log('Error:', error);
+                }
+            });
+        } else {
+            $("#email_exits").text('');
+        }
+    });
+
+
+  
+          function validateForm() {
+            var firstname = $("input[name='fname']").val().trim();
+            var lastname = $("input[name='lname']").val().trim();
+            var username = $("input[name='username']").val().trim();
+            var email = $("input[name='email']").val().trim();
+            var password = $("input[name='password']").val().trim();
+
+            if (firstname && lastname && username && email && password) {
+                  $("#register_now").prop('disabled', false);
+              } else {
+                  $("#register_now").prop('disabled', true);
+              }
+          }
+
+              $("input").on('input', function() {
+                  validateForm();
+              });
+
+              $(document).ready(function() {
+                  validateForm();
+              });
+
+
+
+      $("#register_now").on('click', function() {
+        $(this).prop('disabled', true);
+        var formdata = new FormData()
+        var firstname=$("input[name='fname']").val()
+        var lastname=$("input[name='lname']").val()
+        var username=$("input[name='username']").val()
+        var email = $("input[name='email']").val()
+        var password=$("input[name='password']").val()
+        console.log(firstname,lastname,email,password,'==========================')
+        formdata.append("first_name",firstname)
+        formdata.append("last_name",lastname)
+        formdata.append("username",username)
+        formdata.append("email",email)
+        formdata.append('password',password)
+
+
+        $.ajax({
+          method: "POST",
+          url: "{% url 'create_registration' %}",
+          data: formdata,
+          datatype: "json",
+          processData: false,
+          contentType: false,
+
+          success: function (data) {    
+            
+             if(data.status==200){
+              sessionStorage.setItem('registration_message', 'Registration successful! Please login.');
+              setTimeout(()=>{
+                window.location.href = `https://www.boseservicecenter.co.in/login`;
+              },1000)
+             }else{
+              alert('invalid try again !!')
+              $("#register_now").prop('disabled', false);
+             }
+
+          },
+          error: function() {
+              // alert('An error occurred. Please try again later.');
+              $("#register_now").prop('disabled', false); // Re-enable the button
+          }
+      })
+
+    });
+  
+
+
+  });
+</script>
+  
+{% endblock %}

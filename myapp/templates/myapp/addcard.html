@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Cart</h1>
+    <div>
+        <h2>Cart Items</h2>
+        <ul>
+            {% for item in cart_items %}
+           
+                <li>
+                    <strong>Title: {{ item.title }}</strong><br>
+                    Quantity: {{ item.quantity }}<br>
+                    Price: ${{ item.price|floatformat:2 }}<br>
+                    Total Price: ${{ item.total_price|floatformat:2 }}
+
+                    <div style="display: flex;gap: 10px;">
+
+                        <div> <button class="update-cart" data-id="{{item.item_id}}">Update</button></div>
+                        <div><button class="remove-cart" data-id="{{ item.item_id }}">Remove</button></div>
+
+
+                    </div>
+                   
+                 
+                </li>
+            {% empty %}
+                <li>Your cart is empty.</li>
+            {% endfor %}
+            <button id="placeOrderButton">Place Order</button>
+        </ul>
+        <h3>Total Cart Value: ${{ total_cart_value|floatformat:2 }}</h3>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.update-cart').click(function() {
+            const itemId = $(this).data('id');
+            const currentQuantity = $(this).siblings('.item-quantity').text(); 
+            const quantity = prompt("Enter new quantity:", currentQuantity); 
+
+            if (quantity !== null) { 
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url "update_add_card_details" %}', 
+                    data: {
+                        'item_id': itemId,
+                        'quantity': quantity,
+                        'csrfmiddlewaretoken': '{{ csrf_token }}' 
+                    },
+                    success: function(response) {
+                       // alert(response.message);
+                        location.reload(); 
+                    },
+                    error: function(xhr) {
+                        alert(xhr.responseJSON.message);
+                    }
+                });
+            }
+        });
+
+
+
+        $('.remove-cart').click(function() {
+            var itemId = $(this).data('id'); 
+
+            if (confirm("Are you sure you want to remove this item from the cart?")) {
+                $.ajax({
+                    url: '{% url "update_add_card_details" %}', 
+                    type: 'POST',
+                    data: {
+                        'item_id': itemId,
+                        'csrfmiddlewaretoken': '{{ csrf_token }}' 
+                    },
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            $('#item-' + itemId).remove();
+                            updateCartTotal(response.new_total); 
+                        } else {
+                            alert(response.message); 
+                        }
+                    },
+                    error: function(xhr) {
+                        alert('An error occurred: ' + xhr.responseJSON.message);
+                    }
+                });
+            }
+        });
+
+
+
+
+    function updateCartTotal(newTotal) {
+        $('#cart-total').text(newTotal); 
+    }
+
+
+$("#placeOrderButton").on('click', function() {
+    $.ajax({
+        url: "{% url 'BuyProductsView' %}",  
+        type: "POST",
+        headers: {
+            "X-CSRFToken": "{{ csrf_token }}" 
+        },
+        beforeSend: function() {
+            $('#placeOrderButton').prop('disabled', true);
+        },
+        success: function(response) {
+            if (response.status === "success") {
+                window.location.href = response.payment_link;
+            } else {
+                alert(response.message || 'Unable to place order.');
+                $('#placeOrderButton').prop('disabled', false);
+            }
+        },
+        error: function(xhr, status, error) {
+            var msg = 'An error occurred while placing the order.';
+            try {
+                var resp = JSON.parse(xhr.responseText);
+                msg = resp.message || resp.error || msg;
+            } catch (e) {}
+            alert(msg);
+            $('#placeOrderButton').prop('disabled', false);
+        }
+    });
+});
+
+
+
+
+    });
+</script>
+
+
+
+
+</body>
+</html>

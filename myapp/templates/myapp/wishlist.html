@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- live -->
+<section id="cartpage">
+  <div class="container">
+    <div class="cartwrap">
+      <div class="row">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="fw-normal mb-0">Wishlist</h3>      
+        </div>
+        {% for item in wish_items %}
+        <div class="shoplist mt-3" id="product-1">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="row"> 
+              <div class="col-md-2"><img src="/media/{{item.image}}" class="img-fluid rounded-3" alt="Cotton T-shirt" data-id="{{item.item_id}}" data-idss="{{item.slug}}" style="cursor: pointer;"></div>
+              <div class="col-md-3 mb-2">
+                <h3 class="headtitle">Product Name</h3>
+                <p>{{ item.title }}</p>
+              </div>
+              <div class="col-md-3 mb-2">
+                <div class="pricing">
+                  <h3 class="headtitle">Price</h3>
+                  <p>MRP: <span class="mrp">₹{{item.mrp_price}}</span> <span style="font-size: 10px;">({{item.discount_percentage}} % off)</span></p>
+                  <p>Discount Price: <span class="discount-price">- ₹{{item.discount_amount}}</span></p>
+                  <p>Shipping Charges: <span class="shipping-charges">+ ₹{{item.shipping_charge}}</span></p>
+                  <p>Total Price: <span class="total-price">₹{{item.total_price}}</span></p>
+                </div>
+              </div>
+              <div class="col-md-2 mb-2">
+              </div>
+              <div class="col-md-2 mb-2">
+                <h3 class="headtitle">Action</h3>
+				        <div class="quantity-controls">
+                <button class="remove-btn" data-id="{{ item.item_id }}" onclick="removeProduct('product-1')" ><i class="bi bi-trash"></i></button></div>
+              </div>
+            </div>
+          </div>
+          <!-- shoplist end --> 
+          
+        </div>
+        {% empty %}
+        <li class="empty-wish">Your wishlist is empty.</li>
+        {% endfor %}
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Remove product from cart page start  --> 
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- SweetAlert2 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.min.css" rel="stylesheet">
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.min.js"></script>
+
+
+<script>
+    
+
+  function removeProduct(productId) {
+      const product = document.getElementById(productId);
+      product.classList.add('fade-out');
+      setTimeout(() => {
+          product.remove();
+      }, 300); 
+  }
+
+
+  $('img').click(function(){
+        let id_set=$(this).data('id')
+        sessionStorage.setItem('item_id',id_set)
+
+        var itemId = $(this).data('idss');
+        if(itemId){
+          window.location.href =`/bose-products/${itemId}`
+
+        }else{
+          console.log('id is missing !!')
+        }
+    });
+
+
+
+
+    $(document).ready(function() {
+        $('.remove-btn').click(function() {
+            var itemId = $(this).data('id');
+            if (!itemId) {
+                console.warn('Item ID is missing.');
+                return;
+            }
+
+            $.ajax({
+              url: '{% url "update_wish_list_details" %}',
+              type: 'POST',
+              data: {
+                  'item_id': itemId,
+                  'csrfmiddlewaretoken': '{{ csrf_token }}'
+              },
+              success: function(response) {
+                if (response.status === 'success') {
+                    $('#item-' + itemId).remove();
+                    let currentCount = parseInt($(".countnumbernew").text()) || 0;
+                    $(".countnumbernew").text(currentCount - 1);
+                } else {
+                    console.error(response.message);
+                    }
+                },
+                error: function(xhr) {
+                    console.log('An error occurred: ' + xhr.responseJSON.message);
+                    alert('Error: ' + xhr.responseJSON.message);
+                }
+            });
+        });
+
+    });
+
+</script> 
+
+{% endblock %}

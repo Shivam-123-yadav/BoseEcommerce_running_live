@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<head>
+  <style>
+    .color-name{
+      font-size: 12px;
+      color: #ef6950;
+      font-weight: 600;
+      }
+  </style>
+</head>
+
+
+<section id="cartpage">
+  <div class="container">
+    <div class="cartwrap">
+      <div class="row">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="fw-normal mb-0">Shopping Cart</h3>
+        </div>
+        {% for item in cart_items %}
+        <div class="shoplist mt-3" id="product-1">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="row">
+
+              {% if item.color_image_url %}
+              <div class="col-md-2" id="image_click"><img src="{{item.color_image_url}}" class="img-fluid rounded-3" alt="Cotton T-shirt" data-id="{{item.item_id}}" data-idss="{{item.slug}}" style="cursor: pointer;"></div>
+              {% else %}
+              <div class="col-md-2" id="image_click"><img src="/media/{{item.image}}" class="img-fluid rounded-3" alt="Cotton T-shirt" data-id="{{item.item_id}}" data-idss="{{item.slug}}" style="cursor: pointer;"></div>
+              {% endif %}
+              <div class="col-md-3 mb-2">
+                <h3 class="headtitle">Product Name</h3>
+                <p>{{ item.title }}</p>
+                {% if item.color_name %}
+                <span data-id="{{item.item_id}}" class="color-name">Color: {{ item.color_name}}</span>
+                {% endif %}
+              </div>
+              <div class="col-md-3 mb-2">
+                <div class="pricing">
+                  <h3 class="headtitle">Price</h3>
+                  <p>MRP: <span class="mrp">₹{{item.mrp_price}}</span> <span style="font-size: 10px;">({{item.discount_percentage}} % off)</span></p>
+                  <p>Discount Price: <span class="discount-price">- ₹{{item.discount_amount}}</span></p>
+                  <p>Shipping Charges: <span class="shipping-charges">+ ₹{{item.shipping_charge}}</span></p>
+                  <p>Total Price: <span class="total-price">₹{{item.total_price}}</span></p>
+                </div>
+              </div>
+              <div class="col-md-2 mb-2">
+                <h3 class="headtitle">Quantity</h3>
+                <div class="quantity-controls">
+                  <div class="number" data-id="{{ item.item_id }}">
+                    <span class="minus"><i class="bi bi-dash fa-lg"></i></span>
+                    <input type="text" class="item-quantity" value="{{item.quantity}}" readonly>
+                    <span class="plus"><i class="bi bi-plus fa-lg"></i></span>
+                  </div>
+
+                </div>
+                  
+              </div>
+              <div class="col-md-2 mb-2">
+                <h3 class="headtitle">Action</h3>
+				        <div class="quantity-controls">
+                <button class="remove-btn" data-id="{{ item.item_id }}" onclick="removeProduct('product-1')" ><i class="bi bi-trash"></i></button></div>
+              </div>
+            </div>
+          </div>
+          <!-- shoplist end --> 
+          
+        </div>
+        {% empty %}
+        <li class="empty-cart">Your cart is empty.</li>
+        {% endfor %}
+
+
+      </div>
+
+      <div class="row mt-3"> <a href="{% url 'chekout_now' %}" type="button" data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-warning btn-warning1 btn-block btn-lg">Checkout</a> </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Remove product from cart page start  --> 
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- SweetAlert2 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.min.css" rel="stylesheet">
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.min.js"></script>
+
+
+<script>
+
+$(document).ready(function () {
+  if ($('.empty-cart').text().trim() === 'Your cart is empty.') {
+   localStorage.removeItem('addtocard');
+   
+}
+
+    $('.color-name').each(function () {
+        let originalText = $(this).text();
+        let updatedText = originalText
+            .replace(/-/g, ' ')
+            .toLowerCase() 
+            .replace(/\b\w/g, function (char) {
+                return char.toUpperCase();
+            });
+
+            $(this).text(updatedText);
+        });
+    });
+
+    
+  function removeProduct(productId) {
+      const product = document.getElementById(productId);
+      product.classList.add('fade-out');
+      setTimeout(() => {
+          product.remove();
+      }, 300); 
+  }
+
+
+
+  $('img').click(function(){
+        let id_set=$(this).data('id')
+        var itemId = $(this).data('idss');
+        if(itemId){
+          window.location.href =`/bose-products/${itemId}/?item_id=${id_set}`
+
+        }else{
+          console.log('id is missing !!')
+        }
+    });
+
+
+
+  $(document).ready(function() {
+    function updateQuantity(itemId, quantity) {
+        $.ajax({
+            type: 'POST',
+            url: '{% url "update_add_card_details" %}',
+            data: {
+                'item_id': itemId,
+                'quantity': quantity,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },  
+            success: function(response) {
+                window.location.reload();
+            },
+            error: function(xhr) {
+                console.error('Error updating quantity:', xhr.responseJSON.message);
+            }
+        });
+    }
+
+
+    $(document).on('click', '.plus', function() {
+        const $quantityInput = $(this).siblings('.item-quantity');
+        let quantity = parseInt($quantityInput.val()) || 0; 
+        const itemId = $(this).closest('.number').data('id');
+        
+        console.log('Item ID:', itemId);
+        
+        quantity += 1;
+        $quantityInput.val(quantity); 
+        updateQuantity(itemId, quantity);
+    });
+  
+
+    $(document).on('click', '.minus', function() {
+        const $quantityInput = $(this).siblings('.item-quantity');
+        let quantity = parseInt($quantityInput.val()) || 0;
+        const itemId = $(this).closest('.number').data('id');
+        
+        console.log('Item ID:', itemId);
+        
+        if (quantity > 1) {
+            quantity -= 1; 
+            $quantityInput.val(quantity); 
+            updateQuantity(itemId, quantity);
+        }
+    });
+});
+
+
+  $('.remove-btn').click(function() {
+      var itemId = $(this).data('id');
+      $.ajax({
+          url: '{% url "update_add_card_details" %}',
+          type: 'POST',
+          data: {
+              'item_id': itemId,
+              'quantity': 0, 
+              'csrfmiddlewaretoken': '{{ csrf_token }}' 
+          },
+          success: function(response) {
+            console.log(response)
+              if (response.status === 'success') {
+                  $('#item-' + itemId).remove();
+                  
+                  let currentCount = parseInt($(".countnumber").text()) || 0;
+                  let removedQuantity = response.removed_quantity || 0;
+                  $(".countnumber").text(Math.max(currentCount - removedQuantity, 0));
+              }
+          },
+          error: function(xhr) {
+              console.log('An error occurred: ' + xhr.responseJSON.message);
+          }
+      });
+  });
+
+
+   
+</script> 
+
+{% endblock %}

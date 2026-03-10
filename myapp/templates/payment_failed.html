@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed</title>
+</head>
+<body>
+    <h1>Payment Failed</h1>
+    <p>We are sorry, but your payment could not be processed.</p>
+
+    <h2>Order Details</h2>
+    <ul>
+        <li><strong>Order ID:</strong> {{ order.order_id }}</li>
+        <li><strong>Order Status:</strong> {{ order.status }}</li>
+        <li><strong>Payment Status:</strong> {{ order.payment_status }}</li>
+    </ul>
+
+    <p>If you believe this is a mistake, please contact support.</p>
+    
+    <a href="{% url 'home' %}">Go back to Home</a> <!-- Replace with the actual URL for your home page -->
+</body>
+</html>
