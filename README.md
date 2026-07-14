@@ -20,10 +20,10 @@ Django
 Django REST Framework
 
 **Database**
-PostgreSQL
+SQL
 
 **Payments**
-Razorpay Payment Gateway
+Cashfree Payment Gateway
 
 **Frontend**
 HTML
