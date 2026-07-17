@@ -130,8 +130,7 @@ MAINTENANCE_MODE = False
 AUTH_USER_MODEL = 'myapp.User'
 
 # for testing
-# CASHFREE_CLIENT_ID = '19423607542b8c55929afa131e632491'
-# CASHFREE_SECRET_KEY ='f3556d6285d094eae4722ad1f8ea4490f2b81d83'
+
 # for productions
 CASHFREE_CLIENT_ID = ''
 CASHFREE_SECRET_KEY =''
@@ -142,12 +141,6 @@ CSRF_COOKIE_SAMESITE = 'None'
 CSRF_COOKIE_SECURE = True  # Only set this to True if your site is running over HTTPS
 SESSION_COOKIE_SECURE = True
 
-# CSRF_TRUSTED_ORIGINS = [
-#     'https://payments-test.cashfree.com',
-#     'https://sandbox.cashfree.com',
-#     'https://boseservicecenter.co.in',  # Your own domain, if not already added
-#     # Add any other trusted origins here
-# ]
 
 
 CSRF_TRUSTED_ORIGINS = [
@@ -165,8 +158,7 @@ SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
 
 
 
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -197,8 +189,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATIC_URL = 'static/'
@@ -208,28 +199,15 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'   # Use the SMTP server of your email provider
-# EMAIL_PORT = 587  # Port for the SMTP server
-# EMAIL_USE_TLS = True  # Use TLS when connecting to the SMTP server
-# EMAIL_HOST_USER = 'mr.deepaksahani738@gmail.com'  # Your email address
-# EMAIL_HOST_PASSWORD = 'gnsk xybp vdzw kxxu' 
 
 
-# # Email settings
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'  # Use Gmail's SMTP server
-# EMAIL_PORT = 587  # Port for Gmail SMTP
-# EMAIL_USE_TLS = True  # TLS encryption
-# EMAIL_HOST_USER = 'mr.deepaksahani738@gmail.com'  # Your email address
-# EMAIL_HOST_PASSWORD = 'your_generated_app_password'  # The app password from Gmail
-# DEFAULT_FROM_EMAIL = 'mr.deepaksahani738@gmail.com'  # Same email address
+
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.hostinger.com'   
@@ -242,21 +220,7 @@ EMAIL_HOST_PASSWORD = ''
 DEFAULT_FROM_EMAIL = '"Bose Sales" <sales@boseservicecenter.co.in>'
 
 
-# EMAIL_HOST_USER = 'support@boseservicecenter.co.in'
-# EMAIL_HOST_PASSWORD = '1*hE[LMD'
-# DEFAULT_FROM_EMAIL_SECONDARY = 'support@boseservicecenter.co.in'
 
-
-# Second email configuration
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.hostinger.com'   
-# EMAIL_PORT = 465
-# EMAIL_USE_SSL = True
-# EMAIL_USE_TLS = False
-# # EMAIL_HOST_USER  = 'support@boseservicecenter.co.in' 
-# EMAIL_HOST_USER_SUPPORT = 'support@boseservicecenter.co.in'
-# EMAIL_HOST_PASSWORD  = '1*hE[LMD' 
-# DEFAULT_FROM_EMAIL_SECONDARY = 'support@boseservicecenter.co.in'
 
 
 # Secondary Email Configuration
