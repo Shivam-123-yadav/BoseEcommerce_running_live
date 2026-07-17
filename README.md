@@ -152,15 +152,7 @@ http://127.0.0.1:8000/
 
 ---
 
-# Future Improvements
 
-- REST API support using Django REST Framework
-- Mobile application integration
-- Service engineer dashboard
-- SMS notifications
-- Advanced analytics dashboard
-- Docker deployment
-- CI/CD pipeline
 
 ---
 
